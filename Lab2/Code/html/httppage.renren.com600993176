@@ -1,0 +1,1881 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" class="nx-main980">
+<head><meta charset="utf-8"/>
+<link rel="shortcut icon" type="image/x-icon" href="http://a.xnimg.cn/favicon-rr.ico?ver=3" />
+<link rel="apple-touch-icon" href="http://a.xnimg.cn/wap/apple_icon_.png" />
+<link rel="stylesheet" type="text/css" href="http://s.xnimg.cn/a78209/nx/core/base.css">
+<script type="text/javascript">
+if(typeof nx === 'undefined'){
+var nx = {};
+}
+nx.log = {
+startTime : + new Date()
+};
+nx.user = {
+id : "",
+ruid:"",
+tinyPic	: " ",
+name : "",
+requestToken : '',
+_rtk : 'b08da1d7'
+};nx.user.isvip = false;nx.user.hidead = false;nx.webpager = nx.webpager || {};
+nx.production = true;
+</script>
+<script type="text/javascript" src="http://s.xnimg.cn/a77347/nx/core/libs.js"></script>
+<script type="text/javascript">
+define.config({map:{
+"backbone":"http://s.xnimg.cn/a75208/nx/core/backbone.js",
+"ui/draggable":"http://s.xnimg.cn/a70750/nx/core/ui/draggable.js",
+"ui/menu":"http://s.xnimg.cn/a70736/nx/core/ui/menu.js",
+"ui/resizable":"http://s.xnimg.cn/a70738/nx/core/ui/resizable.js",
+"ui/sortable":"http://s.xnimg.cn/a70749/nx/core/ui/sortable.js",
+"ui/tabs":"http://s.xnimg.cn/a78333/nx/core/ui/tabs.js",
+"ui/ceiling":"http://s.xnimg.cn/a76297/nx/core/ui/ceiling.js",
+"ui/columns":"http://s.xnimg.cn/a68070/nx/core/ui/columns.js",
+"ui/dialog":"http://s.xnimg.cn/a76395/nx/core/ui/dialog.js",
+"ui/fileupload":"http://s.xnimg.cn/a77333/nx/core/ui/fileupload.js",
+"ui/pagination":"http://s.xnimg.cn/a70307/nx/core/ui/pagination.js",
+"ui/placeholder":"http://s.xnimg.cn/a72095/nx/core/ui/placeholder.js",
+"ui/progressbar":"http://s.xnimg.cn/a62964/nx/core/ui/progressbar.js",
+"ui/rows":"http://s.xnimg.cn/a62964/nx/core/ui/rows.js",
+"ui/scroll":"http://s.xnimg.cn/a61518/nx/core/ui/scroll.js",
+"ui/scrollbar":"http://s.xnimg.cn/a76868/nx/core/ui/scrollbar.js",
+"ui/select":"http://s.xnimg.cn/a77883/nx/core/ui/select.js",
+"ui/slideshow":"http://s.xnimg.cn/a72804/nx/core/ui/slideshow.js",
+"ui/speech":"http://s.xnimg.cn/a77631/nx/core/ui/speech.js",
+"ui/textbox":"http://s.xnimg.cn/a78128/nx/core/ui/textbox.js",
+"ui/renren/textbox":"http://s.xnimg.cn/a78123/nx/core/ui/renren/textbox.js",
+"ui/tooltip":"http://s.xnimg.cn/a73228/nx/core/ui/tooltip.js",
+"ui/renren/addfriend":"http://s.xnimg.cn/a77718/nx/core/ui/renren/addFriendLayer.js",
+"ui/renren/at":"http://s.xnimg.cn/a76982/nx/core/ui/renren/at.js",
+"ui/renren/commentCenter":"http://s.xnimg.cn/a73625/nx/core/ui/renren/commentCenter.js",
+"ui/renren/emotion":"http://s.xnimg.cn/a77697/nx/core/ui/renren/emotion.js",
+"ui/renren/friendgroup":"http://s.xnimg.cn/a62964/nx/core/ui/renren/friendGroup.js",
+"ui/renren/friendListSelector":"http://s.xnimg.cn/a71270/nx/core/ui/renren/friendListSelector.js",
+"ui/renren/like":"http://s.xnimg.cn/a73625/nx/core/ui/renren/like.js",
+"nx/namecard":"http://s.xnimg.cn/a77668/nx/core/ui/renren/namecard.js",
+"ui/renren/pagelayer":"http://s.xnimg.cn/a62964/nx/core/ui/renren/pageLayer.js",
+"ui/renren/photoupload":"http://s.xnimg.cn/a77883/nx/core/ui/renren/photoupload.js",
+"ui/renren/privacy":"http://s.xnimg.cn/a76680/nx/core/ui/renren/privacy.js",
+"ui/renren/share":"http://s.xnimg.cn/a77405/nx/core/ui/renren/share.js",
+"ui/renren/vocal":"http://s.xnimg.cn/a77347/nx/core/ui/renren/vocal.js",
+"ui/renren/mvideo":"http://s.xnimg.cn/a77347/nx/core/ui/renren/mvideo.js",
+"ui/renren/with":"http://s.xnimg.cn/a77227/nx/core/ui/renren/with.js",
+"ui/clipboard":"http://s.xnimg.cn/a63417/nx/core/ui/clipboard.js",
+"app/publisher":"http://s.xnimg.cn/a78128/nx/core/app/publisher.js",
+"viewer":"http://s.xnimg.cn/a78295/nx/photo/viewer/js/viewer.js",
+"media/player": "http://s.xnimg.cn/nx/photo/viewer/js/mediaplayer.js",
+"ui/renren/like/commentseed":"http://s.xnimg.cn/a64636/nx/core/ui/renren/like.seed.comment.js",
+"ui/renren/like/seed":"http://s.xnimg.cn/a62964/nx/core/ui/renren/like.seed.js",
+"ui/renren/share/seed":"http://s.xnimg.cn/a62964/nx/core/ui/renren/share.seed.js",
+"ui/renren/follow":"http://s.xnimg.cn/a73911/nx/core/ui/renren/follow.js",
+"ui/renren/relationFollow":"http://s.xnimg.cn/a77724/nx/core/ui/renren/relationFollow.js",
+"ui/autocomplete":"http://s.xnimg.cn/a70736/nx/core/ui/autocomplete.js",
+"ui/showCommonFriend":"http://s.xnimg.cn/a63984/nx/core/ui/renren/showcommonfriend.js",
+"photo/circler":"http://s.xnimg.cn/a73344/nx/photo/phototerminal/js/circler.js",
+"ui/friendSearch":"http://s.xnimg.cn/a64338/nx/core/ui/renren/friendSearch.js",
+"ui/renren/replyOption":"http://s.xnimg.cn/a68256/nx/core/ui/renren/replyOption.js",
+"photo/avatarUpload": "http://s.xnimg.cn/a77340/nx/photo/upload-avata/js/avatarUpload.js"
+}});
+nx.data.isDoubleFeed = Boolean();
+nx.data.isDoubleFeedGuide = Boolean();
+</script>
+<script type="text/javascript" src="http://s.xnimg.cn/a77913/nx/core/base.js"></script>
+<!--[if lt IE 9]>
+<script type="text/javascript">
+document.execCommand("BackgroundImageCache", false, true);
+</script>
+<![endif]-->
+<script>
+nx.webpager.disable = true;</script><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<link href="http://s.xnimg.cn/a33155/csspro/base/layout.css" rel="stylesheet" type="text/css" media="all" />
+<link href="http://s.xnimg.cn/favicon.ico?ver=2" rel="shortcut icon" type="image/x-icon" />
+<link href="http://s.xnimg.cn/renren_logo_apple.png" rel="apple-touch-icon" />
+<link href="http://s.xnimg.cn/a72965/n/core/global2-all-min.css" rel="stylesheet" />
+<script type="text/javascript">
+XN = {get_check:'',get_check_x:'b08da1d7',env:{domain:'renren.com',shortSiteName:'äººäºº',siteName:'äººäººç½‘'}};
+</script>
+<!--[if lte IE 7]><script type="text/javascript" src="http://s.xnimg.cn/a51836/n/core/expressions.js"></script><![endif]-->
+<script type="text/javascript" src="http://s.xnimg.cn/a72842/n/core/base-all2.js"></script>
+<script type="text/javascript">
+XN.getFileVersion(
+[
+'http://s.xnimg.cn/a19816/csspro/apps/profile.css',
+'http://s.xnimg.cn/a20457/jspro/xn.app.recommendFriend.js',
+'http://s.xnimg.cn/a58863/jspro/xn.ui.pager.js',
+'http://s.xnimg.cn/a32035/jspro/xn.ui.multiFriendSelectorBox.js',
+'http://s.xnimg.cn/a54265/csspro/module/friendSelector.css',
+'http://s.xnimg.cn/a36164/jspro/xn.app.webpager.js',
+'http://s.xnimg.cn/a13200/jspro/album/ZeroClipboard.js',
+'http://s.xnimg.cn/a54532/jspro/editor/tiny_mce.js'
+]);    
+</script>
+<!--[if IE 6]><link type="text/css" rel="stylesheet" href="http://s.xnimg.cn/a30950/n/core/webpager-ie6-min.css" /><style id="CSSID_9f2766a4"></style><![endif]-->
+<!--[if IE 7]><link type="text/css" rel="stylesheet" href="http://s.xnimg.cn/a30950/n/core/webpager-ie7-min.css" /></style><![endif]-->
+<!--[if gt IE 7]><!--><link type="text/css" rel="stylesheet" href="http://s.xnimg.cn/a30950/n/core/webpager-std-min.css"><!--<![endif]--><meta name="keywords" content="ä¸Šæµ·äº¤é€šå¤§å­¦,å…¬å…±ä¸»é¡µ,é«˜æ ¡å®˜æ–¹å…¬å…±ä¸»é¡µ,äººäººç½‘,äººäºº,renren,æ ¡å†…,xiaonei,ä¸»é¡µ,page,äº¤å‹,æ–°é²œäº‹" /><script type="text/javascript">
+XN.getFileVersion(
+[
+'http://s.xnimg.cn/a69051/jspro/xn.app.share.js',
+'http://s.xnimg.cn/a77704/allunivlist.js',
+'http://s.xnimg.cn/a30850/csspro/apps/like.css'
+]);
+XN.user.encryId = '0';</script>
+<script type="text/javascript" src="http://s.xnimg.cn/a66784/jspro/page/managetab.js"></script><script type="text/javascript">
+var defaultVal = 'å†™ç‚¹ä»€ä¹ˆæ¥æ”¯æŒä¸Šæµ·äº¤é€šå¤§å­¦å§...'.replace(/&#39;/g, "'").replace(/&#34;/g, '"'), isClub = false, pid = 600993176, isAdmin=false, biztype = 'index', ref = '';
+XN.namespace('page');
+XN.page.data = {gpid:'',name:"ä¸Šæµ·äº¤é€šå¤§å­¦",userid:"",sex:"",born:"",isShowRecommend:false,ss:'',rt:'',showPageSendMsg:false,showFansSendMsg:false,id:600993176, type:1, productName:'å…¬å…±ä¸»é¡µ', memberName:'å¥½å‹', isAdmin:false, tabName:'index', defaultVal:'å†™ç‚¹ä»€ä¹ˆæ¥æ”¯æŒä¸Šæµ·äº¤é€šå¤§å­¦å§...'.replace(/&#39;/g, "'").replace(/&#34;/g, '"'), curAdmin:''};
+//for chewen
+XN.config.jumpOut = false;
+//ç”¨ä»¥åˆ¤æ–­åˆ‡æ¢å¼•å¯¼å¼¹å±‚
+XN.namespace('pageSwitchGuide');
+XN.pageSwitchGuide.status = 0;</script><script type="text/javascript" src="http://s.xnimg.cn/a9673/n/lib/swfupload-2.2.0.1/swfupload.js"></script><script type="text/javascript" src="http://s.xnimg.cn/a30849/jspro/xn.like.js"></script>
+<script type="text/javascript" src="http://s.xnimg.cn/a66634/jspro/page/switchpage/page-guide.js"></script><script>var page_info_key = '';</script><!--[if lte IE 6]><style type="text/css" media="screen">/* <![CDATA[ */ @import url(http://s.xnimg.cn/a5273/csspro/patch/ie6.css); /* ]]> */</style><![endif]-->
+<!--[if gte IE 7]><style type="text/css" media="screen">/* <![CDATA[ */ @import url(http://s.xnimg.cn/a5273/csspro/patch/ie7.css); /* ]]> */</style><![endif]--><meta name="description" content="ä¸Šæµ·äº¤é€šå¤§å­¦ï¼Œè¿™é‡Œæ˜¯ ä¸Šæµ·äº¤é€šå¤§å­¦ åœ¨äººäººç½‘çš„å…¬å…±ä¸»é¡µã€‚æ¥äººäººç½‘æ”¯æŒä¸Šæµ·äº¤é€šå¤§å­¦å§ï¼ã€ç™¾å¹´äº¤å¤§æ¬¢è¿äº”æ¹–å››æµ·å­¦å­ã€‘ä¸Šæµ·äº¤é€šå¤§å­¦æ˜¯å…¨å›½é¦–æ‰¹9æ‰€â€œ985å·¥ç¨‹â€å»ºè®¾çš„é«˜æ ¡ä¹‹ä¸€ï¼Œæ˜¯ä¸­å›½å¤§å­¦â€œå¸¸é’è—¤è”ç›Ÿâ€ï¼ˆC9ï¼‰æˆå‘˜ã€‚  æœ¬ä¸»é¡µä¸ºäº¤é€šå¤§å­¦å®˜æ–¹è®¤è¯ä¸»é¡µâ€”â€”é«˜æ ¡å®˜æ–¹å…¬å…±ä¸»é¡µ ä¸Šæµ·äº¤é€šå¤§å­¦ äººäººç½‘æ ¡å†…" /><link href="http://s.xnimg.cn/a67823/csspro/page/page.css" rel="stylesheet" type="text/css" media="all" /><link href="http://s.xnimg.cn/a61362/csspro/page/nav-vip.css" rel="stylesheet" type="text/css" media="all" /><script type="text/javascript">
+<!--
+//ç”¨æˆ·æ•°æ®		
+XN.namespace( 'user' );XN.user={id:'',tinyPic:'',name:''};//-->
+</script>
+<link href="http://s.xnimg.cn/a69111/n/core/feed/feed-all-min.css" rel="stylesheet" type="text/css" media="all" />
+<script type="text/javascript" src="http://s.xnimg.cn/a63482/jspro/xn.app.status.js"></script>
+<script type="text/javascript" src="http://s.xnimg.cn/a64158/jspro/xn.app.ilike.js"></script>
+<script type="text/javascript" src="http://s.xnimg.cn/a68933/n/core/js/minifeed-all.js"></script>
+<script type="text/javascript" src="http://s.xnimg.cn/a69051/jspro/xn.app.share.js"></script>
+<script type="text/javascript" src="http://s.xnimg.cn/a67387/n/apps/status/module/vocal/player.js"></script>
+<script type="text/javascript" src="http://s.xnimg.cn/a55746/n/apps/page/js/components/cryption.js"></script>
+<script type="text/javascript" src="http://s.xnimg.cn/a67733/jspro/page/home.js"></script>
+
+<link href="http://page.renren.com/skin/mng/showStyle?pid=600993176&amp;sid=76297" rel="stylesheet" type="text/css" id="themeLink"/><title>ä¸Šæµ·äº¤é€šå¤§å­¦çš„å…¬å…±ä¸»é¡µ - äººäººç½‘,renren.com,ä¸Šæµ·äº¤é€šå¤§å­¦,é«˜æ ¡å®˜æ–¹å…¬å…±ä¸»é¡µ,å…¬å…±ä¸»é¡µ</title></head>
+<body class="public-page layout-2-5-2">
+<div id="nxContainer" class="nx-container">	
+<div class="nx-main">			<div id="nxHeader" class="hd-wraper "><div class="hd-fixed-wraper clearfix" style="width: 1663px;"><div class="hd-main"><h1 class="hd-logo"><a href="http://www.renren.com/" title="äººäººç½‘ renren.com - äººäººç½‘æ ¡å†…æ˜¯ä¸€ä¸ªçœŸå®çš„ç¤¾äº¤ç½‘ç»œï¼Œè”ç³»æœ‹å‹ï¼Œä¸€èµ·ç©æ¸¸æˆ">äººäººç½‘</a></h1><div class="hd-nav clearfix"></div></div></div></div>									
+<div class="nx-wraper clearfix"><div class="bd-container "  style="background:#ffffff"><script type="text/javascript">
+(function(){
+define(function(require,exports){	
+var responseFrame = require('responseFrame');
+responseFrame.initFrameSize();							
+});
+})();
+</script>
+<div class="bd-main" style="padding-top:0">
+<div class="bd-content clearfix" style="width:100%;padding:0"> <div id="container-for-buddylist"><div id="opi" class="page-wrapper clearfix" aaa="true"><div class="col-full">
+<div class="page-status" style="position:relative">
+<a name="nohead" >&nbsp;</a>
+<h1 class="page-name">
+<a href="/600993176">ä¸Šæµ·äº¤é€šå¤§å­¦</a>
+<a href="http://page.renren.com/600993176/identify/desc/official" id="a-identify"><img src="http://a.xnimg.cn/imgpro/page/icon/official-2.png" title="äººäººç½‘å®˜æ–¹è®¤è¯" alt="äººäººç½‘å®˜æ–¹è®¤è¯" /></a></h1>
+<span id="joinFansBtn"><a class="follow" href="javascript:;" onclick="loginDialog();"></a></span>	<span class="status-content">
+2014å¹´æœ¬ç§‘ç”Ÿæ¯•ä¸šå…¸ç¤¼è¿›è¡Œä¸­ï½ç¥F10ersç”¨äººæ–‡ä¹‹å…‰ç‚¹äº®æœªæ¥ï¼</span>
+<span class="time">2014-06-29</span>
+</div><link rel="stylesheet" type="text/css" href="http://s.xnimg.cn/a50894/n/apps/page/css/switch-new-all-min.css" media="all" />
+<script type="text/javascript" data-src="http://s.xnimg.cn/n/apps/page/js/common/tpl.js" data-module="tpl"></script>
+<script type="text/javascript" src="http://s.xnimg.cn/n/apps/page/js/common/tool.js"></script>
+<script type="text/javascript" src="http://s.xnimg.cn/a54655/n/apps/page/js/admin/admin_switch.js"></script>
+<div id="gift_pop" style="display: none">
+<script>
+function sendPop(args){
+if(typeof args != "undefined" && isNumber(args)){
+pageid = args ;
+} else {
+pageid = 0;
+}
+new Ajax.Request("http://gift.renren.com/op/pagesend/pop", 
+{
+method: "post",
+parameters: "pageid=" + pageid,
+onSuccess: function(o){
+$('gift_pop').innerHTML=o.responseText;
+$('gift_pop').eval_inner_JS();
+}
+}
+); 
+}
+</script>
+</div><div class="setup" style="z-index:1;"><a href="http://page.renren.com?ref=tablink" class="customSetting" style="right:0px;top:1px;margin-top:7px;margin-right:5px;">å…¨éƒ¨äººäººå…¬å…±ä¸»é¡µ</a></div><div id="customMenuPanel" style="display:none;"><div class="menu-dropdown edit-tab" id="menuHidden">		                
+<a  biz="pagegift" name="æ”¶ç¤¼ç›’" href="/600993176/pagegift" title="ä¸Šæµ·äº¤é€šå¤§å­¦çš„æ”¶ç¤¼ç›’">
+æ”¶ç¤¼ç›’</a>		                
+<a  biz="renrenevent" name="æ´»åŠ¨" href="/600993176/renrenevent" title="ä¸Šæµ·äº¤é€šå¤§å­¦çš„æ´»åŠ¨">
+æ´»åŠ¨</a></div></div>
+<div class="page-tabs">
+<ul id="navTabPanel" class="tabpanel clearfix">
+<li><a  class="current" biz="index" name="å…¬å…±ä¸»é¡µ" href="/600993176/index" title="ä¸Šæµ·äº¤é€šå¤§å­¦çš„å…¬å…±ä¸»é¡µ">
+å…¬å…±ä¸»é¡µ
+</a></li>
+<li>		                
+<a  biz="info" name="èµ„æ–™" href="/600993176/info" title="ä¸Šæµ·äº¤é€šå¤§å­¦çš„èµ„æ–™">
+èµ„æ–™</a></li>
+<li>		                
+<a  biz="fdoing" name="çŠ¶æ€" href="/600993176/fdoing" title="ä¸Šæµ·äº¤é€šå¤§å­¦çš„çŠ¶æ€">
+çŠ¶æ€</a></li>
+<li>		                
+<a  biz="photo" name="ç›¸å†Œ" href="/600993176/photo" title="ä¸Šæµ·äº¤é€šå¤§å­¦çš„ç›¸å†Œ">
+ç›¸å†Œ</a></li>
+<li>		                
+<a  biz="note" name="æ—¥å¿—" href="/600993176/note" title="ä¸Šæµ·äº¤é€šå¤§å­¦çš„æ—¥å¿—">
+æ—¥å¿—</a></li>
+<li>		                
+<a  biz="share" name="åˆ†äº«" href="/600993176/share" title="ä¸Šæµ·äº¤é€šå¤§å­¦çš„åˆ†äº«">
+åˆ†äº«</a></li>
+<li class="moreTab"><a href="#nogo" class="menu"><img src="http://a.xnimg.cn/a.gif"></a></li></ul>
+</div></div><div class="cols clearfix"><div class="col-left">
+<script type="text/javascript">
+XN.page.data.shareData = {"largeurl":"","summary":"\u3010\u767e\u5e74\u4ea4\u5927\u6b22\u8fce\u4e94\u6e56\u56db\u6d77\u5b66\u5b50\u3011\u4e0a\u6d77\u4ea4\u901a\u5927\u5b66\u662f\u5168\u56fd\u9996\u62799\u6240\u201c985\u5de5\u7a0b\u201d\u5efa\u8bbe\u7684\u9ad8\u6821\u4e4b\u4e00\uff0c\u662f\u4e2d\u56fd\u5927\u5b66\u201c\u5e38\u9752\u85e4\u8054\u76df\u201d\uff08C9\uff09\u6210\u5458\u3002  \u672c\u4e3b\u9875\u4e3a\u4ea4\u901a\u5927\u5b66\u5b98\u65b9\u8ba4\u8bc1\u4e3b\u9875","fromuniv":"","title":"\u4e0a\u6d77\u4ea4\u901a\u5927\u5b66","level":"1","link":"http:\/\/page.renren.com\/600993176","fromname":"\u4e0a\u6d77\u4ea4\u901a\u5927\u5b66","statID":"page_600993176_1","pic":"http:\/\/hdn.xnimg.cn\/photos\/hdn421\/20111028\/1445\/h_head_P86X_5f970001bd3d2f76.jpg","type":17,"fromno":600993176,"albumid":"0"};
+</script>
+<div class="mod act-des">
+<div class="mod-header">
+<h4>å¤´åƒå’Œæè¿°</h4>
+</div>
+<div class="mod action">
+<div class="mod-body clearfix">
+<div class="page-avatar">
+<a href="/600993176/album?head">
+<img src="http://hdn.xnimg.cn/photos/hdn421/20111028/1445/h_main_4vDB_5f970001bd3d2f76.jpg" width="200" alt="ä¸Šæµ·äº¤é€šå¤§å­¦ é«˜æ ¡å®˜æ–¹å…¬å…±ä¸»é¡µ" title="ä¸Šæµ·äº¤é€šå¤§å­¦ é«˜æ ¡å®˜æ–¹å…¬å…±ä¸»é¡µ" />
+</a>
+</div>
+<div class="pd-holder">
+<ul class="user-action">
+<li class="buttons">
+<a href="javascript:;" onclick="loginDialog();" class="addfrd" >åŠ ä¸ºå¥½å‹</a>
+<a href="javascript:;" onclick="loginDialog();"  class="pshare" >åˆ†äº«</a>
+</li>	             </ul>
+<div class="page-des">
+<div class="mod-body">
+<p id="description" >ã€ç™¾å¹´äº¤å¤§æ¬¢è¿äº”æ¹–å››æµ·å­¦å­ã€‘ä¸Šæµ·äº¤é€šå¤§å­¦æ˜¯å…¨å›½é¦–æ‰¹9æ‰€â€œ985å·¥ç¨‹â€å»ºè®¾çš„é«˜æ ¡ä¹‹ä¸€ï¼Œæ˜¯ä¸­å›½å¤§å­¦â€œå¸¸é’è—¤è”ç›Ÿâ€ï¼ˆC9ï¼‰æˆå‘˜ã€‚  æœ¬ä¸»é¡µä¸ºäº¤é€šå¤§å­¦å®˜æ–¹è®¤è¯ä¸»é¡µ</p></div>
+</div></div>
+</div>
+</div></div>
+
+<div class="mod shares">
+<div class="mod-header">
+<a href="/600993176/share" class="more" title="æŸ¥çœ‹å…¨éƒ¨ä¸Šæµ·äº¤é€šå¤§å­¦çš„åˆ†äº«">æŸ¥çœ‹å…¨éƒ¨<img src="http://a.xnimg.cn/imgpro/bg/page-more.png" alt="ä¸Šæµ·äº¤é€šå¤§å­¦çš„åˆ†äº«" title="ä¸Šæµ·äº¤é€šå¤§å­¦çš„åˆ†äº«"/></a>
+<h4>åˆ†äº«</h4>
+<a href="/600993176/share" rel="nofollow">(542)</a>
+</div>
+<div class="mod-body"><ul class="shares-list">
+<li>
+<img class="icon iBlog" src="http://a.xnimg.cn/a.gif"/>
+<a href="/share/list?pid=600993176&share_id=17785123034#17785123034">
+ã€Šå¾®çˆ±ã€‹ä¸»åˆ›æ ¡å›­è§é¢ä¼š   éœ¸é“æ€»è£&amp;éœ¸é“å¯¼æ¼”æ•™ä½ æ¸å…¥ä½³å¢ƒ</a>
+<span class="time"></span>
+</li>
+<li>
+<img class="icon.share.2" src="http://a.xnimg.cn/a.gif"/>
+<a href="/share/list?pid=600993176&share_id=17617014445#17617014445">
+è¿™æœˆé¥¼çš„å›¾æ¡ˆæˆ‘ä¹Ÿæ˜¯é†‰äº†</a>
+<span class="time"></span>
+</li>
+<li>
+<img class="icon iPhoto" src="http://a.xnimg.cn/a.gif"/>
+<a href="/share/list?pid=600993176&share_id=17602425215#17602425215">
+å°æ¢ä¸Šæµ·äº¤å¤§é—µè¡Œæ ¡åŒºæ–°æ¸¸æ³³é¦†å†…éƒ¨</a>
+<span class="time"></span>
+</li>
+<li>
+<img class="icon.share.2" src="http://a.xnimg.cn/a.gif"/>
+<a href="/share/list?pid=600993176&share_id=17562795054#17562795054">
+å—ä½“çš„æ–°çƒåœºï¼æ„Ÿè§‰ä¸é”™å“¦ï¼</a>
+<span class="time"></span>
+</li>
+<li>
+<img class="icon iBlog" src="http://a.xnimg.cn/a.gif"/>
+<a href="/share/list?pid=600993176&share_id=17458113251#17458113251">
+çŒ®ç»™2014å±Šå…¨ä½“æ¯•ä¸šç”Ÿï¼ˆæ¯•ä¸šèµ„æºå¤§æ•´ç†ï¼‰</a>
+<span class="time"></span>
+</li></ul>
+</div>
+</div>
+
+ <a href="javascript:;" id="cancelFollow" onclick="cancelFollow();" style='display:none'>å–æ¶ˆå…³æ³¨</a>
+<a target="_blank" href="http://support.renren.com/report/common?type=32&contentId=600993176&origURL=http://page.renren.com/600993176">ä¸¾æŠ¥è¯¥å…¬å…±ä¸»é¡µ</a></div><div class="col-center">
+
+<div class="mod blogs">
+<div class="mod-header">
+<a class="more" href="/600993176/note" title="æŸ¥çœ‹å…¨éƒ¨ä¸Šæµ·äº¤é€šå¤§å­¦çš„æ—¥å¿—">æŸ¥çœ‹å…¨éƒ¨<img src="http://a.xnimg.cn/imgpro/bg/page-more.png" alt="ä¸Šæµ·äº¤é€šå¤§å­¦çš„æ—¥å¿—" title="ä¸Šæµ·äº¤é€šå¤§å­¦çš„æ—¥å¿—"/></a>
+<h4>æ—¥å¿—</h4>
+<a href="/600993176/note" rel="nofollow">(216)</a>
+</div>
+<div class="mod-body"><ul class="blogs-list">
+<li>
+<h4>
+<img src="http://a.xnimg.cn/a.gif" class="iBlog"/>
+<a href="/600993176/note/929886810" title="ä¸Šæµ·äº¤å¤§2006å±Šæ¯•ä¸šç”Ÿé»„äº®ï¼šä»–ï¼Œä¸ºç¥–å›½å’Œç¤¾ä¼šè€Œæ¥ï¼">ä¸Šæµ·äº¤å¤§2006å±Šæ¯•ä¸šç”Ÿé»„äº®ï¼šä»–ï¼Œä¸ºç¥–å›½å’Œç¤¾ä¼šè€Œæ¥ï¼</a>
+</h4>
+
+<p>â€œæˆ‘æƒ³å¤šç•™ä¸‹ç‚¹ä»€ä¹ˆï¼Œå¸Œæœ›ç”Ÿå‘½æ›´æœ‰æ„ä¹‰â€ï¼›â€œæˆ‘ä¸èƒ½é€‰æ‹©ç”Ÿå‘½çš„é•¿åº¦ï¼Œä½†å¯ä»¥å†³å®šç”Ÿå‘½çš„åšåº¦â€ï¼›â€œåªè¦æœ‰ä¸€ä¸å¸Œæœ›ï¼Œå°±ä¸€å®šåšå¼ºæ´»ç€...</p>
+<span class="time">
+2014å¹´06æœˆ21æ—¥ 
+<a href="/600993176/note/929886810">è¯„è®º</a> (1)
+</span>
+</li>
+<li>
+<h4>
+<img src="http://a.xnimg.cn/a.gif" class="iBlog"/>
+<a href="/600993176/note/929189165" title="é¾™ç¯ã€é¾™å®‡ ï¼šåå¹´ç§‘ç ”è·¯ åŒç”Ÿå§å¦¹èŠ±">é¾™ç¯ã€é¾™å®‡ ï¼šåå¹´ç§‘ç ”è·¯ åŒç”Ÿå§å¦¹èŠ±</a>
+</h4>
+
+<p>é¾™ç¯ã€é¾™å®‡ï¼Œä¸Šæµ·äº¤é€šå¤§å­¦ç”µå­ä¿¡æ¯ä¸ç”µæ°”å·¥ç¨‹å­¦é™¢è®¡ç®—æœºç³»åšå£«æ¯•ä¸šç”Ÿï¼Œç°ä¸ºä¸Šæµ·äº¤é€šå¤§å­¦è®¡ç®—æœºç³»è®²å¸ˆã€‚è¿™å¯¹åŒèƒèƒå§å¦¹è‡ªæœ¬ç§‘èµ·ï¼Œ...</p>
+<span class="time">
+2014å¹´06æœˆ11æ—¥ 
+<a href="/600993176/note/929189165">è¯„è®º</a> (0)
+</span>
+</li>
+<li>
+<h4>
+<img src="http://a.xnimg.cn/a.gif" class="iBlog"/>
+<a href="/600993176/note/929144911" title="æ¯•ä¸šäº†ï¼Œè®©æˆ‘ä»¬å¯¹çˆ¸å¦ˆè¯´ä¸€å£°â€œä½ ä»¬è¾›è‹¦äº†ï¼â€">æ¯•ä¸šäº†ï¼Œè®©æˆ‘ä»¬å¯¹çˆ¸å¦ˆè¯´ä¸€å£°â€œä½ ä»¬è¾›è‹¦äº†ï¼â€</a>
+</h4>
+
+<p>2014å¹´æ¯•ä¸šå­£F10çº§å¹´çº§ç†äº‹ä¼šå€¡è®®ä¹¦ï¼ˆä¸€å·ï¼‰    ã€€ã€€äº²çˆ±çš„2014å±Šå…¨ä½“æ¯•ä¸šç”Ÿï¼š    ã€€ã€€åå¹´å¯’çª—è‹¦è¯»ï¼Œç¦»ä¸å¼€...</p>
+<span class="time">
+2014å¹´06æœˆ10æ—¥ 
+<a href="/600993176/note/929144911">è¯„è®º</a> (0)
+</span>
+</li></ul>
+</div>
+</div>
+
+<div class="mod basic-info">
+<div class="mod-header">
+<h4>ä¸Šæµ·äº¤é€šå¤§å­¦çš„åŸºæœ¬ä¿¡æ¯</h4>
+</div>
+<div class="mod-body">
+<ul>  
+<li><span class="label">ç±»å‹ï¼š</span><span class="value">é«˜æ ¡</span></li>
+<li><span class="label">æ‰€åœ¨åœ°ï¼š</span><span class="value"> å…³æ³¨å®˜æ–¹å¾®ä¿¡å¹³å°ï¼šâ‘ å¾®ä¿¡å…¬ä¼—è´¦å·&gt;&gt;æœç´¢â€œä¸Šæµ·äº¤é€šå¤§å­¦â€ â‘¡æœå·ç &gt;&gt;æœç´¢â€œlove_sjtuâ€ â‘¢æ‰«æå¹³å°äºŒç»´ç ï¼ˆåœ¨æœ¬ä¸»é¡µå¤´åƒç›¸å†Œä¸­~ï¼‰ </span></li></ul>
+</div>
+</div>
+
+<div class="mod albums">
+<div class="mod-header">
+<a class="more" href="/600993176/photo" title="æŸ¥çœ‹å…¨éƒ¨ä¸Šæµ·äº¤é€šå¤§å­¦çš„ç›¸å†Œ">æŸ¥çœ‹å…¨éƒ¨<img src="http://a.xnimg.cn/imgpro/bg/page-more.png" alt="ä¸Šæµ·äº¤é€šå¤§å­¦çš„ç›¸å†Œ" title="ä¸Šæµ·äº¤é€šå¤§å­¦çš„ç›¸å†Œ"/></a>
+<h4>ç›¸å†Œ</h4>
+<a href="/600993176/photo" rel="nofollow">(26)</a>
+</div>
+<div class="mod-body"><ul class="albums-list">
+<li>
+<a href="/600993176/album/1006545144" class="cover">
+<img width="100" src="http://fmn.rrimg.com/fmn064/20140505/1250/head_StEA_12290000258b1190.jpg" alt="ç«‹å¤ï¼šå¤©åœ°å§‹äº¤ï¼Œä¸‡ç‰©å¹¶ç§€" title="ç«‹å¤ï¼šå¤©åœ°å§‹äº¤ï¼Œä¸‡ç‰©å¹¶ç§€" class="photo"/>
+</a>
+<div class="album-info">
+<a href="/600993176/album/1006545144">ç«‹å¤ï¼šå¤©åœ°å§‹äº¤ï¼Œä¸‡ç‰©å¹¶ç§€</a>
+<span class="time">2014-05-05 12:51æ›´æ–°</span>
+</div>
+</li>
+<li>
+<a href="/600993176/album/1004504746" class="cover">
+<img width="100" src="http://fmn.rrimg.com/fmn065/20140501/1220/head_N20O_695f00006a1e118c.jpg" alt="[å—æ´‹è§†ç•Œ]åŠ³åŠ¨èŠ‚ï¼šå‘ä½ ä»¬è‡´æ•¬ï¼" title="[å—æ´‹è§†ç•Œ]åŠ³åŠ¨èŠ‚ï¼šå‘ä½ ä»¬è‡´æ•¬ï¼" class="photo"/>
+</a>
+<div class="album-info">
+<a href="/600993176/album/1004504746">[å—æ´‹è§†ç•Œ]åŠ³åŠ¨èŠ‚ï¼šå‘ä½ ä»¬è‡´æ•¬ï¼</a>
+<span class="time">2014-05-01 12:23æ›´æ–°</span>
+</div>
+</li>
+<li>
+<a href="/600993176/album/929294575" class="cover">
+<img width="100" src="http://fmn.rrimg.com/fmn065/20131001/2120/head_yPC8_71bd0000cb71125d.jpg" alt="[å—æ´‹è§†ç•Œ]å¯»å®äº¤å¤§æ ¡å›­ç¾é£Ÿ" title="[å—æ´‹è§†ç•Œ]å¯»å®äº¤å¤§æ ¡å›­ç¾é£Ÿ" class="photo"/>
+</a>
+<div class="album-info">
+<a href="/600993176/album/929294575">[å—æ´‹è§†ç•Œ]å¯»å®äº¤å¤§æ ¡å›­ç¾é£Ÿ</a>
+<span class="time">2013-10-01 21:23æ›´æ–°</span>
+</div>
+</li></ul>
+</div>
+</div>
+<div class="mod communion">
+<div class="mod-header">
+<h4>äº¤æµåŒº</h4>
+</div>
+<div class="mod-body">		
+<div id="intercourseTabs" class="mod stabs">
+<a id="feedTab" href="javascript:;" class="current"><span>ä¸Šæµ·äº¤é€šå¤§å­¦çš„æ–°é²œäº‹</span></a>
+<a id="commentTab" href="javascript:;" ><span>å…³æ³¨è€…ç•™è¨€</span></a>
+<a id="replyTab" href="javascript:;" ><span>ä¸Šæµ·äº¤é€šå¤§å­¦çš„å›å¤</span></a></div><script type="text/javascript">
+XN.page.data.statID= 'page_600993176_1';
+XN.page.data.level= '1';
+</script>
+<div id="feedView">
+<div class="feed-module" data-userid="600993176">
+<div class="feed-list"><article class="a-feed a-n-feed" id="newsfeed-27036801201"><aside><figure style="" class="newsfeed-user" noavatar="" data-sourcecontrol="" data-id="600993176" data-name="ä¸Šæµ·äº¤é€šå¤§å­¦" data-mark="" data-source="17785123034"original_actor="" original_source=""data-stype="2032" data-fid="27036801201" create-time="1418367697035">
+    <a stats="NF_27036801201_2032_600993176"href="http://www.renren.com/profile.do?id=600993176&ref=minifeed&sfet=2032&fin=0&fid=27036801201&ff_id=600993176&platform=0&expose_time=1537848649"
+       namecard="600993176" title="ä¸Šæµ·äº¤é€šå¤§å­¦" target="_blank"><img src="http://hdn.xnimg.cn/photos/hdn421/20111028/1445/h_tiny_koq9_5f970001bd3d2f76.jpg" width="50" title="ä¸Šæµ·äº¤é€šå¤§å­¦" /></a></figure>
+</aside><h3><a target="_blank" namecard="600993176" href="http://www.renren.com/profile.do?id=600993176&ref=minifeed&sfet=2032&fin=0&fid=27036801201&ff_id=600993176&platform=0&expose_time=1537848649" stats="NF_27036801201_2032_600993176">ä¸Šæµ·äº¤é€šå¤§å­¦</a>&nbsp;<img src="http://a.xnimg.cn/imgpro/page/icon/official-2.png" title="äººäººç½‘å®˜æ–¹è®¤è¯"/>:&nbsp;12æœˆ18æ—¥ï¼Œä¸Šæµ·äº¤å¤§è§ï¼</h3><div class="content"><div class="source"><div class="rich-content no-media"><div class="content-main"><p class="title"><a stats="NF_27036801201_2032_600993176" href="http://page.renren.com/600014177/note/941421356?ref=minifeed&sfet=2032&fin=0&fid=27036801201&ff_id=600993176&platform=0&expose_time=1537848649" target="_blank">ã€Šå¾®çˆ±ã€‹ä¸»åˆ›æ ¡å›­è§é¢ä¼š   éœ¸é“æ€»è£&amp;éœ¸é“å¯¼æ¼”æ•™ä½ æ¸å…¥ä½³å¢ƒ</a></p><p class="summary">ã€Šå¾®çˆ±ã€‹ä¸»åˆ›æ ¡å›­è§é¢ä¼š   éœ¸é“æ€»è£&amp;éœ¸é“å¯¼æ¼”æ•™ä½ æ¸å…¥ä½³å¢ƒå°ä¼™ä¼´ä»¬ï¼Œé‡ç£…ç¦åˆ©ï¼Œé‡ç£…ç¦åˆ©ï¼è´ºå²çˆ±æƒ…å–œå‰§ã€Šå¾®çˆ±ä¹‹æ¸å…¥ä½³å¢ƒã€‹å°†åœ¨12æœˆ15æ—¥-12æœˆ18æ—¥åœ¨å…¨å›½äº”æ‰€é«˜æ ¡å±•å¼€ä¸»åˆ›æ ¡å›­è§é¢ä¼šï¼å±Šæ—¶...</p><p class="from">æ¥è‡ª:&nbsp;<a stats="NF_27036801201_2032_600993176" href="http://www.renren.com/600014177/profile?ref=minifeed&sfet=2032&fin=0&fid=27036801201&ff_id=600993176&platform=0&expose_time=1537848649" target="_blank" namecard="600014177">ç”µå½±-å›½è¯­</a></p></div>
+    </div></div></div><div class="details ui-new">
+<div class="legend">
+<span class="duration">2014-12-12 15:01</span><a stats="NF_27036801201_2032_600993176" href="#nogo"  class="share_new" data-share="{stype:'create_share_div',id:17785123034,owner:600993176,host:600993176}" >åˆ†äº«</a><a onclick="ILike_toggleUserLike('share','17785123034','0', '600993176','')" id="ILike17785123034" class="ilike_icon" href="#nogo" stats="NF_27036801201_2032_600993176">èµ</a><a class="reply-new" href="#nogo" data-fid=27036801201><span class="reply-show-word">å›å¤</span>(<span class="reply-count">4</span>)</a>
+</div><div class="ilike-body" id="feedbody17785123034">
+  <div class="min-cmtbox statustab">
+    <div class="mincmt-body"><div class="mincmt-diggers statuscmtitem">
+        <p><a href="#nogo" onclick="ILike_toggleShow('share','17785123034', '0');return false;">2ä¸ªäººè§‰å¾—èµï¼</a></p>
+        <ul id="diggers17785123034" class="digger"></ul>
+      </div></div>
+  </div>
+</div><div class="feed-replies" id="feedbody27036801201"style="display:none;"><div class="a-reply">
+    <a href="http://www.renren.com/profile.do?id=600993176&ref=minifeed&sfet=2032&fin=0&fid=27036801201&ff_id=600993176&platform=0&expose_time=1537848649" class="avatar" target="_blank" namecard="600993176"><img src="http://hdn.xnimg.cn/photos/hdn421/20111028/1445/h_tiny_koq9_5f970001bd3d2f76.jpg" /></a>
+    <div class="reply-content"><p class="text"><a href="http://www.renren.com/profile.do?id=600993176&ref=minifeed&sfet=2032&fin=0&fid=27036801201&ff_id=600993176&platform=0&expose_time=1537848649" namecard="600993176" class="name" target="_blank">ä¸Šæµ·äº¤é€šå¤§å­¦</a>:&nbsp;12æœˆ18æ—¥ï¼Œä¸Šæµ·äº¤å¤§è§ï¼</p>
+      <div class="bottom-bar">
+        <span class="time">2014-12-12 15:01</span>
+        <div class="action"><a data-fid="27036801201" data-uid="600993176" data-uname="ä¸Šæµ·äº¤é€šå¤§å­¦" data-rid="173748854759123968"
+            href="#nogo" onclick="return false;" class="reply">å›å¤</a>&nbsp;</div>
+      </div>
+    </div>
+  </div><div class="more-reply">
+    <a data-fid="27036801201" href="#nogo" onclick="return false;" class="more">è¿˜æœ‰2æ¡å›å¤</a>
+  </div><div class="a-reply">
+    <a href="http://www.renren.com/profile.do?id=439837549&ref=minifeed&sfet=2032&fin=0&fid=27036801201&ff_id=600993176&platform=0&expose_time=1537848649" class="avatar" target="_blank" namecard="439837549"><img src="http://hdn.xnimg.cn/photos/hdn121/20120125/1905/tiny_2vD6_300366j019117.jpg" /></a>
+    <div class="reply-content"><p class="text"><a href="http://www.renren.com/profile.do?id=439837549&ref=minifeed&sfet=2032&fin=0&fid=27036801201&ff_id=600993176&platform=0&expose_time=1537848649" namecard="439837549" class="name" target="_blank">æ ¼å°ç°</a>:&nbsp;é›¶ç”¨é‡‘APP æ‹›è˜æ ¡å›­å¤§ä½¿å•¦ï¼~~ æƒ³äº†è§£çš„åŒå­¦è®°å¾—å…³æ³¨å®˜æ–¹å¾®åšå“¦ï¼š@é›¶ç”¨é‡‘</p>
+      <div class="bottom-bar">
+        <span class="time">2015-03-16 10:48</span>
+        <div class="action"><a data-fid="27036801201" data-uid="439837549" data-uname="æ ¼å°ç°" data-rid="173815262322157568"
+            href="#nogo" onclick="return false;" class="reply">å›å¤</a>&nbsp;</div>
+      </div>
+    </div>
+  </div></div>
+<div class="feed-comment"style="margin-top:13px">
+  <span class="avatar">
+       <img src="http://a.xnimg.cn/a.gif" />
+  </span>
+  <div class="comment-box">
+    <textarea data-fid="27036801201" data-privacy="" autocomplete="off">è¯„è®º...</textarea>
+    <div class="action">
+      <div class="action-l"><a href="#nogo" onclick="return false;" class="emotion">è¡¨æƒ…<span class="tip"><span class="arrow"></span>è¡¨æƒ…</span></a><a href="#nogo" onclick="return false;" class="mention">@<span class="tip"><span class="arrow"></span>ç‚¹å</span></a><span class="share">
+          <input id="shareThis_27036801201" type="checkbox" /><label for="shareThis_27036801201">åŒæ—¶åˆ†äº«</label>
+        </span></div>
+      <div class="action-r">
+        <a href="#nogo" onclick="return false;" class="submit submit-disabled">å›å¤</a><span class="count"><span class="inputed">0</span>/<span class="maxlength">140</span></span>
+      </div>
+    </div>
+  </div>
+</div><div id="get-params-for-ilike-17785123034" style="display:none;"><div id="reply-params-27036801201" style="display:none;">
+{
+  "cid": "17785123034",
+  "oid":"600993176",
+  "type": "page",
+  "typeNum": "4",
+  "rpLength": "4",
+  "userDigged":"",
+  "digged":"2",
+  "stype":"2032",
+  "feedOwnerId":"600993176","loadURI": "http://page.renren.com/600993176/share/replyList",
+     "sendURI": "http://page.renren.com/600993176/share/reply",
+     "delURI": "http://page.renren.com/600993176/share/replyDelete"}
+</div>
+</div></div><div class="feed-toolbar feed-toolbar-new">
+  <menu type="toolbar"></menu>
+</div></article><article id="newsfeed-25740256628" class="a-feed a-n-feed"><aside><figure style="" class="newsfeed-user" noavatar="" data-sourcecontrol="" data-id="600993176" data-name="ä¸Šæµ·äº¤é€šå¤§å­¦" data-mark="" data-source="17617014445"original_actor="266935644" original_source="17616730514"data-stype="2036" data-fid="25740256628" create-time="1409897913810">
+    <a stats="NF_25740256628_2036_600993176"href="http://www.renren.com/profile.do?id=600993176&ref=minifeed&sfet=2036&fin=1&fid=25740256628&ff_id=600993176&platform=0&expose_time=1537848649"
+       namecard="600993176" title="ä¸Šæµ·äº¤é€šå¤§å­¦" target="_blank"><img src="http://hdn.xnimg.cn/photos/hdn421/20111028/1445/h_tiny_koq9_5f970001bd3d2f76.jpg" width="50" title="ä¸Šæµ·äº¤é€šå¤§å­¦" /></a></figure>
+</aside><h3><a target="_blank" namecard="600993176" href="http://www.renren.com/profile.do?id=600993176&ref=minifeed&sfet=2036&fin=1&fid=25740256628&ff_id=600993176&platform=0&expose_time=1537848649" stats="NF_25740256628_2036_600993176">ä¸Šæµ·äº¤é€šå¤§å­¦</a>&nbsp;<img src="http://a.xnimg.cn/imgpro/page/icon/official-2.png" title="äººäººç½‘å®˜æ–¹è®¤è¯"/>:&nbsp;<img src='http://a.xnimg.cn/imgpro/emotions/tie/4.gif?ver=1' alt='è°ƒçš®'  /></h3><div class="content"><div class="clearfix photo-content"><div class="clearfix photo-content" style="position:relative;"><div class="photo-box photo-one-new">
+						<a href="http://share.renren.com/share/600993176/17617014445?from=0101010302&ref=minifeed&sfet=2036&fin=1&fid=25740256628&ff_id=600993176&platform=0&expose_time=1537848649" class="photo-one" target="_blank"><img  src="http://fmn.xnpic.com/fmn056/20140905/1125/p/m2w400h300q85lt_original_U3x8_2e4c0000173c125f.jpg" /></a></div>
+				</div><p class="descript">è¿™æœˆé¥¼çš„å›¾æ¡ˆæˆ‘ä¹Ÿæ˜¯é†‰äº†</p><p class="belong">æ‰€å±: <a stats="NF_25740256628_2036_600993176" href="http://photo.renren.com/photo/378302232/album-563997096?ref=minifeed&sfet=2036&fin=1&fid=25740256628&ff_id=600993176&platform=0&expose_time=1537848649" target="_blank">æ‰‹æœºç›¸å†Œ</a></p><p class="from">æ¥è‡ª:<a stats="NF_25740256628_2036_600993176" href="http://www.renren.com/378302232/profile?ref=minifeed&sfet=2036&fin=1&fid=25740256628&ff_id=600993176&platform=0&expose_time=1537848649" target="_blank" namecard="378302232">ä¸éŸ¡å®¸</a></p></div>
+		</div><div class="details ui-new">
+  <div class="legend">
+    <span class="duration">2014-09-05 14:18</span><a data-share="{stype:'create_share_div',id:17617014445,owner:600993176,host:0,ref:'feed',from:'0101010403' }" class="share_new" href="#nogo" stats="NF_25740256628_2036_600993176">åˆ†äº«</a><a onclick="ILike_toggleUserLike('share','17617014445','0', '600993176','')" id="ILike17617014445" class="ilike_icon" href="#nogo" stats="NF_25740256628_2036_600993176">èµ</a><a class="reply-new" href="#nogo" data-fid=25740256628><span class="reply-show-word">å›å¤</span>(<span class="reply-count">8</span>)</a>
+  </div><div class="ilike-body" id="feedbody17617014445">
+  <div class="min-cmtbox statustab">
+    <div class="mincmt-body"><div class="mincmt-diggers statuscmtitem">
+        <p><a href="#nogo" onclick="ILike_toggleShow('share','17617014445', '0');return false;">20ä¸ªäººè§‰å¾—èµï¼</a></p>
+        <ul id="diggers17617014445" class="digger"></ul>
+      </div></div>
+  </div>
+</div><div class="feed-replies" id="feedbody25740256628"style="display:none;"><div class="a-reply">
+    <a href="http://www.renren.com/profile.do?id=600993176&ref=minifeed&sfet=2036&fin=1&fid=25740256628&ff_id=600993176&platform=0&expose_time=1537848649" class="avatar" target="_blank" namecard="600993176"><img src="http://hdn.xnimg.cn/photos/hdn421/20111028/1445/h_tiny_koq9_5f970001bd3d2f76.jpg" /></a>
+    <div class="reply-content"><p class="text"><a href="http://www.renren.com/profile.do?id=600993176&ref=minifeed&sfet=2036&fin=1&fid=25740256628&ff_id=600993176&platform=0&expose_time=1537848649" namecard="600993176" class="name" target="_blank">ä¸Šæµ·äº¤é€šå¤§å­¦</a>:&nbsp;<img src='http://a.xnimg.cn/imgpro/emotions/tie/4.gif?ver=1' alt='è°ƒçš®' /></p>
+      <div class="bottom-bar">
+        <span class="time">2014-09-05 14:18</span>
+        <div class="action"><a data-fid="25740256628" data-uid="600993176" data-uname="ä¸Šæµ·äº¤é€šå¤§å­¦" data-rid="173679470293608448"
+            href="#nogo" onclick="return false;" class="reply">å›å¤</a>&nbsp;</div>
+      </div>
+    </div>
+  </div><div class="more-reply">
+    <a data-fid="25740256628" href="#nogo" onclick="return false;" class="more">è¿˜æœ‰6æ¡å›å¤</a>
+  </div><div class="a-reply">
+    <a href="http://www.renren.com/profile.do?id=545561726&ref=minifeed&sfet=2036&fin=1&fid=25740256628&ff_id=600993176&platform=0&expose_time=1537848649" class="avatar" target="_blank" namecard="545561726"><img src="http://hdn.xnimg.cn/photos/hdn521/20140929/1255/h_tiny_aXyq_3c2e00033a19195a.jpg" /></a>
+    <div class="reply-content"><p class="text"><a href="http://www.renren.com/profile.do?id=545561726&ref=minifeed&sfet=2036&fin=1&fid=25740256628&ff_id=600993176&platform=0&expose_time=1537848649" namecard="545561726" class="name" target="_blank">é‡‘ç¨‹CFA</a>:&nbsp;ä¹Ÿæ˜¯é†‰äº†</p>
+      <div class="bottom-bar">
+        <span class="time">2014-10-21 13:20</span>
+        <div class="action"><a data-fid="25740256628" data-uid="545561726" data-uname="é‡‘ç¨‹CFA" data-rid="173711999850833920"
+            href="#nogo" onclick="return false;" class="reply">å›å¤</a>&nbsp;</div>
+      </div>
+    </div>
+  </div></div>
+<div class="feed-comment"style="margin-top:13px">
+  <span class="avatar">
+       <img src="http://a.xnimg.cn/a.gif" />
+  </span>
+  <div class="comment-box">
+    <textarea data-fid="25740256628" data-privacy="" autocomplete="off">è¯„è®º...</textarea>
+    <div class="action">
+      <div class="action-l"><a href="#nogo" onclick="return false;" class="emotion">è¡¨æƒ…<span class="tip"><span class="arrow"></span>è¡¨æƒ…</span></a><a href="#nogo" onclick="return false;" class="mention">@<span class="tip"><span class="arrow"></span>ç‚¹å</span></a><span class="share">
+          <input id="shareThis_25740256628" type="checkbox" /><label for="shareThis_25740256628">åŒæ—¶åˆ†äº«</label>
+        </span></div>
+      <div class="action-r">
+        <a href="#nogo" onclick="return false;" class="submit submit-disabled">å›å¤</a><span class="count"><span class="inputed">0</span>/<span class="maxlength">140</span></span>
+      </div>
+    </div>
+  </div>
+</div><div id="get-params-for-ilike-17617014445" style="display:none;"><div id="reply-params-25740256628" style="display:none;">
+{
+  "cid": "17617014445",
+  "oid":"600993176",
+  "type": "page",
+  "typeNum": "4",
+  "rpLength": "8",
+  "userDigged":"",
+  "digged":"20",
+  "stype":"2036",
+  "feedOwnerId":"600993176","loadURI": "http://page.renren.com/600993176/share/replyList",
+     "sendURI": "http://page.renren.com/600993176/share/reply",
+     "delURI": "http://page.renren.com/600993176/share/replyDelete"}
+</div>
+</div></div><div class="feed-toolbar feed-toolbar-new">
+  <menu type="toolbar"></menu>
+</div></article><article id="newsfeed-25709633010" class="a-feed a-n-feed"><aside><figure style="" class="newsfeed-user" noavatar="" data-sourcecontrol="" data-id="600993176" data-name="ä¸Šæµ·äº¤é€šå¤§å­¦" data-mark="" data-source="17602425215"original_actor="360829774" original_source="17600814004"data-stype="2035" data-fid="25709633010" create-time="1409295193605">
+    <a stats="NF_25709633010_2035_600993176"href="http://www.renren.com/profile.do?id=600993176&ref=minifeed&sfet=2035&fin=2&fid=25709633010&ff_id=600993176&platform=0&expose_time=1537848649"
+       namecard="600993176" title="ä¸Šæµ·äº¤é€šå¤§å­¦" target="_blank"><img src="http://hdn.xnimg.cn/photos/hdn421/20111028/1445/h_tiny_koq9_5f970001bd3d2f76.jpg" width="50" title="ä¸Šæµ·äº¤é€šå¤§å­¦" /></a></figure>
+</aside><h3><a target="_blank" namecard="600993176" href="http://www.renren.com/profile.do?id=600993176&ref=minifeed&sfet=2035&fin=2&fid=25709633010&ff_id=600993176&platform=0&expose_time=1537848649" stats="NF_25709633010_2035_600993176">ä¸Šæµ·äº¤é€šå¤§å­¦</a>&nbsp;<img src="http://a.xnimg.cn/imgpro/page/icon/official-2.png" title="äººäººç½‘å®˜æ–¹è®¤è¯"/>:&nbsp;åˆ†äº«ç›¸å†Œ</h3><div class="content">
+			<div class="rich-content-new">
+			<!-- ä¸€å¼  --><!-- ä¸¤å¼  --><!-- ä¸‰å¼  --><!-- å››å¼  --><div class="photo-four-first">
+            <div class="clearfix photo-content">
+            <div class="main-item feed-photo-con" data-height="265" data-width="398"><a class="cursor-all" href="http://share.renren.com/share/600993176/17602425215?from=0101010302&ref=minifeed&sfet=2035&fin=2&fid=25709633010&ff_id=600993176&platform=0&expose_time=1537848649" target="_blank"><img src="http://fmn.rrimg.com/fmn065/20140828/1615/p/m2wh400q85lt_large_UoM1_27090000a244118c.jpg" onload="photoFeedImgLoaded(this);"/></a>
+            </div>
+          <!-- å››å¼ ä¹‹äºŒ -->
+          <div class="other-item">
+             <div class="item feed-photo-con" data-width="132" data-height="132"><a class="cursor-all" href="http://share.renren.com/share/600993176/17602425215?from=0101010302&ref=minifeed&sfet=2035&fin=2&fid=25709633010&ff_id=600993176&platform=0&expose_time=1537848649" target="_blank"><img src="http://fmn.rrfmn.com/fmn060/20140828/1610/p/m2wh400q85lt_large_uBYy_08460000535d125d.jpg" onload="photoFeedImgLoaded(this);"/></a>
+            </div>
+            <!-- å››å¼ ä¹‹ä¸‰ -->
+            <div class="item feed-photo-con" data-width="132" data-height="132"><a class="cursor-all" href="http://share.renren.com/share/600993176/17602425215?from=0101010302&ref=minifeed&sfet=2035&fin=2&fid=25709633010&ff_id=600993176&platform=0&expose_time=1537848649" target="_blank"><img src="http://fmn.rrfmn.com/fmn059/20140828/1610/p/m2wh400q85lt_large_gWnc_782400002121118f.jpg" onload="photoFeedImgLoaded(this);"/></a>
+            </div>
+            <!-- å››å¼ ä¹‹å›› -->
+            <div class="item feed-photo-con" data-width="132" data-height="132"><a class="cursor-all" href="http://share.renren.com/share/600993176/17602425215?from=0101010302&ref=minifeed&sfet=2035&fin=2&fid=25709633010&ff_id=600993176&platform=0&expose_time=1537848649" target="_blank"><img src="http://fmn.rrfmn.com/fmn061/20140828/1610/p/m2wh400q85lt_large_c2Kz_25fb0000a25c118c.jpg" onload="photoFeedImgLoaded(this);"/></a>
+            </div>
+          </div>
+        </div>
+      </div><p class="belong">æ‰€å±: <a stats="NF_25709633010_2035_600993176" href="http://share.renren.com/share/600993176/17602425215?from=0101010302&ref=minifeed&sfet=2035&fin=2&fid=25709633010&ff_id=600993176&platform=0&expose_time=1537848649" target="_blank">å°æ¢ä¸Šæµ·äº¤å¤§é—µè¡Œæ ¡åŒºæ–°æ¸¸æ³³é¦†å†…éƒ¨</a></p><p class="from">æ¥è‡ª:<a stats="NF_25709633010_2035_600993176" href="http://www.renren.com/349544598/profile?ref=minifeed&sfet=2035&fin=2&fid=25709633010&ff_id=600993176&platform=0&expose_time=1537848649" target="_blank" namecard="349544598">èµµæ³¾ T...</a></p></div>
+		</div><div class="details ui-new">
+  <div class="legend">
+    <span class="duration">2014-08-29 14:53</span><a data-share="{stype:'create_share_div',id:17602425215,owner:600993176,host:0,ref:'feed',from:'0101010403' }" class="share_new" href="#nogo" stats="NF_25709633010_2035_600993176">åˆ†äº«</a><a onclick="ILike_toggleUserLike('share','17602425215','0', '600993176','')" id="ILike17602425215" class="ilike_icon" href="#nogo" stats="NF_25709633010_2035_600993176">èµ</a><a class="reply-new" href="#nogo" data-fid=25709633010><span class="reply-show-word">å›å¤</span>(<span class="reply-count">2</span>)</a></div><div class="ilike-body" id="feedbody17602425215">
+  <div class="min-cmtbox statustab">
+    <div class="mincmt-body"><div class="mincmt-diggers statuscmtitem">
+        <p><a href="#nogo" onclick="ILike_toggleShow('share','17602425215', '0');return false;">14ä¸ªäººè§‰å¾—èµï¼</a></p>
+        <ul id="diggers17602425215" class="digger"></ul>
+      </div></div>
+  </div>
+</div><div class="feed-replies" id="feedbody25709633010"style="display:none;"><div class="a-reply">
+    <a href="http://www.renren.com/profile.do?id=224001464&ref=minifeed&sfet=2035&fin=2&fid=25709633010&ff_id=600993176&platform=0&expose_time=1537848649" class="avatar" target="_blank" namecard="224001464"><img src="http://hdn.xnimg.cn/photos/hdn121/20140828/1955/tiny_6XS2_53d9000124061986.jpg" /></a>
+    <div class="reply-content"><p class="text"><a href="http://www.renren.com/profile.do?id=224001464&ref=minifeed&sfet=2035&fin=2&fid=25709633010&ff_id=600993176&platform=0&expose_time=1537848649" namecard="224001464" class="name" target="_blank">å¼ å¼€</a>:&nbsp;å“å‘€ï¼ŒçœŸæ˜¯ã€‚ã€‚ã€‚ï¼Œå…³é”®æ˜¯ä¸Šé¢è¦é€å…‰ï¼Œéƒ½æ˜¯æ–°å»ºçš„å»ºç­‘ï¼Œè·Ÿåå¸ˆçš„æ¸¸æ³³é¦†çœ‹é½ï¼Œæ€ä¹ˆèƒ½è¿™æ ·ï¼Ÿç†å¿µå•Šï¼ç—›å¿ƒã€‚çœ‹æ¥NEUçš„æ¸¸æ³³é¦†é™¤äº†æ°´ç«‹æ–¹è¦ç”²å¤©ä¸‹äº†</p>
+      <div class="bottom-bar">
+        <span class="time">2014-08-30 11:22</span>
+        <div class="action"><a data-fid="25709633010" data-uid="224001464" data-uname="å¼ å¼€" data-rid="173675137161543680"
+            href="#nogo" onclick="return false;" class="reply">å›å¤</a>&nbsp;</div>
+      </div>
+    </div>
+  </div><div class="a-reply">
+    <a href="http://www.renren.com/profile.do?id=559252619&ref=minifeed&sfet=2035&fin=2&fid=25709633010&ff_id=600993176&platform=0&expose_time=1537848649" class="avatar" target="_blank" namecard="559252619"><img src="http://hdn.xnimg.cn/photos/hdn321/20140829/1145/tiny_gl2C_545f000126421986.jpg" /></a>
+    <div class="reply-content"><p class="text"><a href="http://www.renren.com/profile.do?id=559252619&ref=minifeed&sfet=2035&fin=2&fid=25709633010&ff_id=600993176&platform=0&expose_time=1537848649" namecard="559252619" class="name" target="_blank">é™ˆä¿Šå›¡</a>:&nbsp;è€ƒç ”æ•°å­¦ã€è€ƒç ”è‹±è¯­ã€è€ƒç ”æ”¿æ²»ã€ç»æµå­¦é‡‘èçœŸé¢˜æ±‡æ€»â—†
+è€ƒç ”æ•°å­¦ã€è€ƒç ”è‹±è¯­ã€è€ƒç ”æ”¿æ²»ã€ç»æµå­¦é‡‘èçœŸé¢˜æ±‡æ€»â—†
+è€ƒç ”æ•°å­¦ã€è€ƒç ”è‹±è¯­ã€è€ƒç ”æ”¿æ²»ã€ç»æµå­¦é‡‘èçœŸé¢˜æ±‡æ€»â—†</p>
+      <div class="bottom-bar">
+        <span class="time">2014-09-04 17:51</span>
+        <div class="action"><a data-fid="25709633010" data-uid="559252619" data-uname="é™ˆä¿Šå›¡" data-rid="173678866924858368"
+            href="#nogo" onclick="return false;" class="reply">å›å¤</a>&nbsp;</div>
+      </div>
+    </div>
+  </div></div>
+<div class="feed-comment"style="margin-top:13px">
+  <span class="avatar">
+       <img src="http://a.xnimg.cn/a.gif" />
+  </span>
+  <div class="comment-box">
+    <textarea data-fid="25709633010" data-privacy="" autocomplete="off">è¯„è®º...</textarea>
+    <div class="action">
+      <div class="action-l"><a href="#nogo" onclick="return false;" class="emotion">è¡¨æƒ…<span class="tip"><span class="arrow"></span>è¡¨æƒ…</span></a><a href="#nogo" onclick="return false;" class="mention">@<span class="tip"><span class="arrow"></span>ç‚¹å</span></a><span class="share">
+          <input id="shareThis_25709633010" type="checkbox" /><label for="shareThis_25709633010">åŒæ—¶åˆ†äº«</label>
+        </span></div>
+      <div class="action-r">
+        <a href="#nogo" onclick="return false;" class="submit submit-disabled">å›å¤</a><span class="count"><span class="inputed">0</span>/<span class="maxlength">140</span></span>
+      </div>
+    </div>
+  </div>
+</div><div id="get-params-for-ilike-17602425215" style="display:none;"><div id="reply-params-25709633010" style="display:none;">
+{
+  "cid": "17602425215",
+  "oid":"600993176",
+  "type": "page",
+  "typeNum": "4",
+  "rpLength": "2",
+  "userDigged":"",
+  "digged":"14",
+  "stype":"2035",
+  "feedOwnerId":"600993176","loadURI": "http://page.renren.com/600993176/share/replyList",
+     "sendURI": "http://page.renren.com/600993176/share/reply",
+     "delURI": "http://page.renren.com/600993176/share/replyDelete"}
+</div>
+</div></div><div class="feed-toolbar feed-toolbar-new">
+  <menu type="toolbar"></menu>
+</div></article><article id="newsfeed-25636090116" class="a-feed a-n-feed"><aside><figure style="" class="newsfeed-user" noavatar="" data-sourcecontrol="" data-id="600993176" data-name="ä¸Šæµ·äº¤é€šå¤§å­¦" data-mark="" data-source="17562795054"original_actor="727254854" original_source="17561954098"data-stype="2036" data-fid="25636090116" create-time="1407858106981">
+    <a stats="NF_25636090116_2036_600993176"href="http://www.renren.com/profile.do?id=600993176&ref=minifeed&sfet=2036&fin=3&fid=25636090116&ff_id=600993176&platform=0&expose_time=1537848649"
+       namecard="600993176" title="ä¸Šæµ·äº¤é€šå¤§å­¦" target="_blank"><img src="http://hdn.xnimg.cn/photos/hdn421/20111028/1445/h_tiny_koq9_5f970001bd3d2f76.jpg" width="50" title="ä¸Šæµ·äº¤é€šå¤§å­¦" /></a></figure>
+</aside><h3><a target="_blank" namecard="600993176" href="http://www.renren.com/profile.do?id=600993176&ref=minifeed&sfet=2036&fin=3&fid=25636090116&ff_id=600993176&platform=0&expose_time=1537848649" stats="NF_25636090116_2036_600993176">ä¸Šæµ·äº¤é€šå¤§å­¦</a>&nbsp;<img src="http://a.xnimg.cn/imgpro/page/icon/official-2.png" title="äººäººç½‘å®˜æ–¹è®¤è¯"/>:&nbsp;å£®å“‰åœ£å—ä½“<img src='http://a.xnimg.cn/imgpro/emotions/tie/16.gif' alt='æ·˜æ°”'  /></h3><div class="content"><div class="clearfix photo-content"><div class="clearfix photo-content" style="position:relative;"><div class="photo-box photo-one-new">
+						<a href="http://share.renren.com/share/600993176/17562795054?from=0101010302&ref=minifeed&sfet=2036&fin=3&fid=25636090116&ff_id=600993176&platform=0&expose_time=1537848649" class="photo-one" target="_blank"><img  src="http://fmn.rrimg.com/fmn065/20140812/1745/p/m2w400h300q85lt_large_JAFM_7bfb000010f61190.jpg" /></a></div>
+				</div><p class="descript">å—ä½“çš„æ–°çƒåœºï¼æ„Ÿè§‰ä¸é”™å“¦ï¼</p><p class="belong">æ‰€å±: <a stats="NF_25636090116_2036_600993176" href="http://photo.renren.com/photo/391246234/album-1004554835?ref=minifeed&sfet=2036&fin=3&fid=25636090116&ff_id=600993176&platform=0&expose_time=1537848649" target="_blank">SJTU-Life</a></p><p class="from">æ¥è‡ª:<a stats="NF_25636090116_2036_600993176" href="http://www.renren.com/391246234/profile?ref=minifeed&sfet=2036&fin=3&fid=25636090116&ff_id=600993176&platform=0&expose_time=1537848649" target="_blank" namecard="391246234">å‘¨äº¨ç¡•</a></p></div>
+		</div><div class="details ui-new">
+  <div class="legend">
+    <span class="duration">2014-08-12 23:41</span><a data-share="{stype:'create_share_div',id:17562795054,owner:600993176,host:0,ref:'feed',from:'0101010403' }" class="share_new" href="#nogo" stats="NF_25636090116_2036_600993176">åˆ†äº«</a><a onclick="ILike_toggleUserLike('share','17562795054','0', '600993176','')" id="ILike17562795054" class="ilike_icon" href="#nogo" stats="NF_25636090116_2036_600993176">èµ</a><a class="reply-new" href="#nogo" data-fid=25636090116><span class="reply-show-word">å›å¤</span>(<span class="reply-count">4</span>)</a>
+  </div><div class="ilike-body" id="feedbody17562795054">
+  <div class="min-cmtbox statustab">
+    <div class="mincmt-body"><div class="mincmt-diggers statuscmtitem">
+        <p><a href="#nogo" onclick="ILike_toggleShow('share','17562795054', '0');return false;">18ä¸ªäººè§‰å¾—èµï¼</a></p>
+        <ul id="diggers17562795054" class="digger"></ul>
+      </div></div>
+  </div>
+</div><div class="feed-replies" id="feedbody25636090116"style="display:none;"><div class="a-reply">
+    <a href="http://www.renren.com/profile.do?id=600993176&ref=minifeed&sfet=2036&fin=3&fid=25636090116&ff_id=600993176&platform=0&expose_time=1537848649" class="avatar" target="_blank" namecard="600993176"><img src="http://hdn.xnimg.cn/photos/hdn421/20111028/1445/h_tiny_koq9_5f970001bd3d2f76.jpg" /></a>
+    <div class="reply-content"><p class="text"><a href="http://www.renren.com/profile.do?id=600993176&ref=minifeed&sfet=2036&fin=3&fid=25636090116&ff_id=600993176&platform=0&expose_time=1537848649" namecard="600993176" class="name" target="_blank">ä¸Šæµ·äº¤é€šå¤§å­¦</a>:&nbsp;å£®å“‰åœ£å—ä½“<img src='http://a.xnimg.cn/imgpro/emotions/tie/16.gif' alt='æ·˜æ°”' /></p>
+      <div class="bottom-bar">
+        <span class="time">2014-08-12 23:41</span>
+        <div class="action"><a data-fid="25636090116" data-uid="600993176" data-uname="ä¸Šæµ·äº¤é€šå¤§å­¦" data-rid="173662760197482496"
+            href="#nogo" onclick="return false;" class="reply">å›å¤</a>&nbsp;</div>
+      </div>
+    </div>
+  </div><div class="more-reply">
+    <a data-fid="25636090116" href="#nogo" onclick="return false;" class="more">è¿˜æœ‰2æ¡å›å¤</a>
+  </div><div class="a-reply">
+    <a href="http://www.renren.com/profile.do?id=221806784&ref=minifeed&sfet=2036&fin=3&fid=25636090116&ff_id=600993176&platform=0&expose_time=1537848649" class="avatar" target="_blank" namecard="221806784"><img src="http://hdn.xnimg.cn/photos/hdn421/20140706/1855/tiny_DNie_7529000053ed195a.jpg" /></a>
+    <div class="reply-content"><p class="text"><a href="http://www.renren.com/profile.do?id=221806784&ref=minifeed&sfet=2036&fin=3&fid=25636090116&ff_id=600993176&platform=0&expose_time=1537848649" namecard="221806784" class="name" target="_blank">å½­é™åª›</a>:&nbsp;æœ‰ä¸ªå…¼èŒæ‰¾äº¤å¤§çš„ç«¥é‹åšå•Šï¼Œåœ¨å­¦æ ¡ç©ä¸€ä¸ªappå°±è¡Œäº†ï¼ï¼æœ‰æ²¡æœ‰äººå•Šï¼Ÿï¼Ÿï¼Ÿ</p>
+      <div class="bottom-bar">
+        <span class="time">2014-08-27 15:53</span>
+        <div class="action"><a data-fid="25636090116" data-uid="221806784" data-uname="å½­é™åª›" data-rid="173673146839766016"
+            href="#nogo" onclick="return false;" class="reply">å›å¤</a>&nbsp;</div>
+      </div>
+    </div>
+  </div></div>
+<div class="feed-comment"style="margin-top:13px">
+  <span class="avatar">
+       <img src="http://a.xnimg.cn/a.gif" />
+  </span>
+  <div class="comment-box">
+    <textarea data-fid="25636090116" data-privacy="" autocomplete="off">è¯„è®º...</textarea>
+    <div class="action">
+      <div class="action-l"><a href="#nogo" onclick="return false;" class="emotion">è¡¨æƒ…<span class="tip"><span class="arrow"></span>è¡¨æƒ…</span></a><a href="#nogo" onclick="return false;" class="mention">@<span class="tip"><span class="arrow"></span>ç‚¹å</span></a><span class="share">
+          <input id="shareThis_25636090116" type="checkbox" /><label for="shareThis_25636090116">åŒæ—¶åˆ†äº«</label>
+        </span></div>
+      <div class="action-r">
+        <a href="#nogo" onclick="return false;" class="submit submit-disabled">å›å¤</a><span class="count"><span class="inputed">0</span>/<span class="maxlength">140</span></span>
+      </div>
+    </div>
+  </div>
+</div><div id="get-params-for-ilike-17562795054" style="display:none;"><div id="reply-params-25636090116" style="display:none;">
+{
+  "cid": "17562795054",
+  "oid":"600993176",
+  "type": "page",
+  "typeNum": "4",
+  "rpLength": "4",
+  "userDigged":"",
+  "digged":"18",
+  "stype":"2036",
+  "feedOwnerId":"600993176","loadURI": "http://page.renren.com/600993176/share/replyList",
+     "sendURI": "http://page.renren.com/600993176/share/reply",
+     "delURI": "http://page.renren.com/600993176/share/replyDelete"}
+</div>
+</div></div><div class="feed-toolbar feed-toolbar-new">
+  <menu type="toolbar"></menu>
+</div></article><article class="a-feed a-n-feed" id="newsfeed-25501151377"><aside><figure style="" class="newsfeed-user" noavatar="" data-sourcecontrol="" data-id="600993176" data-name="ä¸Šæµ·äº¤é€šå¤§å­¦" data-mark="" data-source="17458113251"original_actor="" original_source=""data-stype="2032" data-fid="25501151377" create-time="1404905969309">
+    <a stats="NF_25501151377_2032_600993176"href="http://www.renren.com/profile.do?id=600993176&ref=minifeed&sfet=2032&fin=4&fid=25501151377&ff_id=600993176&platform=0&expose_time=1537848649"
+       namecard="600993176" title="ä¸Šæµ·äº¤é€šå¤§å­¦" target="_blank"><img src="http://hdn.xnimg.cn/photos/hdn421/20111028/1445/h_tiny_koq9_5f970001bd3d2f76.jpg" width="50" title="ä¸Šæµ·äº¤é€šå¤§å­¦" /></a></figure>
+</aside><h3><a target="_blank" namecard="600993176" href="http://www.renren.com/profile.do?id=600993176&ref=minifeed&sfet=2032&fin=4&fid=25501151377&ff_id=600993176&platform=0&expose_time=1537848649" stats="NF_25501151377_2032_600993176">ä¸Šæµ·äº¤é€šå¤§å­¦</a>&nbsp;<img src="http://a.xnimg.cn/imgpro/page/icon/official-2.png" title="äººäººç½‘å®˜æ–¹è®¤è¯"/>:&nbsp;åˆ†äº«æ—¥å¿—</h3><div class="content"><div class="source"><div class="rich-content no-media"><div class="content-main"><p class="title"><a stats="NF_25501151377_2032_600993176" href="http://blog.renren.com/blog/338961709/930964184?ref=minifeed&sfet=2032&fin=4&fid=25501151377&ff_id=600993176&platform=0&expose_time=1537848649" target="_blank">çŒ®ç»™2014å±Šå…¨ä½“æ¯•ä¸šç”Ÿï¼ˆæ¯•ä¸šèµ„æºå¤§æ•´ç†ï¼‰</a></p><p class="summary">äº²çˆ±çš„2014å±Šå…¨ä½“æ¯•ä¸šç”Ÿï¼š       åœ¨ä½ ä»¬ç¦»åˆ«æ¯æ ¡ï¼Œåˆ°æ›´å¹¿é˜”çš„èˆå°ç»§ç»­è¿½å¯»æ¢¦æƒ³çš„æ—¶å€™ï¼Œæ¯æ ¡ç‰¹æ„å‡†å¤‡äº†ä¸“å±äºä½ ä»¬â€”â€”2014å±Šæ¯•ä¸šç”Ÿçš„å½±åƒçºªå¿µä»¥åŠâ€œè‡´æ¯•ä¸šç”Ÿçš„äº”å°ä¿¡â€ï¼Œå¸Œæœ›ä½ ä»¬ç•™ä¸‹çš„æ˜¯æ€å¿µï¼Œ...</p><p class="from">æ¥è‡ª:&nbsp;<a stats="NF_25501151377_2032_600993176" href="http://www.renren.com/338961709/profile?ref=minifeed&sfet=2032&fin=4&fid=25501151377&ff_id=600993176&platform=0&expose_time=1537848649" target="_blank" namecard="338961709">äº¤å¤§æºæº</a></p></div>
+    </div></div></div><div class="details ui-new">
+<div class="legend">
+<span class="duration">2014-07-09 19:39</span><a stats="NF_25501151377_2032_600993176" href="#nogo"  class="share_new" data-share="{stype:'create_share_div',id:17458113251,owner:600993176,host:600993176}" >åˆ†äº«</a><a onclick="ILike_toggleUserLike('share','17458113251','0', '600993176','')" id="ILike17458113251" class="ilike_icon" href="#nogo" stats="NF_25501151377_2032_600993176">èµ</a><a class="reply-new" href="#nogo" data-fid=25501151377><span class="reply-show-word">å›å¤</span></a>
+</div><div class="ilike-body" id="feedbody17458113251">
+  <div class="min-cmtbox statustab">
+    <div class="mincmt-body"><div class="mincmt-diggers statuscmtitem">
+        <p><a href="#nogo" onclick="ILike_toggleShow('share','17458113251', '0');return false;">5ä¸ªäººè§‰å¾—èµï¼</a></p>
+        <ul id="diggers17458113251" class="digger"></ul>
+      </div></div>
+  </div>
+</div><div class="feed-replies" id="feedbody25501151377"style="display:none;"></div>
+<div class="feed-comment"style="margin-top:13px">
+  <span class="avatar">
+       <img src="http://a.xnimg.cn/a.gif" />
+  </span>
+  <div class="comment-box">
+    <textarea data-fid="25501151377" data-privacy="" autocomplete="off">è¯„è®º...</textarea>
+    <div class="action">
+      <div class="action-l"><a href="#nogo" onclick="return false;" class="emotion">è¡¨æƒ…<span class="tip"><span class="arrow"></span>è¡¨æƒ…</span></a><a href="#nogo" onclick="return false;" class="mention">@<span class="tip"><span class="arrow"></span>ç‚¹å</span></a><span class="share">
+          <input id="shareThis_25501151377" type="checkbox" /><label for="shareThis_25501151377">åŒæ—¶åˆ†äº«</label>
+        </span></div>
+      <div class="action-r">
+        <a href="#nogo" onclick="return false;" class="submit submit-disabled">å›å¤</a><span class="count"><span class="inputed">0</span>/<span class="maxlength">140</span></span>
+      </div>
+    </div>
+  </div>
+</div><div id="get-params-for-ilike-17458113251" style="display:none;"><div id="reply-params-25501151377" style="display:none;">
+{
+  "cid": "17458113251",
+  "oid":"600993176",
+  "type": "page",
+  "typeNum": "4",
+  "rpLength": "0",
+  "userDigged":"",
+  "digged":"5",
+  "stype":"2032",
+  "feedOwnerId":"600993176","loadURI": "http://page.renren.com/600993176/share/replyList",
+     "sendURI": "http://page.renren.com/600993176/share/reply",
+     "delURI": "http://page.renren.com/600993176/share/replyDelete"}
+</div>
+</div></div><div class="feed-toolbar feed-toolbar-new">
+  <menu type="toolbar"></menu>
+</div></article><article id="newsfeed-25452928793" class="a-feed a-n-feed"><aside><figure style="" class="newsfeed-user" noavatar="" data-sourcecontrol="" data-id="600993176" data-name="ä¸Šæµ·äº¤é€šå¤§å­¦" data-mark="" data-source="5214541393"data-stype="2008" data-fid="25452928793" create-time="1404008529117">
+    <a stats="NF_25452928793_2008_600993176"href="http://page.renren.com/600993176?ref=minifeed&sfet=2008&fin=5&fid=25452928793&ff_id=600993176&platform=0&expose_time=1537848649&feed=page_status&tagid=5214541393&statID=page_600993176_2&level=1&ref=minifeed&sfet=2008&fin=5&fid=25452928793&ff_id=600993176&platform=0&expose_time=1537848649"
+       namecard="600993176" title="ä¸Šæµ·äº¤é€šå¤§å­¦" target="_blank"><img src="http://hdn.xnimg.cn/photos/hdn421/20111028/1445/h_tiny_koq9_5f970001bd3d2f76.jpg" width="50" title="ä¸Šæµ·äº¤é€šå¤§å­¦" /></a></figure>
+</aside><h3><a target="_blank" namecard="600993176" href="http://page.renren.com/600993176?ref=minifeed&sfet=2008&fin=5&fid=25452928793&ff_id=600993176&platform=0&expose_time=1537848649&feed=page_status&tagid=5214541393&statID=page_600993176_2&level=1&ref=minifeed&sfet=2008&fin=5&fid=25452928793&ff_id=600993176&platform=0&expose_time=1537848649" stats="NF_25452928793_2008_600993176">ä¸Šæµ·äº¤é€šå¤§å­¦</a>&nbsp;<img src="http://a.xnimg.cn/imgpro/page/icon/official-2.png" title="äººäººç½‘å®˜æ–¹è®¤è¯"/>:&nbsp;2014å¹´æœ¬ç§‘ç”Ÿæ¯•ä¸šå…¸ç¤¼è¿›è¡Œä¸­ï½ç¥F10ersç”¨äººæ–‡ä¹‹å…‰ç‚¹äº®æœªæ¥ï¼</h3><div class="details ui-new">
+  <div class="legend">
+    <span class="duration">2014-06-29 10:22</span><span class="from"><a stats="NF_25452928793_2008_600993176" href="http://page.renren.com/600879583" target="_blank">é€šè¿‡UCæµè§ˆå™¨å‘å¸ƒ</a>
+  </span><a class="share_new_ui" stats="NF_25452928793_2008_600993176" href="#nogo"  onclick="a_fowardDoing('5214541393', '600993176', 'page_600993176_2', '1');return false;">åˆ†äº«</a><a stats="NF_25452928793_2008_600993176" href="#nogo"  class="ilike_icon" id="ILike5214541393" onclick="ILike_toggleUserLike('status','5214541393','0','600993176','')" >èµ</a><a class="reply-new" href="#nogo" data-fid=25452928793><span class="reply-show-word">å›å¤</span>(<span class="reply-count">3</span>)</a>
+  </div><div class="ilike-body" id="feedbody5214541393">
+  <div class="min-cmtbox statustab">
+    <div class="mincmt-body"><div class="mincmt-diggers statuscmtitem">
+        <p><a href="#nogo" onclick="ILike_toggleShow('status','5214541393', '0');return false;">4ä¸ªäººè§‰å¾—èµï¼</a></p>
+        <ul id="diggers5214541393" class="digger"></ul>
+      </div></div>
+  </div>
+</div><div class="feed-replies" id="feedbody25452928793"style="display:none;"><div class="a-reply">
+    <a href="http://www.renren.com/profile.do?id=327361004&ref=minifeed&sfet=2008&fin=5&fid=25452928793&ff_id=600993176&platform=0&expose_time=1537848649" class="avatar" target="_blank" namecard="327361004"><img src="http://hdn.xnimg.cn/photos/hdn221/20120901/2135/tiny_jDT9_4e24000185371376.jpg" /></a>
+    <div class="reply-content"><p class="text"><a href="http://www.renren.com/profile.do?id=327361004&ref=minifeed&sfet=2008&fin=5&fid=25452928793&ff_id=600993176&platform=0&expose_time=1537848649" namecard="327361004" class="name" target="_blank">é™ˆæ–°èƒ</a>:&nbsp;ä¸åœ¨åœºç‚¹èµ...</p>
+      <div class="bottom-bar">
+        <span class="time">2014-06-29 10:27</span>
+        <div class="action"><a data-fid="25452928793" data-uid="327361004" data-uname="é™ˆæ–°èƒ" data-rid="450359978621529565"
+            href="#nogo" onclick="return false;" class="reply">å›å¤</a>&nbsp;</div>
+      </div>
+    </div>
+  </div><div class="more-reply">
+    <a data-fid="25452928793" href="#nogo" onclick="return false;" class="more">è¿˜æœ‰1æ¡å›å¤</a>
+  </div><div class="a-reply">
+    <a href="http://www.renren.com/profile.do?id=224414257&ref=minifeed&sfet=2008&fin=5&fid=25452928793&ff_id=600993176&platform=0&expose_time=1537848649" class="avatar" target="_blank" namecard="224414257"><img src="http://hdn.xnimg.cn/photos/hdn321/20140324/1925/h_tiny_6Cli_953f0000ef95111a.jpg" /></a>
+    <div class="reply-content"><p class="text"><a href="http://www.renren.com/profile.do?id=224414257&ref=minifeed&sfet=2008&fin=5&fid=25452928793&ff_id=600993176&platform=0&expose_time=1537848649" namecard="224414257" class="name" target="_blank">åˆ˜é•¿æµ·</a>:&nbsp;æ€ä¹ˆä¸¤å¹´æ²¡æ›´æ–°è¿‡äº†ï¼Ÿ</p>
+      <div class="bottom-bar">
+        <span class="time">2016-05-11 15:12</span>
+        <div class="action"><a data-fid="25452928793" data-uid="224414257" data-uname="åˆ˜é•¿æµ·" data-rid="462344455247391744"
+            href="#nogo" onclick="return false;" class="reply">å›å¤</a>&nbsp;</div>
+      </div>
+    </div>
+  </div></div>
+<div class="feed-comment"style="margin-top:13px">
+  <span class="avatar">
+       <img src="http://a.xnimg.cn/a.gif" />
+  </span>
+  <div class="comment-box">
+    <textarea data-fid="25452928793" data-privacy="" autocomplete="off">è¯„è®º...</textarea>
+    <div class="action">
+      <div class="action-l"><a href="#nogo" onclick="return false;" class="emotion">è¡¨æƒ…<span class="tip"><span class="arrow"></span>è¡¨æƒ…</span></a><a href="#nogo" onclick="return false;" class="mention">@<span class="tip"><span class="arrow"></span>ç‚¹å</span></a></div>
+      <div class="action-r">
+        <a href="#nogo" onclick="return false;" class="submit submit-disabled">å›å¤</a><span class="count"><span class="inputed">0</span>/<span class="maxlength">140</span></span>
+      </div>
+    </div>
+  </div>
+</div><div id="get-params-for-ilike-5214541393" style="display:none;"><div id="reply-params-25452928793" style="display:none;">
+{
+  "cid": "5214541393",
+  "oid":"600993176",
+  "type": "page",
+  "typeNum": "3",
+  "rpLength": "3",
+  "userDigged":"",
+  "digged":"4",
+  "stype":"2008",
+  "feedOwnerId":"600993176","loadURI": "http://page.renren.com/doing/replyList",
+     "sendURI": "http://page.renren.com/doing/reply",
+     "delURI": "http://page.renren.com/doing/delReply"}
+</div>
+</div></div><div class="feed-toolbar feed-toolbar-new">
+  <menu type="toolbar"></menu>
+</div></article><article class="a-feed a-n-feed" id="newsfeed-25451251521"><aside><figure style="" class="newsfeed-user" noavatar="" data-sourcecontrol="" data-id="600993176" data-name="ä¸Šæµ·äº¤é€šå¤§å­¦" data-mark="" data-source="17422821185"original_actor="" original_source=""data-stype="2032" data-fid="25451251521" create-time="1403964391236">
+    <a stats="NF_25451251521_2032_600993176"href="http://www.renren.com/profile.do?id=600993176&ref=minifeed&sfet=2032&fin=6&fid=25451251521&ff_id=600993176&platform=0&expose_time=1537848649"
+       namecard="600993176" title="ä¸Šæµ·äº¤é€šå¤§å­¦" target="_blank"><img src="http://hdn.xnimg.cn/photos/hdn421/20111028/1445/h_tiny_koq9_5f970001bd3d2f76.jpg" width="50" title="ä¸Šæµ·äº¤é€šå¤§å­¦" /></a></figure>
+</aside><h3><a target="_blank" namecard="600993176" href="http://www.renren.com/profile.do?id=600993176&ref=minifeed&sfet=2032&fin=6&fid=25451251521&ff_id=600993176&platform=0&expose_time=1537848649" stats="NF_25451251521_2032_600993176">ä¸Šæµ·äº¤é€šå¤§å­¦</a>&nbsp;<img src="http://a.xnimg.cn/imgpro/page/icon/official-2.png" title="äººäººç½‘å®˜æ–¹è®¤è¯"/>:&nbsp;åˆ†äº«æ—¥å¿—</h3><div class="content"><div class="source"><div class="rich-content no-media"><div class="content-main"><p class="title"><a stats="NF_25451251521_2032_600993176" href="http://blog.renren.com/blog/302409225/930314483?ref=minifeed&sfet=2032&fin=6&fid=25451251521&ff_id=600993176&platform=0&expose_time=1537848649" target="_blank">å†™ç»™F10æ¯•ä¸šç”Ÿï¼›åœ¨ç¤¾ä¼šå¤šé¢é•œå­ä¸­åšç†æƒ³çš„è‡ªå·±ï¼</a></p><p class="summary">å†™ç»™F10æ¯•ä¸šç”Ÿï¼›åœ¨ç¤¾ä¼šå¤šé¢é•œå­ä¸­åšç†æƒ³çš„è‡ªå·±ï¼                 å¯’çª—å°±è¯»è¿‘å»¿è½½ï¼Œç«™åœ¨å­¦æ ¡å’Œç¤¾ä¼šçš„è½¬æŠ˜ç‚¹ï¼Œ2014å±Šæ¯•ä¸šç”Ÿå¾ˆå¤šå……æ»¡ç€è‡ªä¿¡ï¼Œå……æ»¡äº†æ†§æ†¬ã€‚å®¶åº­çš„æ‹…å­å°†è½¬ç§»åˆ°è‡ªå·±è‚©ä¸Šï¼š...</p><p class="from">æ¥è‡ª:&nbsp;<a stats="NF_25451251521_2032_600993176" href="http://www.renren.com/302409225/profile?ref=minifeed&sfet=2032&fin=6&fid=25451251521&ff_id=600993176&platform=0&expose_time=1537848649" target="_blank" namecard="302409225">æœ±å¥</a></p></div>
+    </div></div></div><div class="details ui-new">
+<div class="legend">
+<span class="duration">2014-06-28 22:06</span><span class="from"><a stats="NF_25451251521_2032_600993176" href="http://page.renren.com/600879583" target="_blank">é€šè¿‡UCæµè§ˆå™¨å‘å¸ƒ</a>
+  </span><a stats="NF_25451251521_2032_600993176" href="#nogo"  class="share_new" data-share="{stype:'create_share_div',id:17422821185,owner:600993176,host:600993176}" >åˆ†äº«</a><a onclick="ILike_toggleUserLike('share','17422821185','0', '600993176','')" id="ILike17422821185" class="ilike_icon" href="#nogo" stats="NF_25451251521_2032_600993176">èµ</a><a class="reply-new" href="#nogo" data-fid=25451251521><span class="reply-show-word">å›å¤</span></a>
+</div><div class="ilike-body" id="feedbody17422821185">
+  <div class="min-cmtbox statustab">
+    <div class="mincmt-body"><div class="mincmt-diggers statuscmtitem">
+        <p><a href="#nogo" onclick="ILike_toggleShow('share','17422821185', '0');return false;">1ä¸ªäººè§‰å¾—èµï¼</a></p>
+        <ul id="diggers17422821185" class="digger"></ul>
+      </div></div>
+  </div>
+</div><div class="feed-replies" id="feedbody25451251521"style="display:none;"></div>
+<div class="feed-comment"style="margin-top:13px">
+  <span class="avatar">
+       <img src="http://a.xnimg.cn/a.gif" />
+  </span>
+  <div class="comment-box">
+    <textarea data-fid="25451251521" data-privacy="" autocomplete="off">è¯„è®º...</textarea>
+    <div class="action">
+      <div class="action-l"><a href="#nogo" onclick="return false;" class="emotion">è¡¨æƒ…<span class="tip"><span class="arrow"></span>è¡¨æƒ…</span></a><a href="#nogo" onclick="return false;" class="mention">@<span class="tip"><span class="arrow"></span>ç‚¹å</span></a><span class="share">
+          <input id="shareThis_25451251521" type="checkbox" /><label for="shareThis_25451251521">åŒæ—¶åˆ†äº«</label>
+        </span></div>
+      <div class="action-r">
+        <a href="#nogo" onclick="return false;" class="submit submit-disabled">å›å¤</a><span class="count"><span class="inputed">0</span>/<span class="maxlength">140</span></span>
+      </div>
+    </div>
+  </div>
+</div><div id="get-params-for-ilike-17422821185" style="display:none;"><div id="reply-params-25451251521" style="display:none;">
+{
+  "cid": "17422821185",
+  "oid":"600993176",
+  "type": "page",
+  "typeNum": "4",
+  "rpLength": "0",
+  "userDigged":"",
+  "digged":"1",
+  "stype":"2032",
+  "feedOwnerId":"600993176","loadURI": "http://page.renren.com/600993176/share/replyList",
+     "sendURI": "http://page.renren.com/600993176/share/reply",
+     "delURI": "http://page.renren.com/600993176/share/replyDelete"}
+</div>
+</div></div><div class="feed-toolbar feed-toolbar-new">
+  <menu type="toolbar"></menu>
+</div></article><article id="newsfeed-25451250245" class="a-feed a-n-feed"><aside><figure style="" class="newsfeed-user" noavatar="" data-sourcecontrol="" data-id="600993176" data-name="ä¸Šæµ·äº¤é€šå¤§å­¦" data-mark="" data-source="17422820057"original_actor="0" original_source="0"data-stype="2036" data-fid="25451250245" create-time="1403964372042">
+    <a stats="NF_25451250245_2036_600993176"href="http://www.renren.com/profile.do?id=600993176&ref=minifeed&sfet=2036&fin=7&fid=25451250245&ff_id=600993176&platform=0&expose_time=1537848649"
+       namecard="600993176" title="ä¸Šæµ·äº¤é€šå¤§å­¦" target="_blank"><img src="http://hdn.xnimg.cn/photos/hdn421/20111028/1445/h_tiny_koq9_5f970001bd3d2f76.jpg" width="50" title="ä¸Šæµ·äº¤é€šå¤§å­¦" /></a></figure>
+</aside><h3><a target="_blank" namecard="600993176" href="http://www.renren.com/profile.do?id=600993176&ref=minifeed&sfet=2036&fin=7&fid=25451250245&ff_id=600993176&platform=0&expose_time=1537848649" stats="NF_25451250245_2036_600993176">ä¸Šæµ·äº¤é€šå¤§å­¦</a>&nbsp;<img src="http://a.xnimg.cn/imgpro/page/icon/official-2.png" title="äººäººç½‘å®˜æ–¹è®¤è¯"/>:&nbsp;:&#39;(</h3><div class="content"><div class="clearfix photo-content"><div class="clearfix photo-content" style="position:relative;"><div class="photo-box photo-one-new">
+						<a href="http://share.renren.com/share/600993176/17422820057?from=0101010302&ref=minifeed&sfet=2036&fin=7&fid=25451250245&ff_id=600993176&platform=0&expose_time=1537848649" class="photo-one" target="_blank"><img  src="http://fmn.xnpic.com/fmn057/20140628/2140/p/m2w400h300q85lt_original_6HA9_3d4f00005d751260.jpg" /></a></div>
+				</div><p class="descript">ã€VOS XVIIIåé’æ˜¥ã€‘â€œä»Šå¤©åˆ«è¿‡ï¼Œä½ èƒ½å¦å†è§åˆ°æˆ‘â€VOSæ¯•ä¸šç”Ÿæ™šä¼šå°±è¦èµ°åˆ°ç»“å°¾äº†ï¼Œä½†æˆ‘ä»¬çš„æ•…äº‹è¿˜åœ¨ç»§ç»­ï¼Œçµ¦èº«è¾¹çš„æœ‹å‹ä¸€ä¸ªå¤§å¤§çš„æ‹¥æŠ±ï¼Œæ— è®ºä»Šåæ˜¯å¦å†ç›¸...</p><p class="belong">æ‰€å±: <a stats="NF_25451250245_2036_600993176" href="http://photo.renren.com/photo/317086952/album-1030376779?ref=minifeed&sfet=2036&fin=7&fid=25451250245&ff_id=600993176&platform=0&expose_time=1537848649" target="_blank">ã€VOS XVâ…¢ã€‘ç¬¬åå…«å±Šæ¯•ä¸šç”Ÿæ™š...</a></p><p class="from">æ¥è‡ª:<a stats="NF_25451250245_2036_600993176" href="http://www.renren.com/317086952/profile?ref=minifeed&sfet=2036&fin=7&fid=25451250245&ff_id=600993176&platform=0&expose_time=1537848649" target="_blank" namecard="317086952">äº¤å¤§è‰ºæœ¯ä¸­å¿ƒ</a></p></div>
+		</div><div class="details ui-new">
+  <div class="legend">
+    <span class="duration">2014-06-28 22:06</span><span class="from"><a stats="NF_25451250245_2036_600993176" href="http://page.renren.com/600879583" target="_blank">é€šè¿‡UCæµè§ˆå™¨å‘å¸ƒ</a>
+  </span><a data-share="{stype:'create_share_div',id:17422820057,owner:600993176,host:0,ref:'feed',from:'0101010403' }" class="share_new" href="#nogo" stats="NF_25451250245_2036_600993176">åˆ†äº«</a><a onclick="ILike_toggleUserLike('share','17422820057','0', '600993176','')" id="ILike17422820057" class="ilike_icon" href="#nogo" stats="NF_25451250245_2036_600993176">èµ</a><a class="reply-new" href="#nogo" data-fid=25451250245><span class="reply-show-word">å›å¤</span>(<span class="reply-count">1</span>)</a>
+  </div><div class="feed-replies" id="feedbody25451250245"style="display:none;"><div class="a-reply">
+    <a href="http://www.renren.com/profile.do?id=600993176&ref=minifeed&sfet=2036&fin=7&fid=25451250245&ff_id=600993176&platform=0&expose_time=1537848649" class="avatar" target="_blank" namecard="600993176"><img src="http://hdn.xnimg.cn/photos/hdn421/20111028/1445/h_tiny_koq9_5f970001bd3d2f76.jpg" /></a>
+    <div class="reply-content"><p class="text"><a href="http://www.renren.com/profile.do?id=600993176&ref=minifeed&sfet=2036&fin=7&fid=25451250245&ff_id=600993176&platform=0&expose_time=1537848649" namecard="600993176" class="name" target="_blank">ä¸Šæµ·äº¤é€šå¤§å­¦</a>:&nbsp;:&#39;(</p>
+      <div class="bottom-bar">
+        <span class="time">2014-06-28 22:06</span>
+        <div class="action"><a data-fid="25451250245" data-uid="600993176" data-uname="ä¸Šæµ·äº¤é€šå¤§å­¦" data-rid="173630862720780288"
+            href="#nogo" onclick="return false;" class="reply">å›å¤</a>&nbsp;</div>
+      </div>
+    </div>
+  </div></div>
+<div class="feed-comment"style="margin-top:13px">
+  <span class="avatar">
+       <img src="http://a.xnimg.cn/a.gif" />
+  </span>
+  <div class="comment-box">
+    <textarea data-fid="25451250245" data-privacy="" autocomplete="off">è¯„è®º...</textarea>
+    <div class="action">
+      <div class="action-l"><a href="#nogo" onclick="return false;" class="emotion">è¡¨æƒ…<span class="tip"><span class="arrow"></span>è¡¨æƒ…</span></a><a href="#nogo" onclick="return false;" class="mention">@<span class="tip"><span class="arrow"></span>ç‚¹å</span></a><span class="share">
+          <input id="shareThis_25451250245" type="checkbox" /><label for="shareThis_25451250245">åŒæ—¶åˆ†äº«</label>
+        </span></div>
+      <div class="action-r">
+        <a href="#nogo" onclick="return false;" class="submit submit-disabled">å›å¤</a><span class="count"><span class="inputed">0</span>/<span class="maxlength">140</span></span>
+      </div>
+    </div>
+  </div>
+</div><div id="get-params-for-ilike-17422820057" style="display:none;"><div id="reply-params-25451250245" style="display:none;">
+{
+  "cid": "17422820057",
+  "oid":"600993176",
+  "type": "page",
+  "typeNum": "4",
+  "rpLength": "1",
+  "userDigged":"",
+  "digged":"",
+  "stype":"2036",
+  "feedOwnerId":"600993176","loadURI": "http://page.renren.com/600993176/share/replyList",
+     "sendURI": "http://page.renren.com/600993176/share/reply",
+     "delURI": "http://page.renren.com/600993176/share/replyDelete"}
+</div>
+</div></div><div class="feed-toolbar feed-toolbar-new">
+  <menu type="toolbar"></menu>
+</div></article><article id="newsfeed-25412761813" class="a-feed a-n-feed"><aside><figure style="" class="newsfeed-user" noavatar="" data-sourcecontrol="" data-id="600993176" data-name="ä¸Šæµ·äº¤é€šå¤§å­¦" data-mark="" data-source="929886810"data-stype="2012" data-fid="25412761813" create-time="1403323700587">
+    <a stats="NF_25412761813_2012_600993176"href="http://page.renren.com/600993176?ref=minifeed&sfet=2012&fin=8&fid=25412761813&ff_id=600993176&platform=0&expose_time=1537848649&feed=page_blog&tagid=929886810&ref=minifeed&sfet=2012&fin=8&fid=25412761813&ff_id=600993176&platform=0&expose_time=1537848649"
+       namecard="600993176" title="ä¸Šæµ·äº¤é€šå¤§å­¦" target="_blank"><img src="http://hdn.xnimg.cn/photos/hdn421/20111028/1445/h_tiny_koq9_5f970001bd3d2f76.jpg" width="50" title="ä¸Šæµ·äº¤é€šå¤§å­¦" /></a></figure>
+</aside><h3><a target="_blank" namecard="600993176" href="http://page.renren.com/600993176?ref=minifeed&sfet=2012&fin=8&fid=25412761813&ff_id=600993176&platform=0&expose_time=1537848649&feed=page_blog&tagid=929886810&ref=minifeed&sfet=2012&fin=8&fid=25412761813&ff_id=600993176&platform=0&expose_time=1537848649" stats="NF_25412761813_2012_600993176">ä¸Šæµ·äº¤é€šå¤§å­¦</a>&nbsp;<img src="http://a.xnimg.cn/imgpro/page/icon/official-2.png" title="äººäººç½‘å®˜æ–¹è®¤è¯"/>&nbsp;<span class="action">å‘è¡¨äº†æ—¥å¿—</span></h3><div class="content"><div class="rich-content"><div class="content-media"><a stats="NF_25412761813_2012_600993176" href="http://page.renren.com/600993176/note/929886810?ref=minifeed&sfet=2012&fin=8&fid=25412761813&ff_id=600993176&platform=0&expose_time=1537848649&feed=page_blog&tagid=929886810&statID=page_600993176_2&level=1" target="_blank"class="thumb middle-thumb">
+          <img src="http://fmn.rrimg.com/fmn065/20140621/1205/b_head_OL45_2431000127551262.jpg"width="100"onerror="removeFakeLinkImg(this)" />
+        </a></div><div class="content-main"><p class="title"><a stats="NF_25412761813_2012_600993176" href="http://page.renren.com/600993176/note/929886810?ref=minifeed&sfet=2012&fin=8&fid=25412761813&ff_id=600993176&platform=0&expose_time=1537848649&feed=page_blog&tagid=929886810&statID=page_600993176_2&level=1" target="_blank">ä¸Šæµ·äº¤å¤§2006å±Šæ¯•ä¸šç”Ÿé»„äº®ï¼šä»–ï¼Œä¸ºç¥–å›½å’Œç¤¾ä¼šè€Œæ¥ï¼</a></p><p class="summary">â€œæˆ‘æƒ³å¤šç•™ä¸‹ç‚¹ä»€ä¹ˆï¼Œå¸Œæœ›ç”Ÿå‘½æ›´æœ‰æ„ä¹‰â€ï¼›â€œæˆ‘ä¸èƒ½é€‰æ‹©ç”Ÿå‘½çš„é•¿åº¦ï¼Œä½†å¯ä»¥å†³å®šç”Ÿå‘½çš„åšåº¦â€ï¼›â€œåªè¦æœ‰ä¸€ä¸å¸Œæœ›ï¼Œå°±ä¸€å®šåšå¼ºæ´»ç€ï¼Œæ—©æ—¥åº·å¤ï¼Œå›å»ç»§ç»­æ‹¼æâ€â€¦â€¦2014å¹´5æœˆ8æ—¥ï¼Œç•™ä¸‹è¿™äº›è®©äººåŠ¨å®¹è¯è¯­çš„å¹´è½»ç”Ÿå‘½ç¦»æˆ‘ä»¬è€Œå»ã€‚    ã€€ã€€ä»–çš„é’æ˜¥é€‰æ‹©ï¼Œè®©ä¸Šæµ·äº¤é€šå¤§å­¦å­¦ç”Ÿè§†å…¶ä¸ºå¿ƒä¸­æ¥·æ¨¡ï¼›    ã€€ã€€ä»–çš„æ— ç§å¥‰çŒ®ï¼Œè®©å¦ä¸€ä¸ªç”Ÿå‘½é‡è·å…‰æ˜ï¼›    ã€€ã€€ä»–çš„å£°éŸ³ï¼Œéšä¸­å›½èˆªå¤©...</p></div>
+    </div></div><div class="details ui-new">
+  <div class="legend">
+    <span class="duration">2014-06-21 12:08</span><a stats="NF_25412761813_2012_600993176" href="#nogo"  class="share_new" data-share="{stype:'create_share_feed',id:929886810,owner:600993176,type:'pageBlog'}" >åˆ†äº«</a><a stats="NF_25412761813_2012_600993176" href="#nogo"  class="ilike_icon" id="ILike929886810" onclick="ILike_toggleUserLike('blog','929886810','0','600993176','')" >èµ</a><a class="reply-new" href="#nogo" data-fid=25412761813><span class="reply-show-word">å›å¤</span>(<span class="reply-count">1</span>)</a>
+
+  </div><div class="ilike-body" id="feedbody929886810">
+  <div class="min-cmtbox statustab">
+    <div class="mincmt-body"><div class="mincmt-diggers statuscmtitem">
+        <p><a href="#nogo" onclick="ILike_toggleShow('blog','929886810', '0');return false;">2ä¸ªäººè§‰å¾—èµï¼</a></p>
+        <ul id="diggers929886810" class="digger"></ul>
+      </div></div>
+  </div>
+</div><div class="feed-replies" id="feedbody25412761813"style="display:none;"><div class="a-reply">
+    <a href="http://www.renren.com/profile.do?id=734231861&ref=minifeed&sfet=2012&fin=8&fid=25412761813&ff_id=600993176&platform=0&expose_time=1537848649" class="avatar" target="_blank" namecard="734231861"><img src="http://hdn.xnimg.cn/photos/hdn321/20111204/2110/h_tiny_v4VY_6fa000028b392f76.jpg" /></a>
+    <div class="reply-content"><p class="text"><a href="http://www.renren.com/profile.do?id=734231861&ref=minifeed&sfet=2012&fin=8&fid=25412761813&ff_id=600993176&platform=0&expose_time=1537848649" namecard="734231861" class="name" target="_blank">è®¸æ¡‚æ•</a>:&nbsp;å¾ˆæ„Ÿäºº</p>
+      <div class="bottom-bar">
+        <span class="time">2014-06-21 14:02</span>
+        <div class="action"><a data-fid="25412761813" data-uid="734231861" data-uname="è®¸æ¡‚æ•" data-rid="47524881035455488"
+            href="#nogo" onclick="return false;" class="reply">å›å¤</a>&nbsp;</div>
+      </div>
+    </div>
+  </div></div>
+<div class="feed-comment"style="margin-top:13px">
+  <span class="avatar">
+       <img src="http://a.xnimg.cn/a.gif" />
+  </span>
+  <div class="comment-box">
+    <textarea data-fid="25412761813" data-privacy="" autocomplete="off">è¯„è®º...</textarea>
+    <div class="action">
+      <div class="action-l"><a href="#nogo" onclick="return false;" class="emotion">è¡¨æƒ…<span class="tip"><span class="arrow"></span>è¡¨æƒ…</span></a><a href="#nogo" onclick="return false;" class="mention">@<span class="tip"><span class="arrow"></span>ç‚¹å</span></a></div>
+      <div class="action-r">
+        <a href="#nogo" onclick="return false;" class="submit submit-disabled">å›å¤</a><span class="count"><span class="inputed">0</span>/<span class="maxlength">140</span></span>
+      </div>
+    </div>
+  </div>
+</div><div id="get-params-for-ilike-929886810" style="display:none;"><div id="reply-params-25412761813" style="display:none;">
+{
+  "cid": "929886810",
+  "oid":"600993176",
+  "type": "page",
+  "typeNum": "",
+  "rpLength": "1",
+  "userDigged":"",
+  "digged":"2",
+  "stype":"2012",
+  "feedOwnerId":"600993176","loadURI": "http://page.renren.com/600993176/note/replyList",
+     "sendURI": "http://page.renren.com/600993176/note/reply",
+     "delURI": "http://page.renren.com/600993176/note/replyDelete"}
+</div>
+</div></div><div class="feed-toolbar feed-toolbar-new">
+  <menu type="toolbar"></menu>
+</div></article><article class="a-feed" id="newsfeed-25397190479"><!-- å¤´åƒ --><aside><figure style="" class="newsfeed-user" noavatar="" data-sourcecontrol="" data-id="600993176" data-name="ä¸Šæµ·äº¤é€šå¤§å­¦" data-mark="" data-source="7863771910"data-stype="2038" data-fid="25397190479" create-time="1403060950143">
+    <a stats="NF_25397190479_2038_600993176"href="http://page.renren.com/600993176?&ref=minifeed&sfet=2038&fin=9&fid=25397190479&ff_id=600993176&platform=0&expose_time=1537848649"
+       namecard="600993176" title="ä¸Šæµ·äº¤é€šå¤§å­¦" target="_blank"><img src="http://hdn.xnimg.cn/photos/hdn421/20111028/1445/h_tiny_koq9_5f970001bd3d2f76.jpg" width="50" title="ä¸Šæµ·äº¤é€šå¤§å­¦" /></a></figure>
+</aside><h3><a target="_blank" namecard="600993176" href="http://page.renren.com/600993176?&ref=minifeed&sfet=2038&fin=9&fid=25397190479&ff_id=600993176&platform=0&expose_time=1537848649" stats="NF_25397190479_2038_600993176">ä¸Šæµ·äº¤é€šå¤§å­¦</a>&nbsp;<img src="http://a.xnimg.cn/imgpro/page/icon/official-2.png" title="äººäººç½‘å®˜æ–¹è®¤è¯"/>:ã€ä¸Šæµ·äº¤å¤§ç ´è¯‘DNAç£·ç¡«é…°åŒ–ä¿®é¥°åŸºå› ç»„åˆ†å¸ƒå›¾è°±ã€‘è¿‘æ—¥ï¼Œä¸Šæµ·äº¤é€šå¤§å­¦ç”Ÿå‘½ç§‘å­¦æŠ€æœ¯å­¦é™¢ã€å¾®ç”Ÿç‰©ä»£è°¢å›½å®¶é‡ç‚¹å®éªŒå®¤åœ¨DNAç£·ç¡«é…°åŒ–ä¿®é¥°æ–¹é¢å–å¾—çªç ´ï¼Œã€ŠNature Communicationsã€‹åœ¨çº¿å‘è¡¨äº†ç”±å¾·æ—æ•™æˆç ”ç©¶å°ç»„çš„æœ€æ–°è¿›å±•ã€‚è¯¦æƒ…ç‚¹å‡»<a href='http://rrurl.cn/cMVVrj' target='_blank' title='http://news.sjtu.edu.cn/info/1002/256616.htm'>http://rrurl.cn/cMVVrj </a></h3><div class="content"><div class="clearfix photo-content">
+		<div class="photo-box photo-one-new"><a href="http://page.renren.com/600993176/photo/7863771910?ref=minifeed&sfet=2038&fin=9&fid=25397190479&ff_id=600993176&platform=0&expose_time=1537848649&psource=1"  target="_blank"><img src="http://fmn.rrimg.com/fmn062/20140618/1105/p/m2w300h300q85lt_original_8vCr_189200000229118f.jpg">
+		</a></div>
+	</div>
+</div><div class="details ui-new">
+	<div class="legend"><span class="duration">2014-06-18 11:09</span><a stats="NF_25397190479_2038_600993176" href="#nogo"  class="share_new" data-share="{stype:'create_share_feed',id:7863771910,owner:600993176,type:'photo'}" >åˆ†äº«</a><a stats="NF_25397190479_2038_600993176" href="#nogo"  class="ilike_icon" id="ILike7863771910" onclick="ILike_toggleUserLike('photo','7863771910','0','600993176','')" >èµ</a><a class="reply-new" href="#nogo" data-fid=25397190479><span class="reply-show-word">å›å¤</span></a>
+	</div><div class="ilike-body" id="feedbody7863771910">
+  <div class="min-cmtbox statustab">
+    <div class="mincmt-body"><div class="mincmt-diggers statuscmtitem">
+        <p><a href="#nogo" onclick="ILike_toggleShow('photo','7863771910', '0');return false;">2ä¸ªäººè§‰å¾—èµï¼</a></p>
+        <ul id="diggers7863771910" class="digger"></ul>
+      </div></div>
+  </div>
+</div><div class="feed-replies" id="feedbody25397190479"style="display:none;"></div>
+<div class="feed-comment"style="margin-top:13px">
+  <span class="avatar">
+       <img src="http://a.xnimg.cn/a.gif" />
+  </span>
+  <div class="comment-box">
+    <textarea data-fid="25397190479" data-privacy="" autocomplete="off">è¯„è®º...</textarea>
+    <div class="action">
+      <div class="action-l"><a href="#nogo" onclick="return false;" class="emotion">è¡¨æƒ…<span class="tip"><span class="arrow"></span>è¡¨æƒ…</span></a><a href="#nogo" onclick="return false;" class="mention">@<span class="tip"><span class="arrow"></span>ç‚¹å</span></a></div>
+      <div class="action-r">
+        <a href="#nogo" onclick="return false;" class="submit submit-disabled">å›å¤</a><span class="count"><span class="inputed">0</span>/<span class="maxlength">140</span></span>
+      </div>
+    </div>
+  </div>
+</div><div id="get-params-for-ilike-7863771910" style="display:none;"><div id="reply-params-25397190479" style="display:none;">
+{
+  "cid": "7863771910",
+  "oid":"600993176",
+  "type": "page",
+  "typeNum": "",
+  "rpLength": "0",
+  "userDigged":"",
+  "digged":"2",
+  "stype":"2038",
+  "feedOwnerId":"600993176","loadURI": "http://page.renren.com/600993176/photo/replyList",
+     "sendURI": "http://page.renren.com/600993176/photo/reply",
+     "delURI": "http://page.renren.com/600993176/photo/replyDelete"}
+</div>
+</div></div><div class="feed-toolbar feed-toolbar-new">
+  <menu type="toolbar"></menu>
+</div></article><article id="newsfeed-25384607276" class="a-feed a-n-feed"><aside><figure style="" class="newsfeed-user" noavatar="" data-sourcecontrol="" data-id="600993176" data-name="ä¸Šæµ·äº¤é€šå¤§å­¦" data-mark="" data-source="5206805259"data-stype="2008" data-fid="25384607276" create-time="1402847447200">
+    <a stats="NF_25384607276_2008_600993176"href="http://page.renren.com/600993176?ref=minifeed&sfet=2008&fin=10&fid=25384607276&ff_id=600993176&platform=0&expose_time=1537848649&feed=page_status&tagid=5206805259&statID=page_600993176_2&level=1&ref=minifeed&sfet=2008&fin=10&fid=25384607276&ff_id=600993176&platform=0&expose_time=1537848649"
+       namecard="600993176" title="ä¸Šæµ·äº¤é€šå¤§å­¦" target="_blank"><img src="http://hdn.xnimg.cn/photos/hdn421/20111028/1445/h_head_P86X_5f970001bd3d2f76.jpg" width="50" title="ä¸Šæµ·äº¤é€šå¤§å­¦" /></a></figure>
+</aside><h3><a target="_blank" namecard="600993176" href="http://page.renren.com/600993176?ref=minifeed&sfet=2008&fin=10&fid=25384607276&ff_id=600993176&platform=0&expose_time=1537848649&feed=page_status&tagid=5206805259&statID=page_600993176_2&level=1&ref=minifeed&sfet=2008&fin=10&fid=25384607276&ff_id=600993176&platform=0&expose_time=1537848649" stats="NF_25384607276_2008_600993176">ä¸Šæµ·äº¤é€šå¤§å­¦</a>&nbsp;<img src="http://a.xnimg.cn/imgpro/page/icon/official-2.png" title="äººäººç½‘å®˜æ–¹è®¤è¯"/>:&nbsp;è€ƒè¯•å‘¨åˆ°å•¦~åŠ æ²¹ï¼</h3><div class="details ui-new">
+  <div class="legend">
+    <span class="duration">2014-06-15 23:50</span><a class="share_new_ui" stats="NF_25384607276_2008_600993176" href="#nogo"  onclick="a_fowardDoing('5206805259', '600993176', 'page_600993176_2', '1');return false;">åˆ†äº«</a><a stats="NF_25384607276_2008_600993176" href="#nogo"  class="ilike_icon" id="ILike5206805259" onclick="ILike_toggleUserLike('status','5206805259','0','600993176','')" >èµ</a><a class="reply-new" href="#nogo" data-fid=25384607276><span class="reply-show-word">å›å¤</span></a>
+  </div><div class="ilike-body" id="feedbody5206805259">
+  <div class="min-cmtbox statustab">
+    <div class="mincmt-body"><div class="mincmt-diggers statuscmtitem">
+        <p><a href="#nogo" onclick="ILike_toggleShow('status','5206805259', '0');return false;">12ä¸ªäººè§‰å¾—èµï¼</a></p>
+        <ul id="diggers5206805259" class="digger"></ul>
+      </div></div>
+  </div>
+</div><div class="feed-replies" id="feedbody25384607276"style="display:none;"></div>
+<div class="feed-comment"style="margin-top:13px">
+  <span class="avatar">
+       <img src="http://a.xnimg.cn/a.gif" />
+  </span>
+  <div class="comment-box">
+    <textarea data-fid="25384607276" data-privacy="" autocomplete="off">è¯„è®º...</textarea>
+    <div class="action">
+      <div class="action-l"><a href="#nogo" onclick="return false;" class="emotion">è¡¨æƒ…<span class="tip"><span class="arrow"></span>è¡¨æƒ…</span></a><a href="#nogo" onclick="return false;" class="mention">@<span class="tip"><span class="arrow"></span>ç‚¹å</span></a></div>
+      <div class="action-r">
+        <a href="#nogo" onclick="return false;" class="submit submit-disabled">å›å¤</a><span class="count"><span class="inputed">0</span>/<span class="maxlength">140</span></span>
+      </div>
+    </div>
+  </div>
+</div><div id="get-params-for-ilike-5206805259" style="display:none;"><div id="reply-params-25384607276" style="display:none;">
+{
+  "cid": "5206805259",
+  "oid":"600993176",
+  "type": "page",
+  "typeNum": "3",
+  "rpLength": "0",
+  "userDigged":"",
+  "digged":"12",
+  "stype":"2008",
+  "feedOwnerId":"600993176","loadURI": "http://page.renren.com/doing/replyList",
+     "sendURI": "http://page.renren.com/doing/reply",
+     "delURI": "http://page.renren.com/doing/delReply"}
+</div>
+</div></div><div class="feed-toolbar feed-toolbar-new">
+  <menu type="toolbar"></menu>
+</div></article><article id="newsfeed-25373859126" class="a-feed a-n-feed"><aside><figure style="" class="newsfeed-user" noavatar="" data-sourcecontrol="" data-id="600993176" data-name="ä¸Šæµ·äº¤é€šå¤§å­¦" data-mark="" data-source="5205572768"data-stype="2008" data-fid="25373859126" create-time="1402672103403">
+    <a stats="NF_25373859126_2008_600993176"href="http://page.renren.com/600993176?ref=minifeed&sfet=2008&fin=11&fid=25373859126&ff_id=600993176&platform=0&expose_time=1537848649&feed=page_status&tagid=5205572768&statID=page_600993176_2&level=1&ref=minifeed&sfet=2008&fin=11&fid=25373859126&ff_id=600993176&platform=0&expose_time=1537848649"
+       namecard="600993176" title="ä¸Šæµ·äº¤é€šå¤§å­¦" target="_blank"><img src="http://hdn.xnimg.cn/photos/hdn421/20111028/1445/h_head_P86X_5f970001bd3d2f76.jpg" width="50" title="ä¸Šæµ·äº¤é€šå¤§å­¦" /></a></figure>
+</aside><h3><a target="_blank" namecard="600993176" href="http://page.renren.com/600993176?ref=minifeed&sfet=2008&fin=11&fid=25373859126&ff_id=600993176&platform=0&expose_time=1537848649&feed=page_status&tagid=5205572768&statID=page_600993176_2&level=1&ref=minifeed&sfet=2008&fin=11&fid=25373859126&ff_id=600993176&platform=0&expose_time=1537848649" stats="NF_25373859126_2008_600993176">ä¸Šæµ·äº¤é€šå¤§å­¦</a>&nbsp;<img src="http://a.xnimg.cn/imgpro/page/icon/official-2.png" title="äººäººç½‘å®˜æ–¹è®¤è¯"/>:&nbsp;æ ¡å†…ç½‘ç»œè®¿é—®CCTV5-HD ç›´æ’­ï¼š<a href='http://rrurl.cn/8iAWp2' target='_blank' title='http://comic.sjtu.edu.cn/tv/2014.asp'>http://rrurl.cn/8iAWp2 </a>    è€ƒè¯•å‘¨æ¥äº†ï¼Œæœ‰æœŸæœ«è€ƒè¯•ä»»åŠ¡çš„ç­’å­ä»¬è‹¥æ˜¯ç†¬å¤œçœ‹çƒï¼Œä¸€å®šä¸èƒ½è€½è¯¯å­¦ä¹ å“¦~</h3><div class="details ui-new">
+  <div class="legend">
+    <span class="duration">2014-06-13 23:08</span><a class="share_new_ui" stats="NF_25373859126_2008_600993176" href="#nogo"  onclick="a_fowardDoing('5205572768', '600993176', 'page_600993176_2', '1');return false;">åˆ†äº«</a><a stats="NF_25373859126_2008_600993176" href="#nogo"  class="ilike_icon" id="ILike5205572768" onclick="ILike_toggleUserLike('status','5205572768','0','600993176','')" >èµ</a><a class="reply-new" href="#nogo" data-fid=25373859126><span class="reply-show-word">å›å¤</span></a>
+  </div><div class="ilike-body" id="feedbody5205572768">
+  <div class="min-cmtbox statustab">
+    <div class="mincmt-body"><div class="mincmt-diggers statuscmtitem">
+        <p><a href="#nogo" onclick="ILike_toggleShow('status','5205572768', '0');return false;">8ä¸ªäººè§‰å¾—èµï¼</a></p>
+        <ul id="diggers5205572768" class="digger"></ul>
+      </div></div>
+  </div>
+</div><div class="feed-replies" id="feedbody25373859126"style="display:none;"></div>
+<div class="feed-comment"style="margin-top:13px">
+  <span class="avatar">
+       <img src="http://a.xnimg.cn/a.gif" />
+  </span>
+  <div class="comment-box">
+    <textarea data-fid="25373859126" data-privacy="" autocomplete="off">è¯„è®º...</textarea>
+    <div class="action">
+      <div class="action-l"><a href="#nogo" onclick="return false;" class="emotion">è¡¨æƒ…<span class="tip"><span class="arrow"></span>è¡¨æƒ…</span></a><a href="#nogo" onclick="return false;" class="mention">@<span class="tip"><span class="arrow"></span>ç‚¹å</span></a></div>
+      <div class="action-r">
+        <a href="#nogo" onclick="return false;" class="submit submit-disabled">å›å¤</a><span class="count"><span class="inputed">0</span>/<span class="maxlength">140</span></span>
+      </div>
+    </div>
+  </div>
+</div><div id="get-params-for-ilike-5205572768" style="display:none;"><div id="reply-params-25373859126" style="display:none;">
+{
+  "cid": "5205572768",
+  "oid":"600993176",
+  "type": "page",
+  "typeNum": "3",
+  "rpLength": "0",
+  "userDigged":"",
+  "digged":"8",
+  "stype":"2008",
+  "feedOwnerId":"600993176","loadURI": "http://page.renren.com/doing/replyList",
+     "sendURI": "http://page.renren.com/doing/reply",
+     "delURI": "http://page.renren.com/doing/delReply"}
+</div>
+</div></div><div class="feed-toolbar feed-toolbar-new">
+  <menu type="toolbar"></menu>
+</div></article><article class="a-feed a-n-feed" id="newsfeed-25361851680"><aside><figure style="" class="newsfeed-user" noavatar="" data-sourcecontrol="" data-id="600993176" data-name="ä¸Šæµ·äº¤é€šå¤§å­¦" data-mark="" data-source="17359480253"original_actor="" original_source=""data-stype="2032" data-fid="25361851680" create-time="1402472442460">
+    <a stats="NF_25361851680_2032_600993176"href="http://www.renren.com/profile.do?id=600993176&ref=minifeed&sfet=2032&fin=12&fid=25361851680&ff_id=600993176&platform=0&expose_time=1537848649"
+       namecard="600993176" title="ä¸Šæµ·äº¤é€šå¤§å­¦" target="_blank"><img src="http://hdn.xnimg.cn/photos/hdn421/20111028/1445/h_tiny_koq9_5f970001bd3d2f76.jpg" width="50" title="ä¸Šæµ·äº¤é€šå¤§å­¦" /></a></figure>
+</aside><h3><a target="_blank" namecard="600993176" href="http://www.renren.com/profile.do?id=600993176&ref=minifeed&sfet=2032&fin=12&fid=25361851680&ff_id=600993176&platform=0&expose_time=1537848649" stats="NF_25361851680_2032_600993176">ä¸Šæµ·äº¤é€šå¤§å­¦</a>&nbsp;<img src="http://a.xnimg.cn/imgpro/page/icon/official-2.png" title="äººäººç½‘å®˜æ–¹è®¤è¯"/>:&nbsp;<img src='http://a.xnimg.cn/imgpro/emotions/tie/14.gif?ver=1' alt='ç”Ÿç—…'  /></h3><div class="content"><div class="source"><div class="rich-content no-media"><div class="content-main"><p class="title"><a stats="NF_25361851680_2032_600993176" href="http://page.renren.com/601816064/note/929212803?ref=minifeed&sfet=2032&fin=12&fid=25361851680&ff_id=600993176&platform=0&expose_time=1537848649" target="_blank">å…³äº2014å±Šç§‹å­£æ¯•ä¸šç ”ç©¶ç”Ÿã€æœ¬ç§‘ç”ŸåŠç†ç¦»æ ¡æ‰‹ç»­çš„å·¥ä½œå®‰æ’</a></p><p class="summary">å…³äº2014å±Šç§‹å­£æ¯•ä¸šç ”ç©¶ç”Ÿã€æœ¬ç§‘ç”ŸåŠç†ç¦»æ ¡æ‰‹ç»­çš„å·¥ä½œå®‰æ’ ä¸ºäº†ä¿è¯æˆ‘æ ¡2014å±Šç§‹å­£æ¯•ä¸šç ”ç©¶ç”Ÿã€æœ¬ç§‘ç”Ÿç¦»æ ¡å·¥ä½œäº•ç„¶æœ‰åºï¼Œåšåˆ°æ–‡æ˜ç¦»æ ¡ï¼Œç°å°†æœ‰å…³äº‹é¡¹é€šçŸ¥å¦‚ä¸‹ï¼šç¬¬ä¸€éƒ¨åˆ† æœ¬ç§‘ç”Ÿç¦»æ ¡å·¥ä½œä¸€ã€æ—¶é—´å®‰æ’...</p><p class="from">æ¥è‡ª:&nbsp;<a stats="NF_25361851680_2032_600993176" href="http://www.renren.com/601816064/profile?ref=minifeed&sfet=2032&fin=12&fid=25361851680&ff_id=600993176&platform=0&expose_time=1537848649" target="_blank" namecard="601816064">ä¸Šæµ·äº¤å¤§F10çº§ç†äº‹ä¼š</a></p></div>
+    </div></div></div><div class="details ui-new">
+<div class="legend">
+<span class="duration">2014-06-11 15:40</span><a stats="NF_25361851680_2032_600993176" href="#nogo"  class="share_new" data-share="{stype:'create_share_div',id:17359480253,owner:600993176,host:600993176}" >åˆ†äº«</a><a onclick="ILike_toggleUserLike('share','17359480253','0', '600993176','')" id="ILike17359480253" class="ilike_icon" href="#nogo" stats="NF_25361851680_2032_600993176">èµ</a><a class="reply-new" href="#nogo" data-fid=25361851680><span class="reply-show-word">å›å¤</span>(<span class="reply-count">4</span>)</a>
+</div><div class="ilike-body" id="feedbody17359480253">
+  <div class="min-cmtbox statustab">
+    <div class="mincmt-body"><div class="mincmt-diggers statuscmtitem">
+        <p><a href="#nogo" onclick="ILike_toggleShow('share','17359480253', '0');return false;">1ä¸ªäººè§‰å¾—èµï¼</a></p>
+        <ul id="diggers17359480253" class="digger"></ul>
+      </div></div>
+  </div>
+</div><div class="feed-replies" id="feedbody25361851680"style="display:none;"><div class="a-reply">
+    <a href="http://www.renren.com/profile.do?id=600993176&ref=minifeed&sfet=2032&fin=12&fid=25361851680&ff_id=600993176&platform=0&expose_time=1537848649" class="avatar" target="_blank" namecard="600993176"><img src="http://hdn.xnimg.cn/photos/hdn421/20111028/1445/h_tiny_koq9_5f970001bd3d2f76.jpg" /></a>
+    <div class="reply-content"><p class="text"><a href="http://www.renren.com/profile.do?id=600993176&ref=minifeed&sfet=2032&fin=12&fid=25361851680&ff_id=600993176&platform=0&expose_time=1537848649" namecard="600993176" class="name" target="_blank">ä¸Šæµ·äº¤é€šå¤§å­¦</a>:&nbsp;<img src='http://a.xnimg.cn/imgpro/emotions/tie/14.gif?ver=1' alt='ç”Ÿç—…' /></p>
+      <div class="bottom-bar">
+        <span class="time">2014-06-11 15:40</span>
+        <div class="action"><a data-fid="25361851680" data-uid="600993176" data-uname="ä¸Šæµ·äº¤é€šå¤§å­¦" data-rid="173618640833759232"
+            href="#nogo" onclick="return false;" class="reply">å›å¤</a>&nbsp;</div>
+      </div>
+    </div>
+  </div><div class="more-reply">
+    <a data-fid="25361851680" href="#nogo" onclick="return false;" class="more">è¿˜æœ‰2æ¡å›å¤</a>
+  </div><div class="a-reply">
+    <a href="http://www.renren.com/profile.do?id=269634428&ref=minifeed&sfet=2032&fin=12&fid=25361851680&ff_id=600993176&platform=0&expose_time=1537848649" class="avatar" target="_blank" namecard="269634428"><img src="http://hdn.xnimg.cn/photos/hdn511/20090321/11/50/tiny_KFye_160906h204238.jpg" /></a>
+    <div class="reply-content"><p class="text"><a href="http://www.renren.com/profile.do?id=269634428&ref=minifeed&sfet=2032&fin=12&fid=25361851680&ff_id=600993176&platform=0&expose_time=1537848649" namecard="269634428" class="name" target="_blank">è¢å…ƒcici</a>:&nbsp;å›å¤ä¸Šæµ·äº¤é€šå¤§å­¦: æˆ‘äººåœ¨æ²³å—ï¼Œå®åœ¨ä¹Ÿä¸æ–¹ä¾¿æ‰¾åˆ°ä»–å•Šï¼ŒæŒ‰ç†è¯´ä»–éƒ½è¯¥åšä¸‰äº†ã€‚ã€‚ã€‚å¦‚æœé¡ºåˆ©æ»´è¯ï¼Œéƒ½ä¼šæ¯•ä¸šæ»´é‚£ç§å§ï¼Œç­‰æ¯•ä¸šäº†ä¸æ‰å¤±è”ä¹ˆï¼Ÿã€‚ã€‚ã€‚æˆ‘ä»¬æ˜¯æ ¡å‹ï¼Œæœ¬æ¥å…±åŒæœ‹å‹éƒ½å‡ ä¹æ²¡æœ‰ï¼Œæ‰€ä»¥çƒ¦è¯·æ¥¼ä¸»å¤§å‘æ…ˆæ‚²ï¼Œå¸®æˆ‘å¯»å¯»æˆ‘æ»´è¿™ä¸ªå½“å¹´å¸®åŠ©æˆ‘æ»´ç”·ç¥å§ï¼O(âˆ©_âˆ©)Oè°¢è°¢æ¥¼ä¸»äº†</p>
+      <div class="bottom-bar">
+        <span class="time">2014-10-11 20:42</span>
+        <div class="action"><a data-fid="25361851680" data-uid="269634428" data-uname="è¢å…ƒcici" data-rid="173705139549746176"
+            href="#nogo" onclick="return false;" class="reply">å›å¤</a>&nbsp;</div>
+      </div>
+    </div>
+  </div></div>
+<div class="feed-comment"style="margin-top:13px">
+  <span class="avatar">
+       <img src="http://a.xnimg.cn/a.gif" />
+  </span>
+  <div class="comment-box">
+    <textarea data-fid="25361851680" data-privacy="" autocomplete="off">è¯„è®º...</textarea>
+    <div class="action">
+      <div class="action-l"><a href="#nogo" onclick="return false;" class="emotion">è¡¨æƒ…<span class="tip"><span class="arrow"></span>è¡¨æƒ…</span></a><a href="#nogo" onclick="return false;" class="mention">@<span class="tip"><span class="arrow"></span>ç‚¹å</span></a><span class="share">
+          <input id="shareThis_25361851680" type="checkbox" /><label for="shareThis_25361851680">åŒæ—¶åˆ†äº«</label>
+        </span></div>
+      <div class="action-r">
+        <a href="#nogo" onclick="return false;" class="submit submit-disabled">å›å¤</a><span class="count"><span class="inputed">0</span>/<span class="maxlength">140</span></span>
+      </div>
+    </div>
+  </div>
+</div><div id="get-params-for-ilike-17359480253" style="display:none;"><div id="reply-params-25361851680" style="display:none;">
+{
+  "cid": "17359480253",
+  "oid":"600993176",
+  "type": "page",
+  "typeNum": "4",
+  "rpLength": "4",
+  "userDigged":"",
+  "digged":"1",
+  "stype":"2032",
+  "feedOwnerId":"600993176","loadURI": "http://page.renren.com/600993176/share/replyList",
+     "sendURI": "http://page.renren.com/600993176/share/reply",
+     "delURI": "http://page.renren.com/600993176/share/replyDelete"}
+</div>
+</div></div><div class="feed-toolbar feed-toolbar-new">
+  <menu type="toolbar"></menu>
+</div></article><article id="newsfeed-25360389030" class="a-feed a-n-feed"><aside><figure style="" class="newsfeed-user" noavatar="" data-sourcecontrol="" data-id="600993176" data-name="ä¸Šæµ·äº¤é€šå¤§å­¦" data-mark="" data-source="929189165"data-stype="2012" data-fid="25360389030" create-time="1402454239179">
+    <a stats="NF_25360389030_2012_600993176"href="http://page.renren.com/600993176?ref=minifeed&sfet=2012&fin=13&fid=25360389030&ff_id=600993176&platform=0&expose_time=1537848649&feed=page_blog&tagid=929189165&ref=minifeed&sfet=2012&fin=13&fid=25360389030&ff_id=600993176&platform=0&expose_time=1537848649"
+       namecard="600993176" title="ä¸Šæµ·äº¤é€šå¤§å­¦" target="_blank"><img src="http://hdn.xnimg.cn/photos/hdn421/20111028/1445/h_tiny_koq9_5f970001bd3d2f76.jpg" width="50" title="ä¸Šæµ·äº¤é€šå¤§å­¦" /></a></figure>
+</aside><h3><a target="_blank" namecard="600993176" href="http://page.renren.com/600993176?ref=minifeed&sfet=2012&fin=13&fid=25360389030&ff_id=600993176&platform=0&expose_time=1537848649&feed=page_blog&tagid=929189165&ref=minifeed&sfet=2012&fin=13&fid=25360389030&ff_id=600993176&platform=0&expose_time=1537848649" stats="NF_25360389030_2012_600993176">ä¸Šæµ·äº¤é€šå¤§å­¦</a>&nbsp;<img src="http://a.xnimg.cn/imgpro/page/icon/official-2.png" title="äººäººç½‘å®˜æ–¹è®¤è¯"/>&nbsp;<span class="action">å‘è¡¨äº†æ—¥å¿—</span></h3><div class="content"><div class="rich-content"><div class="content-media"><a stats="NF_25360389030_2012_600993176" href="http://page.renren.com/600993176/note/929189165?ref=minifeed&sfet=2012&fin=13&fid=25360389030&ff_id=600993176&platform=0&expose_time=1537848649&feed=page_blog&tagid=929189165&statID=page_600993176_2&level=1" target="_blank"class="thumb middle-thumb">
+          <img src="http://fmn.rrfmn.com/fmn060/20140611/1035/b_head_JMYy_23d6000113911262.jpg"width="100"onerror="removeFakeLinkImg(this)" />
+        </a></div><div class="content-main"><p class="title"><a stats="NF_25360389030_2012_600993176" href="http://page.renren.com/600993176/note/929189165?ref=minifeed&sfet=2012&fin=13&fid=25360389030&ff_id=600993176&platform=0&expose_time=1537848649&feed=page_blog&tagid=929189165&statID=page_600993176_2&level=1" target="_blank">é¾™ç¯ã€é¾™å®‡ ï¼šåå¹´ç§‘ç ”è·¯ åŒç”Ÿå§å¦¹èŠ±</a></p><p class="summary">é¾™ç¯ã€é¾™å®‡ï¼Œä¸Šæµ·äº¤é€šå¤§å­¦ç”µå­ä¿¡æ¯ä¸ç”µæ°”å·¥ç¨‹å­¦é™¢è®¡ç®—æœºç³»åšå£«æ¯•ä¸šç”Ÿï¼Œç°ä¸ºä¸Šæµ·äº¤é€šå¤§å­¦è®¡ç®—æœºç³»è®²å¸ˆã€‚è¿™å¯¹åŒèƒèƒå§å¦¹è‡ªæœ¬ç§‘èµ·ï¼Œå°±é€‰æ‹©äº†è®¡ç®—æœºä¸“ä¸šï¼Œå¹¶ä¸“æ”»ä¸åŒçš„ç§‘ç ”æ–¹å‘ï¼Œç›´è‡³åšå£«æ¯•ä¸šï¼Œå¦‚ä»Šéƒ½å·²åœ¨å¯¼å¸ˆçš„åŠ›èä¸‹ç•™æ ¡ä»»æ•™ï¼Œåœ¨å„è‡ªçš„ç§‘ç ”é¢†åŸŸç»§ç»­å‘å±•ã€‚                                                    ...</p></div>
+    </div></div><div class="details ui-new">
+  <div class="legend">
+    <span class="duration">2014-06-11 10:37</span><a stats="NF_25360389030_2012_600993176" href="#nogo"  class="share_new" data-share="{stype:'create_share_feed',id:929189165,owner:600993176,type:'pageBlog'}" >åˆ†äº«</a><a stats="NF_25360389030_2012_600993176" href="#nogo"  class="ilike_icon" id="ILike929189165" onclick="ILike_toggleUserLike('blog','929189165','0','600993176','')" >èµ</a><a class="reply-new" href="#nogo" data-fid=25360389030><span class="reply-show-word">å›å¤</span></a>
+
+  </div><div class="ilike-body" id="feedbody929189165">
+  <div class="min-cmtbox statustab">
+    <div class="mincmt-body"><div class="mincmt-diggers statuscmtitem">
+        <p><a href="#nogo" onclick="ILike_toggleShow('blog','929189165', '0');return false;">9ä¸ªäººè§‰å¾—èµï¼</a></p>
+        <ul id="diggers929189165" class="digger"></ul>
+      </div></div>
+  </div>
+</div><div class="feed-replies" id="feedbody25360389030"style="display:none;"></div>
+<div class="feed-comment"style="margin-top:13px">
+  <span class="avatar">
+       <img src="http://a.xnimg.cn/a.gif" />
+  </span>
+  <div class="comment-box">
+    <textarea data-fid="25360389030" data-privacy="" autocomplete="off">è¯„è®º...</textarea>
+    <div class="action">
+      <div class="action-l"><a href="#nogo" onclick="return false;" class="emotion">è¡¨æƒ…<span class="tip"><span class="arrow"></span>è¡¨æƒ…</span></a><a href="#nogo" onclick="return false;" class="mention">@<span class="tip"><span class="arrow"></span>ç‚¹å</span></a></div>
+      <div class="action-r">
+        <a href="#nogo" onclick="return false;" class="submit submit-disabled">å›å¤</a><span class="count"><span class="inputed">0</span>/<span class="maxlength">140</span></span>
+      </div>
+    </div>
+  </div>
+</div><div id="get-params-for-ilike-929189165" style="display:none;"><div id="reply-params-25360389030" style="display:none;">
+{
+  "cid": "929189165",
+  "oid":"600993176",
+  "type": "page",
+  "typeNum": "",
+  "rpLength": "0",
+  "userDigged":"",
+  "digged":"9",
+  "stype":"2012",
+  "feedOwnerId":"600993176","loadURI": "http://page.renren.com/600993176/note/replyList",
+     "sendURI": "http://page.renren.com/600993176/note/reply",
+     "delURI": "http://page.renren.com/600993176/note/replyDelete"}
+</div>
+</div></div><div class="feed-toolbar feed-toolbar-new">
+  <menu type="toolbar"></menu>
+</div></article><article id="newsfeed-25358639542" class="a-feed a-n-feed"><aside><figure style="" class="newsfeed-user" noavatar="" data-sourcecontrol="" data-id="600993176" data-name="ä¸Šæµ·äº¤é€šå¤§å­¦" data-mark="" data-source="5203663175"data-stype="2008" data-fid="25358639542" create-time="1402411240854">
+    <a stats="NF_25358639542_2008_600993176"href="http://page.renren.com/600993176?ref=minifeed&sfet=2008&fin=14&fid=25358639542&ff_id=600993176&platform=0&expose_time=1537848649&feed=page_status&tagid=5203663175&statID=page_600993176_2&level=1&ref=minifeed&sfet=2008&fin=14&fid=25358639542&ff_id=600993176&platform=0&expose_time=1537848649"
+       namecard="600993176" title="ä¸Šæµ·äº¤é€šå¤§å­¦" target="_blank"><img src="http://hdn.xnimg.cn/photos/hdn421/20111028/1445/h_tiny_koq9_5f970001bd3d2f76.jpg" width="50" title="ä¸Šæµ·äº¤é€šå¤§å­¦" /></a></figure>
+</aside><h3><a target="_blank" namecard="600993176" href="http://page.renren.com/600993176?ref=minifeed&sfet=2008&fin=14&fid=25358639542&ff_id=600993176&platform=0&expose_time=1537848649&feed=page_status&tagid=5203663175&statID=page_600993176_2&level=1&ref=minifeed&sfet=2008&fin=14&fid=25358639542&ff_id=600993176&platform=0&expose_time=1537848649" stats="NF_25358639542_2008_600993176">ä¸Šæµ·äº¤é€šå¤§å­¦</a>&nbsp;<img src="http://a.xnimg.cn/imgpro/page/icon/official-2.png" title="äººäººç½‘å®˜æ–¹è®¤è¯"/>:&nbsp;<img src='http://a.xnimg.cn/imgpro/emotions/tie/16.gif ' alt='æ·˜æ°”' class='ubb-type-16' width='16' height='16' /><img src='http://a.xnimg.cn/imgpro/emotions/tie/16.gif ' alt='æ·˜æ°”' class='ubb-type-16' width='16' height='16' /><img src='http://a.xnimg.cn/imgpro/emotions/tie/16.gif ' alt='æ·˜æ°”' class='ubb-type-16' width='16' height='16' />è½¬è‡ª<a href="http://www.renren.com/profile.do?id=338961709" namecard="338961709" target="_blank">äº¤å¤§æºæº</a></h3><div class="content">
+    <div class="original-stauts">
+      <a class="orginal-status-author" target="_blank" href="http://www.renren.com/profile.do?id=338961709&ref=minifeed&sfet=2008&fin=14&fid=25358639542&ff_id=600993176&platform=0&expose_time=1537848649&statID=page_600993176_2&level=1">äº¤å¤§æºæº</a>:æºæºç»™å¤§å®¶å¸¦æ¥ä¸€ä¸ªå¥½æ¶ˆæ¯å“Ÿï¼šå­¦ç”Ÿä½“è‚²æ€»ä¼šç»¼åˆè€ƒè™‘å„æ–¹é¢å› ç´ åï¼Œå†³å®šåœ¨æœ¬å‘¨äº”è½¬æ’­ä¸–ç•Œæ¯æ­å¹•èµ›ä¹‹å‰ä¸ºå¤§å®¶å¸¦æ¥ç²¾å½©çš„å¼€å¹•å¼è½¬æ’­ã€‚
+æ‰€ä»¥å‘€ï¼Œæ‰€æœ‰çƒè¿·æœ‹å‹ä»¬æ³¨æ„å•¦ï¼Œèèå ‚å°†äº6.13æ—¥1:30 amå¼€å§‹æ­£å¼å…¥åœºï¼Œå¼€å¹•å¼å°†äº2:00å‡†æ—¶å¼€å§‹ï¼Œæ­å¹•æˆ˜å°†äº4:00å‡†æ—¶å¼€å§‹ï¼Œè®©æˆ‘ä»¬ä¸€èµ·ï¼Œå°½æƒ…äº«å—è¶³çƒçš„å¿«ä¹ï¼</div>
+  </div><div class="details ui-new">
+  <div class="legend">
+    <span class="duration">2014-06-10 22:40</span><a class="share_new_ui" stats="NF_25358639542_2008_600993176" href="#nogo"  onclick="a_fowardDoing('5203663175', '600993176', 'page_600993176_2', '1');return false;">åˆ†äº«</a><a stats="NF_25358639542_2008_600993176" href="#nogo"  class="ilike_icon" id="ILike5203663175" onclick="ILike_toggleUserLike('status','5203663175','0','600993176','')" >èµ</a><a class="reply-new" href="#nogo" data-fid=25358639542><span class="reply-show-word">å›å¤</span>(<span class="reply-count">4</span>)</a>
+  </div><div class="ilike-body" id="feedbody5203663175">
+  <div class="min-cmtbox statustab">
+    <div class="mincmt-body"><div class="mincmt-diggers statuscmtitem">
+        <p><a href="#nogo" onclick="ILike_toggleShow('status','5203663175', '0');return false;">3ä¸ªäººè§‰å¾—èµï¼</a></p>
+        <ul id="diggers5203663175" class="digger"></ul>
+      </div></div>
+  </div>
+</div><div class="feed-replies" id="feedbody25358639542"style="display:none;"><div class="a-reply">
+    <a href="http://www.renren.com/profile.do?id=477189732&ref=minifeed&sfet=2008&fin=14&fid=25358639542&ff_id=600993176&platform=0&expose_time=1537848649" class="avatar" target="_blank" namecard="477189732"><img src="http://hdn.xnimg.cn/photos/hdn121/20140523/1330/h_tiny_45vt_27c3000152201986.jpg" /></a>
+    <div class="reply-content"><p class="text"><a href="http://www.renren.com/profile.do?id=477189732&ref=minifeed&sfet=2008&fin=14&fid=25358639542&ff_id=600993176&platform=0&expose_time=1537848649" namecard="477189732" class="name" target="_blank">ä¸é“é›¯</a>:&nbsp;å»èèå ‚çœ‹ä¸–ç•Œæ¯å•¦å•¦å•¦<img src='http://a.xnimg.cn/imgpro/emotions/tie/16.gif' alt='æ·˜æ°”' /><img src='http://a.xnimg.cn/imgpro/emotions/tie/16.gif' alt='æ·˜æ°”' /></p>
+      <div class="bottom-bar">
+        <span class="time">2014-06-11 00:03</span>
+        <div class="action"><a data-fid="25358639542" data-uid="477189732" data-uname="ä¸é“é›¯" data-rid="15871602221"
+            href="#nogo" onclick="return false;" class="reply">å›å¤</a>&nbsp;</div>
+      </div>
+    </div>
+  </div><div class="more-reply">
+    <a data-fid="25358639542" href="#nogo" onclick="return false;" class="more">è¿˜æœ‰2æ¡å›å¤</a>
+  </div><div class="a-reply">
+    <a href="http://www.renren.com/profile.do?id=317133321&ref=minifeed&sfet=2008&fin=14&fid=25358639542&ff_id=600993176&platform=0&expose_time=1537848649" class="avatar" target="_blank" namecard="317133321"><img src="http://hdn.xnimg.cn/photos/hdn321/20140531/1055/tiny_gSTW_29d70000a33b1986.jpg" /></a>
+    <div class="reply-content"><p class="text"><a href="http://www.renren.com/profile.do?id=317133321&ref=minifeed&sfet=2008&fin=14&fid=25358639542&ff_id=600993176&platform=0&expose_time=1537848649" namecard="317133321" class="name" target="_blank">æ›¹ç³æ´</a>:&nbsp;ç®€ç›´æ£’....!!!!!!å¯æ˜¯ä¸Šåˆè¦æ‰“ç¯®çƒä¸‹åˆè¦ä¸Šè¯¾æ™šä¸Šè¦è€ƒç»æµå­¦......!!!!!!!!!!1</p>
+      <div class="bottom-bar">
+        <span class="time">2014-06-11 22:12</span>
+        <div class="action"><a data-fid="25358639542" data-uid="317133321" data-uname="æ›¹ç³æ´" data-rid="15872199572"
+            href="#nogo" onclick="return false;" class="reply">å›å¤</a>&nbsp;</div>
+      </div>
+    </div>
+  </div></div>
+<div class="feed-comment"style="margin-top:13px">
+  <span class="avatar">
+       <img src="http://a.xnimg.cn/a.gif" />
+  </span>
+  <div class="comment-box">
+    <textarea data-fid="25358639542" data-privacy="" autocomplete="off">è¯„è®º...</textarea>
+    <div class="action">
+      <div class="action-l"><a href="#nogo" onclick="return false;" class="emotion">è¡¨æƒ…<span class="tip"><span class="arrow"></span>è¡¨æƒ…</span></a><a href="#nogo" onclick="return false;" class="mention">@<span class="tip"><span class="arrow"></span>ç‚¹å</span></a></div>
+      <div class="action-r">
+        <a href="#nogo" onclick="return false;" class="submit submit-disabled">å›å¤</a><span class="count"><span class="inputed">0</span>/<span class="maxlength">140</span></span>
+      </div>
+    </div>
+  </div>
+</div><div id="get-params-for-ilike-5203663175" style="display:none;"><div id="reply-params-25358639542" style="display:none;">
+{
+  "cid": "5203663175",
+  "oid":"600993176",
+  "type": "page",
+  "typeNum": "3",
+  "rpLength": "4",
+  "userDigged":"",
+  "digged":"3",
+  "stype":"2008",
+  "feedOwnerId":"600993176","loadURI": "http://page.renren.com/doing/replyList",
+     "sendURI": "http://page.renren.com/doing/reply",
+     "delURI": "http://page.renren.com/doing/delReply"}
+</div>
+</div></div><div class="feed-toolbar feed-toolbar-new">
+  <menu type="toolbar"></menu>
+</div></article><article id="newsfeed-25357239444" class="a-feed a-n-feed"><aside><figure style="" class="newsfeed-user" noavatar="" data-sourcecontrol="" data-id="600993176" data-name="ä¸Šæµ·äº¤é€šå¤§å­¦" data-mark="" data-source="929144911"data-stype="2012" data-fid="25357239444" create-time="1402392405883">
+    <a stats="NF_25357239444_2012_600993176"href="http://page.renren.com/600993176?ref=minifeed&sfet=2012&fin=15&fid=25357239444&ff_id=600993176&platform=0&expose_time=1537848649&feed=page_blog&tagid=929144911&ref=minifeed&sfet=2012&fin=15&fid=25357239444&ff_id=600993176&platform=0&expose_time=1537848649"
+       namecard="600993176" title="ä¸Šæµ·äº¤é€šå¤§å­¦" target="_blank"><img src="http://hdn.xnimg.cn/photos/hdn421/20111028/1445/h_tiny_koq9_5f970001bd3d2f76.jpg" width="50" title="ä¸Šæµ·äº¤é€šå¤§å­¦" /></a></figure>
+</aside><h3><a target="_blank" namecard="600993176" href="http://page.renren.com/600993176?ref=minifeed&sfet=2012&fin=15&fid=25357239444&ff_id=600993176&platform=0&expose_time=1537848649&feed=page_blog&tagid=929144911&ref=minifeed&sfet=2012&fin=15&fid=25357239444&ff_id=600993176&platform=0&expose_time=1537848649" stats="NF_25357239444_2012_600993176">ä¸Šæµ·äº¤é€šå¤§å­¦</a>&nbsp;<img src="http://a.xnimg.cn/imgpro/page/icon/official-2.png" title="äººäººç½‘å®˜æ–¹è®¤è¯"/>&nbsp;<span class="action">å‘è¡¨äº†æ—¥å¿—</span></h3><div class="content"><div class="rich-content no-media"><div class="content-main"><p class="title"><a stats="NF_25357239444_2012_600993176" href="http://page.renren.com/600993176/note/929144911?ref=minifeed&sfet=2012&fin=15&fid=25357239444&ff_id=600993176&platform=0&expose_time=1537848649&feed=page_blog&tagid=929144911&statID=page_600993176_2&level=1" target="_blank">æ¯•ä¸šäº†ï¼Œè®©æˆ‘ä»¬å¯¹çˆ¸å¦ˆè¯´ä¸€å£°â€œä½ ä»¬è¾›è‹¦äº†ï¼â€</a></p><p class="summary">2014å¹´æ¯•ä¸šå­£F10çº§å¹´çº§ç†äº‹ä¼šå€¡è®®ä¹¦ï¼ˆä¸€å·ï¼‰    ã€€ã€€äº²çˆ±çš„2014å±Šå…¨ä½“æ¯•ä¸šç”Ÿï¼š    ã€€ã€€åå¹´å¯’çª—è‹¦è¯»ï¼Œç¦»ä¸å¼€çˆ¶æ¯çš„å€¾æƒ…é™ªä¼´ã€‚çˆ¶æ¯æŠŠä¸–é—´æœ€æ— ç§ã€åšå¤§ã€çœŸè¯šçš„çˆ±ç»™äºˆæˆ‘ä»¬ã€‚å¿˜ä¸äº†çˆ¶äº²çš„èƒŒå½±å’Œè‡‚è†€ï¼Œé‚£æ˜¯ä¸ºæˆ‘ä»¬é®é£æŒ¡é›¨çš„æ¸¯æ¹¾ï¼›å¿˜ä¸äº†æ¯äº²çš„ç¬‘å®¹å’Œå®å’›ï¼Œé‚£æ˜¯æŠšæ…°æˆ‘ä»¬å¿ƒçµçš„æš–é˜³ã€‚å¤±è´¥æ—¶ï¼Œä»–ä»¬é™ªä¼´æˆ‘ä»¬å·¦å³ï¼Œç”¨æ¸©æŸ”çš„ç›®å…‰ç…§äº®æˆ‘ä»¬çš„èˆªå‘ï¼›æˆåŠŸæ—¶ï¼Œä»–ä»¬ä¼«ç«‹æˆ‘ä»¬èº«...</p></div>
+    </div></div><div class="details ui-new">
+  <div class="legend">
+    <span class="duration">2014-06-10 17:26</span><a stats="NF_25357239444_2012_600993176" href="#nogo"  class="share_new" data-share="{stype:'create_share_feed',id:929144911,owner:600993176,type:'pageBlog'}" >åˆ†äº«</a><a stats="NF_25357239444_2012_600993176" href="#nogo"  class="ilike_icon" id="ILike929144911" onclick="ILike_toggleUserLike('blog','929144911','0','600993176','')" >èµ</a><a class="reply-new" href="#nogo" data-fid=25357239444><span class="reply-show-word">å›å¤</span></a>
+
+  </div><div class="ilike-body" id="feedbody929144911">
+  <div class="min-cmtbox statustab">
+    <div class="mincmt-body"><div class="mincmt-diggers statuscmtitem">
+        <p><a href="#nogo" onclick="ILike_toggleShow('blog','929144911', '0');return false;">4ä¸ªäººè§‰å¾—èµï¼</a></p>
+        <ul id="diggers929144911" class="digger"></ul>
+      </div></div>
+  </div>
+</div><div class="feed-replies" id="feedbody25357239444"style="display:none;"></div>
+<div class="feed-comment"style="margin-top:13px">
+  <span class="avatar">
+       <img src="http://a.xnimg.cn/a.gif" />
+  </span>
+  <div class="comment-box">
+    <textarea data-fid="25357239444" data-privacy="" autocomplete="off">è¯„è®º...</textarea>
+    <div class="action">
+      <div class="action-l"><a href="#nogo" onclick="return false;" class="emotion">è¡¨æƒ…<span class="tip"><span class="arrow"></span>è¡¨æƒ…</span></a><a href="#nogo" onclick="return false;" class="mention">@<span class="tip"><span class="arrow"></span>ç‚¹å</span></a></div>
+      <div class="action-r">
+        <a href="#nogo" onclick="return false;" class="submit submit-disabled">å›å¤</a><span class="count"><span class="inputed">0</span>/<span class="maxlength">140</span></span>
+      </div>
+    </div>
+  </div>
+</div><div id="get-params-for-ilike-929144911" style="display:none;"><div id="reply-params-25357239444" style="display:none;">
+{
+  "cid": "929144911",
+  "oid":"600993176",
+  "type": "page",
+  "typeNum": "",
+  "rpLength": "0",
+  "userDigged":"",
+  "digged":"4",
+  "stype":"2012",
+  "feedOwnerId":"600993176","loadURI": "http://page.renren.com/600993176/note/replyList",
+     "sendURI": "http://page.renren.com/600993176/note/reply",
+     "delURI": "http://page.renren.com/600993176/note/replyDelete"}
+</div>
+</div></div><div class="feed-toolbar feed-toolbar-new">
+  <menu type="toolbar"></menu>
+</div></article><article id="newsfeed-25333611256" class="a-feed a-n-feed"><aside><figure style="" class="newsfeed-user" noavatar="" data-sourcecontrol="" data-id="600993176" data-name="ä¸Šæµ·äº¤é€šå¤§å­¦" data-mark="" data-source="928901057"data-stype="2012" data-fid="25333611256" create-time="1402028050824">
+    <a stats="NF_25333611256_2012_600993176"href="http://page.renren.com/600993176?ref=minifeed&sfet=2012&fin=16&fid=25333611256&ff_id=600993176&platform=0&expose_time=1537848649&feed=page_blog&tagid=928901057&ref=minifeed&sfet=2012&fin=16&fid=25333611256&ff_id=600993176&platform=0&expose_time=1537848649"
+       namecard="600993176" title="ä¸Šæµ·äº¤é€šå¤§å­¦" target="_blank"><img src="http://hdn.xnimg.cn/photos/hdn421/20111028/1445/h_tiny_koq9_5f970001bd3d2f76.jpg" width="50" title="ä¸Šæµ·äº¤é€šå¤§å­¦" /></a></figure>
+</aside><h3><a target="_blank" namecard="600993176" href="http://page.renren.com/600993176?ref=minifeed&sfet=2012&fin=16&fid=25333611256&ff_id=600993176&platform=0&expose_time=1537848649&feed=page_blog&tagid=928901057&ref=minifeed&sfet=2012&fin=16&fid=25333611256&ff_id=600993176&platform=0&expose_time=1537848649" stats="NF_25333611256_2012_600993176">ä¸Šæµ·äº¤é€šå¤§å­¦</a>&nbsp;<img src="http://a.xnimg.cn/imgpro/page/icon/official-2.png" title="äººäººç½‘å®˜æ–¹è®¤è¯"/>&nbsp;<span class="action">å‘è¡¨äº†æ—¥å¿—</span></h3><div class="content"><div class="rich-content"><div class="content-media"><a stats="NF_25333611256_2012_600993176" href="http://page.renren.com/600993176/note/928901057?ref=minifeed&sfet=2012&fin=16&fid=25333611256&ff_id=600993176&platform=0&expose_time=1537848649&feed=page_blog&tagid=928901057&statID=page_600993176_2&level=1" target="_blank"class="thumb middle-thumb">
+          <img src="http://fmn.rrimg.com/fmn064/20140606/1210/b_head_LRPp_23e8000104cf1262.jpg"width="100"onerror="removeFakeLinkImg(this)" />
+        </a></div><div class="content-main"><p class="title"><a stats="NF_25333611256_2012_600993176" href="http://page.renren.com/600993176/note/928901057?ref=minifeed&sfet=2012&fin=16&fid=25333611256&ff_id=600993176&platform=0&expose_time=1537848649&feed=page_blog&tagid=928901057&statID=page_600993176_2&level=1" target="_blank">ä¸Šæµ·äº¤å¤§æ•™æˆå¼€é‡‡åŸå¸‚çŸ¿å±±å°†ç”µå­åºŸå¼ƒç‰©â€œå˜åºŸä¸ºå®â€</a></p><p class="summary">é€šå¸¸æƒ…å†µä¸‹ï¼Œå¼€é‡‡ä¸€å¨é‡‘ç ‚èƒ½æç‚¼å‡ºå¤šå°‘å…‹é»„é‡‘ï¼Ÿ    ã€€ã€€ç­”æ¡ˆæ˜¯ï¼š5å…‹å·¦å³ã€‚    ã€€ã€€æ¯å¨åºŸæ—§è®¡ç®—æœºé”€æ¯åçš„ç»†ç²‰ä¸­ï¼Œå«é‡‘é‡æ˜¯å¤šå°‘ï¼Ÿ    ã€€ã€€ç­”æ¡ˆæ˜¯ï¼š660å…‹ã€‚    ã€€ã€€ä¸ä»…å¦‚æ­¤ï¼Œæ®æµ‹ç®—ï¼Œä»1å¨åºŸæ—§ä¸ªäººç”µè„‘ä¸­è¿˜å¯æç‚¼å‡º1å…¬æ–¤é“¶ã€150å…‹é“œå’Œè¿‘2å…¬æ–¤ç¨€æœ‰é‡‘å±åŠå…¶ä»–ç¨€åœŸèµ„æºï¼Œä»1å¨åºŸæ—§æ‰‹æœºä¸­å¯ä»¥æç‚¼400å…‹é»„é‡‘ã€2.3å…¬æ–¤é“¶ã€172å…‹é“œç­‰ã€‚...</p></div>
+    </div></div><div class="details ui-new">
+  <div class="legend">
+    <span class="duration">2014-06-06 12:14</span><a stats="NF_25333611256_2012_600993176" href="#nogo"  class="share_new" data-share="{stype:'create_share_feed',id:928901057,owner:600993176,type:'pageBlog'}" >åˆ†äº«</a><a stats="NF_25333611256_2012_600993176" href="#nogo"  class="ilike_icon" id="ILike928901057" onclick="ILike_toggleUserLike('blog','928901057','0','600993176','')" >èµ</a><a class="reply-new" href="#nogo" data-fid=25333611256><span class="reply-show-word">å›å¤</span></a>
+
+  </div><div class="ilike-body" id="feedbody928901057">
+  <div class="min-cmtbox statustab">
+    <div class="mincmt-body"><div class="mincmt-diggers statuscmtitem">
+        <p><a href="#nogo" onclick="ILike_toggleShow('blog','928901057', '0');return false;">5ä¸ªäººè§‰å¾—èµï¼</a></p>
+        <ul id="diggers928901057" class="digger"></ul>
+      </div></div>
+  </div>
+</div><div class="feed-replies" id="feedbody25333611256"style="display:none;"></div>
+<div class="feed-comment"style="margin-top:13px">
+  <span class="avatar">
+       <img src="http://a.xnimg.cn/a.gif" />
+  </span>
+  <div class="comment-box">
+    <textarea data-fid="25333611256" data-privacy="" autocomplete="off">è¯„è®º...</textarea>
+    <div class="action">
+      <div class="action-l"><a href="#nogo" onclick="return false;" class="emotion">è¡¨æƒ…<span class="tip"><span class="arrow"></span>è¡¨æƒ…</span></a><a href="#nogo" onclick="return false;" class="mention">@<span class="tip"><span class="arrow"></span>ç‚¹å</span></a></div>
+      <div class="action-r">
+        <a href="#nogo" onclick="return false;" class="submit submit-disabled">å›å¤</a><span class="count"><span class="inputed">0</span>/<span class="maxlength">140</span></span>
+      </div>
+    </div>
+  </div>
+</div><div id="get-params-for-ilike-928901057" style="display:none;"><div id="reply-params-25333611256" style="display:none;">
+{
+  "cid": "928901057",
+  "oid":"600993176",
+  "type": "page",
+  "typeNum": "",
+  "rpLength": "0",
+  "userDigged":"",
+  "digged":"5",
+  "stype":"2012",
+  "feedOwnerId":"600993176","loadURI": "http://page.renren.com/600993176/note/replyList",
+     "sendURI": "http://page.renren.com/600993176/note/reply",
+     "delURI": "http://page.renren.com/600993176/note/replyDelete"}
+</div>
+</div></div><div class="feed-toolbar feed-toolbar-new">
+  <menu type="toolbar"></menu>
+</div></article><article id="newsfeed-25332439067" class="a-feed a-n-feed"><aside><figure style="" class="newsfeed-user" noavatar="" data-sourcecontrol="" data-id="600993176" data-name="ä¸Šæµ·äº¤é€šå¤§å­¦" data-mark="" data-source="5200618769"data-stype="2008" data-fid="25332439067" create-time="1402015395402">
+    <a stats="NF_25332439067_2008_600993176"href="http://page.renren.com/600993176?ref=minifeed&sfet=2008&fin=17&fid=25332439067&ff_id=600993176&platform=0&expose_time=1537848649&feed=page_status&tagid=5200618769&statID=page_600993176_2&level=1&ref=minifeed&sfet=2008&fin=17&fid=25332439067&ff_id=600993176&platform=0&expose_time=1537848649"
+       namecard="600993176" title="ä¸Šæµ·äº¤é€šå¤§å­¦" target="_blank"><img src="http://hdn.xnimg.cn/photos/hdn421/20111028/1445/h_head_P86X_5f970001bd3d2f76.jpg" width="50" title="ä¸Šæµ·äº¤é€šå¤§å­¦" /></a></figure>
+</aside><h3><a target="_blank" namecard="600993176" href="http://page.renren.com/600993176?ref=minifeed&sfet=2008&fin=17&fid=25332439067&ff_id=600993176&platform=0&expose_time=1537848649&feed=page_status&tagid=5200618769&statID=page_600993176_2&level=1&ref=minifeed&sfet=2008&fin=17&fid=25332439067&ff_id=600993176&platform=0&expose_time=1537848649" stats="NF_25332439067_2008_600993176">ä¸Šæµ·äº¤é€šå¤§å­¦</a>&nbsp;<img src="http://a.xnimg.cn/imgpro/page/icon/official-2.png" title="äººäººç½‘å®˜æ–¹è®¤è¯"/>:&nbsp;å‚åŠ 2014å¹´é«˜è€ƒçš„ç­’å­ä»¬åŠ æ²¹~ä¸Šæµ·äº¤é€šå¤§å­¦æ¬¢è¿äº”æ¹–å››æµ·çš„è˜è˜å­¦å­~</h3><div class="details ui-new">
+  <div class="legend">
+    <span class="duration">2014-06-06 08:43</span><a class="share_new_ui" stats="NF_25332439067_2008_600993176" href="#nogo"  onclick="a_fowardDoing('5200618769', '600993176', 'page_600993176_2', '1');return false;">åˆ†äº«</a><a stats="NF_25332439067_2008_600993176" href="#nogo"  class="ilike_icon" id="ILike5200618769" onclick="ILike_toggleUserLike('status','5200618769','0','600993176','')" >èµ</a><a class="reply-new" href="#nogo" data-fid=25332439067><span class="reply-show-word">å›å¤</span>(<span class="reply-count">1</span>)</a>
+  </div><div class="ilike-body" id="feedbody5200618769">
+  <div class="min-cmtbox statustab">
+    <div class="mincmt-body"><div class="mincmt-diggers statuscmtitem">
+        <p><a href="#nogo" onclick="ILike_toggleShow('status','5200618769', '0');return false;">12ä¸ªäººè§‰å¾—èµï¼</a></p>
+        <ul id="diggers5200618769" class="digger"></ul>
+      </div></div>
+  </div>
+</div><div class="feed-replies" id="feedbody25332439067"style="display:none;"><div class="a-reply">
+    <a href="http://www.renren.com/profile.do?id=429977699&ref=minifeed&sfet=2008&fin=17&fid=25332439067&ff_id=600993176&platform=0&expose_time=1537848649" class="avatar" target="_blank" namecard="429977699"><img src="http://hdn.xnimg.cn/photos/hdn521/20140408/2010/h_tiny_zWvm_107000007859113e.jpg" /></a>
+    <div class="reply-content"><p class="text"><a href="http://www.renren.com/profile.do?id=429977699&ref=minifeed&sfet=2008&fin=17&fid=25332439067&ff_id=600993176&platform=0&expose_time=1537848649" namecard="429977699" class="name" target="_blank">æ­¦éŸ¬ç•¥</a>:&nbsp;å°¤å…¶æ¬¢è¿äº”å…‰åè‰²çš„å¦¹å­</p>
+      <div class="bottom-bar">
+        <span class="time">2014-06-06 08:45</span>
+        <div class="action"><a data-fid="25332439067" data-uid="429977699" data-uname="æ­¦éŸ¬ç•¥" data-rid="15867849489"
+            href="#nogo" onclick="return false;" class="reply">å›å¤</a>&nbsp;</div>
+      </div>
+    </div>
+  </div></div>
+<div class="feed-comment"style="margin-top:13px">
+  <span class="avatar">
+       <img src="http://a.xnimg.cn/a.gif" />
+  </span>
+  <div class="comment-box">
+    <textarea data-fid="25332439067" data-privacy="" autocomplete="off">è¯„è®º...</textarea>
+    <div class="action">
+      <div class="action-l"><a href="#nogo" onclick="return false;" class="emotion">è¡¨æƒ…<span class="tip"><span class="arrow"></span>è¡¨æƒ…</span></a><a href="#nogo" onclick="return false;" class="mention">@<span class="tip"><span class="arrow"></span>ç‚¹å</span></a></div>
+      <div class="action-r">
+        <a href="#nogo" onclick="return false;" class="submit submit-disabled">å›å¤</a><span class="count"><span class="inputed">0</span>/<span class="maxlength">140</span></span>
+      </div>
+    </div>
+  </div>
+</div><div id="get-params-for-ilike-5200618769" style="display:none;"><div id="reply-params-25332439067" style="display:none;">
+{
+  "cid": "5200618769",
+  "oid":"600993176",
+  "type": "page",
+  "typeNum": "3",
+  "rpLength": "1",
+  "userDigged":"",
+  "digged":"12",
+  "stype":"2008",
+  "feedOwnerId":"600993176","loadURI": "http://page.renren.com/doing/replyList",
+     "sendURI": "http://page.renren.com/doing/reply",
+     "delURI": "http://page.renren.com/doing/delReply"}
+</div>
+</div></div><div class="feed-toolbar feed-toolbar-new">
+  <menu type="toolbar"></menu>
+</div></article><article id="newsfeed-25327653620" class="a-feed a-n-feed"><aside><figure style="" class="newsfeed-user" noavatar="" data-sourcecontrol="" data-id="600993176" data-name="ä¸Šæµ·äº¤é€šå¤§å­¦" data-mark="" data-source="5200185780"data-stype="2008" data-fid="25327653620" create-time="1401939540015">
+    <a stats="NF_25327653620_2008_600993176"href="http://page.renren.com/600993176?ref=minifeed&sfet=2008&fin=18&fid=25327653620&ff_id=600993176&platform=0&expose_time=1537848649&feed=page_status&tagid=5200185780&statID=page_600993176_2&level=1&ref=minifeed&sfet=2008&fin=18&fid=25327653620&ff_id=600993176&platform=0&expose_time=1537848649"
+       namecard="600993176" title="ä¸Šæµ·äº¤é€šå¤§å­¦" target="_blank"><img src="http://hdn.xnimg.cn/photos/hdn421/20111028/1445/h_head_P86X_5f970001bd3d2f76.jpg" width="50" title="ä¸Šæµ·äº¤é€šå¤§å­¦" /></a></figure>
+</aside><h3><a target="_blank" namecard="600993176" href="http://page.renren.com/600993176?ref=minifeed&sfet=2008&fin=18&fid=25327653620&ff_id=600993176&platform=0&expose_time=1537848649&feed=page_status&tagid=5200185780&statID=page_600993176_2&level=1&ref=minifeed&sfet=2008&fin=18&fid=25327653620&ff_id=600993176&platform=0&expose_time=1537848649" stats="NF_25327653620_2008_600993176">ä¸Šæµ·äº¤é€šå¤§å­¦</a>&nbsp;<img src="http://a.xnimg.cn/imgpro/page/icon/official-2.png" title="äººäººç½‘å®˜æ–¹è®¤è¯"/>:&nbsp;ã€é€šå®µè‡ªä¹ å®¤ã€‘ æœŸæœ«çš„ä¸€å¤§æ³¢è€ƒè¯•ä¸´è¿‘ï¼Œâ€œæ¿€æˆ˜æ­£é…£â€ï¼Œå­¦æ ¡ä»6æœˆ9æ—¥è‡³6æœˆ27æ—¥ï¼ˆåŒ…æ‹¬å‘¨å…­ã€å‘¨æ—¥ï¼‰ï¼Œå¼€æ”¾ä¸‹åˆ—é€šå®µæ•™å®¤ï¼š è¥¿åŒºï¼š ä¸­é™¢105ã€106ã€107ã€108ã€109ã€110ã€205ã€207ã€209ã€305ã€307ã€309ã€405ã€407ã€409ã€100ã€200ï¼›ä¸œåŒºï¼šä¸œä¸Šé™¢1-2å±‚æ‰€æœ‰æ•™å®¤ã€‚ åœ¨ä¿è¯è€ƒè¯•å’Œä¸Šè¯¾ä½¿ç”¨åï¼ˆæ•™å®¤ä½¿ç”¨æƒ…å†µæŸ¥è¯¢ï¼š<a href='http://rrurl.cn/p7xEji' target='_blank' title='http://classroom.jwc.sjtu.edu.cn/'>http://rrurl.cn/p7xEji </a> ï¼‰ï¼ŒåŒå­¦ä»¬å¯ä»¥åœ¨è¿™äº›æ•™å®¤å†…è‡ªä¿®ï¼Œè¯·åŒå­¦ä»¬æ³¨æ„åŠ³é€¸ç»“åˆï¼Œæé«˜å¤ä¹ æ•ˆç‡ã€‚åŒæ—¶ï¼Œè¯·ä¿æŒå®¤å†…ç¯å¢ƒå¹²å‡€ã€æ•´æ´ï¼Œè¯·å‹¿å°†å¤ä¹ èµ„æ–™ã€è´µé‡ç‰©å“æ”¾ç½®æ•™å®¤å†…ï¼Œä»¥å…é—å¤±ï¼Œä¿æ´äººå‘˜å°†æ¯å¤©æ¸…æ´æ•™å®¤ã€‚</h3><div class="details ui-new">
+  <div class="legend">
+    <span class="duration">2014-06-05 11:39</span><a class="share_new_ui" stats="NF_25327653620_2008_600993176" href="#nogo"  onclick="a_fowardDoing('5200185780', '600993176', 'page_600993176_2', '1');return false;">åˆ†äº«</a><a stats="NF_25327653620_2008_600993176" href="#nogo"  class="ilike_icon" id="ILike5200185780" onclick="ILike_toggleUserLike('status','5200185780','0','600993176','')" >èµ</a><a class="reply-new" href="#nogo" data-fid=25327653620><span class="reply-show-word">å›å¤</span>(<span class="reply-count">4</span>)</a>
+  </div><div class="ilike-body" id="feedbody5200185780">
+  <div class="min-cmtbox statustab">
+    <div class="mincmt-body"><div class="mincmt-diggers statuscmtitem">
+        <p><a href="#nogo" onclick="ILike_toggleShow('status','5200185780', '0');return false;">13ä¸ªäººè§‰å¾—èµï¼</a></p>
+        <ul id="diggers5200185780" class="digger"></ul>
+      </div></div>
+  </div>
+</div><div class="feed-replies" id="feedbody25327653620"style="display:none;"><div class="a-reply">
+    <a href="http://www.renren.com/profile.do?id=286064394&ref=minifeed&sfet=2008&fin=18&fid=25327653620&ff_id=600993176&platform=0&expose_time=1537848649" class="avatar" target="_blank" namecard="286064394"><img src="http://hdn.xnimg.cn/photos/hdn221/20140422/1550/h_tiny_gEKi_13e200016340113e.jpg" /></a>
+    <div class="reply-content"><p class="text"><a href="http://www.renren.com/profile.do?id=286064394&ref=minifeed&sfet=2008&fin=18&fid=25327653620&ff_id=600993176&platform=0&expose_time=1537848649" namecard="286064394" class="name" target="_blank">éƒ­å¸…å­œ</a>:&nbsp;è°æ¥é™ªæˆ‘å»<img src='http://a.xnimg.cn/imgpro/emotions/tie/5.gif?ver=1' alt='å°´å°¬' /></p>
+      <div class="bottom-bar">
+        <span class="time">2014-06-05 11:46</span>
+        <div class="action"><a data-fid="25327653620" data-uid="286064394" data-uname="éƒ­å¸…å­œ" data-rid="15867251876"
+            href="#nogo" onclick="return false;" class="reply">å›å¤</a>&nbsp;</div>
+      </div>
+    </div>
+  </div><div class="more-reply">
+    <a data-fid="25327653620" href="#nogo" onclick="return false;" class="more">è¿˜æœ‰2æ¡å›å¤</a>
+  </div><div class="a-reply">
+    <a href="http://www.renren.com/profile.do?id=261908855&ref=minifeed&sfet=2008&fin=18&fid=25327653620&ff_id=600993176&platform=0&expose_time=1537848649" class="avatar" target="_blank" namecard="261908855"><img src="http://hdn.xnimg.cn/photos/hdn521/20140517/1450/h_tiny_iFpc_27c9000100ca1986.jpg" /></a>
+    <div class="reply-content"><p class="text"><a href="http://www.renren.com/profile.do?id=261908855&ref=minifeed&sfet=2008&fin=18&fid=25327653620&ff_id=600993176&platform=0&expose_time=1537848649" namecard="261908855" class="name" target="_blank">æ¨æ¢¦å…®å…®</a>:&nbsp;åŒ»å­¦é™¢æœ¨æœ‰<img src='http://a.xnimg.cn/imgpro/icons/statusface/sowhat.gif' alt='SoWhatï¼Ÿ' /></p>
+      <div class="bottom-bar">
+        <span class="time">2014-06-05 21:49</span>
+        <div class="action"><a data-fid="25327653620" data-uid="261908855" data-uname="æ¨æ¢¦å…®å…®" data-rid="15867606190"
+            href="#nogo" onclick="return false;" class="reply">å›å¤</a>&nbsp;</div>
+      </div>
+    </div>
+  </div></div>
+<div class="feed-comment"style="margin-top:13px">
+  <span class="avatar">
+       <img src="http://a.xnimg.cn/a.gif" />
+  </span>
+  <div class="comment-box">
+    <textarea data-fid="25327653620" data-privacy="" autocomplete="off">è¯„è®º...</textarea>
+    <div class="action">
+      <div class="action-l"><a href="#nogo" onclick="return false;" class="emotion">è¡¨æƒ…<span class="tip"><span class="arrow"></span>è¡¨æƒ…</span></a><a href="#nogo" onclick="return false;" class="mention">@<span class="tip"><span class="arrow"></span>ç‚¹å</span></a></div>
+      <div class="action-r">
+        <a href="#nogo" onclick="return false;" class="submit submit-disabled">å›å¤</a><span class="count"><span class="inputed">0</span>/<span class="maxlength">140</span></span>
+      </div>
+    </div>
+  </div>
+</div><div id="get-params-for-ilike-5200185780" style="display:none;"><div id="reply-params-25327653620" style="display:none;">
+{
+  "cid": "5200185780",
+  "oid":"600993176",
+  "type": "page",
+  "typeNum": "3",
+  "rpLength": "4",
+  "userDigged":"",
+  "digged":"13",
+  "stype":"2008",
+  "feedOwnerId":"600993176","loadURI": "http://page.renren.com/doing/replyList",
+     "sendURI": "http://page.renren.com/doing/reply",
+     "delURI": "http://page.renren.com/doing/delReply"}
+</div>
+</div></div><div class="feed-toolbar feed-toolbar-new">
+  <menu type="toolbar"></menu>
+</div></article><article id="newsfeed-25323851326" class="a-feed a-n-feed"><aside><figure style="" class="newsfeed-user" noavatar="" data-sourcecontrol="" data-id="600993176" data-name="ä¸Šæµ·äº¤é€šå¤§å­¦" data-mark="" data-source="928774480"data-stype="2012" data-fid="25323851326" create-time="1401875626335">
+    <a stats="NF_25323851326_2012_600993176"href="http://page.renren.com/600993176?ref=minifeed&sfet=2012&fin=19&fid=25323851326&ff_id=600993176&platform=0&expose_time=1537848649&feed=page_blog&tagid=928774480&ref=minifeed&sfet=2012&fin=19&fid=25323851326&ff_id=600993176&platform=0&expose_time=1537848649"
+       namecard="600993176" title="ä¸Šæµ·äº¤é€šå¤§å­¦" target="_blank"><img src="http://hdn.xnimg.cn/photos/hdn421/20111028/1445/h_tiny_koq9_5f970001bd3d2f76.jpg" width="50" title="ä¸Šæµ·äº¤é€šå¤§å­¦" /></a></figure>
+</aside><h3><a target="_blank" namecard="600993176" href="http://page.renren.com/600993176?ref=minifeed&sfet=2012&fin=19&fid=25323851326&ff_id=600993176&platform=0&expose_time=1537848649&feed=page_blog&tagid=928774480&ref=minifeed&sfet=2012&fin=19&fid=25323851326&ff_id=600993176&platform=0&expose_time=1537848649" stats="NF_25323851326_2012_600993176">ä¸Šæµ·äº¤é€šå¤§å­¦</a>&nbsp;<img src="http://a.xnimg.cn/imgpro/page/icon/official-2.png" title="äººäººç½‘å®˜æ–¹è®¤è¯"/>&nbsp;<span class="action">å‘è¡¨äº†æ—¥å¿—</span></h3><div class="content"><div class="rich-content"><div class="content-media"><a stats="NF_25323851326_2012_600993176" href="http://page.renren.com/600993176/note/928774480?ref=minifeed&sfet=2012&fin=19&fid=25323851326&ff_id=600993176&platform=0&expose_time=1537848649&feed=page_blog&tagid=928774480&statID=page_600993176_2&level=1" target="_blank"class="thumb middle-thumb">
+          <img src="http://fmn.rrimg.com/fmn062/20140604/1745/b_head_0Qcl_24310000fcad1262.jpg"width="100"onerror="removeFakeLinkImg(this)" />
+        </a></div><div class="content-main"><p class="title"><a stats="NF_25323851326_2012_600993176" href="http://page.renren.com/600993176/note/928774480?ref=minifeed&sfet=2012&fin=19&fid=25323851326&ff_id=600993176&platform=0&expose_time=1537848649&feed=page_blog&tagid=928774480&statID=page_600993176_2&level=1" target="_blank">æ€æ ·ç ´è§£åŒ»æ”¹éš¾é¢˜ï¼Ÿä¸Šæµ·äº¤å¤§å‰¯æ ¡é•¿è”¡å¨ï¼šä»¥ä¸­å›½å¼åŠæ³•ç ´è§£åŒ»æ”¹éš¾é¢˜</a></p><p class="summary">æ–°åŒ»æ”¹çš„æ•ˆæœä¸ç¤¾ä¼šæœŸæœ›ã€æ”¹é©é¢„æœŸä¹‹é—´å­˜åœ¨å·®è·ï¼Œä»·å€¼å–å‘ã€å®è§‚è°ƒæ§ã€ç†å¿µè®¤è¯†ã€ç®¡ç†ä½“åˆ¶ã€åŒ»ä¿ç®¡ç†æœºæ„èƒ½åŠ›å»ºè®¾ç­‰æˆâ€œç“¶é¢ˆ...</p></div>
+    </div></div><div class="details ui-new">
+  <div class="legend">
+    <span class="duration">2014-06-04 17:53</span><a stats="NF_25323851326_2012_600993176" href="#nogo"  class="share_new" data-share="{stype:'create_share_feed',id:928774480,owner:600993176,type:'pageBlog'}" >åˆ†äº«</a><a stats="NF_25323851326_2012_600993176" href="#nogo"  class="ilike_icon" id="ILike928774480" onclick="ILike_toggleUserLike('blog','928774480','0','600993176','')" >èµ</a><a class="reply-new" href="#nogo" data-fid=25323851326><span class="reply-show-word">å›å¤</span></a>
+
+  </div><div class="feed-replies" id="feedbody25323851326"style="display:none;"></div>
+<div class="feed-comment"style="margin-top:13px">
+  <span class="avatar">
+       <img src="http://a.xnimg.cn/a.gif" />
+  </span>
+  <div class="comment-box">
+    <textarea data-fid="25323851326" data-privacy="" autocomplete="off">è¯„è®º...</textarea>
+    <div class="action">
+      <div class="action-l"><a href="#nogo" onclick="return false;" class="emotion">è¡¨æƒ…<span class="tip"><span class="arrow"></span>è¡¨æƒ…</span></a><a href="#nogo" onclick="return false;" class="mention">@<span class="tip"><span class="arrow"></span>ç‚¹å</span></a></div>
+      <div class="action-r">
+        <a href="#nogo" onclick="return false;" class="submit submit-disabled">å›å¤</a><span class="count"><span class="inputed">0</span>/<span class="maxlength">140</span></span>
+      </div>
+    </div>
+  </div>
+</div><div id="get-params-for-ilike-928774480" style="display:none;"><div id="reply-params-25323851326" style="display:none;">
+{
+  "cid": "928774480",
+  "oid":"600993176",
+  "type": "page",
+  "typeNum": "",
+  "rpLength": "0",
+  "userDigged":"",
+  "digged":"",
+  "stype":"2012",
+  "feedOwnerId":"600993176","loadURI": "http://page.renren.com/600993176/note/replyList",
+     "sendURI": "http://page.renren.com/600993176/note/reply",
+     "delURI": "http://page.renren.com/600993176/note/replyDelete"}
+</div>
+</div></div><div class="feed-toolbar feed-toolbar-new">
+  <menu type="toolbar"></menu>
+</div></article></div>
+<div class="feed-footer">
+<div class="feed-loading" style="display:none"><p>æ–°é²œäº‹è¯»å–ä¸­...</p></div>
+<div class="nomore-feed" style="display:none"><p>æ²¡æœ‰æ›´å¤šæ–°é²œäº‹äº†</p></div>
+<div class="more-feed"><a id="more-feed" href="#">æ›´å¤šæ–°é²œäº‹</a></div>
+<p class="mark-all-read" style="display:none"><a href="#">å…¨éƒ¨æ ‡è®°ä¸ºå·²è¯»</a></p>
+</div>
+</div>
+</div></div>
+</div></div><div class="col-right">
+<div class="mod fans">
+<div class="mod-header">
+<a class="more" href="/fanslist?pid=600993176" title="æŸ¥çœ‹å…¨éƒ¨ä¸Šæµ·äº¤é€šå¤§å­¦çš„å…³æ³¨è€…">æŸ¥çœ‹å…¨éƒ¨<img src="http://a.xnimg.cn/imgpro/bg/page-more.png" alt="ä¸Šæµ·äº¤é€šå¤§å­¦çš„å…³æ³¨è€…" title="ä¸Šæµ·äº¤é€šå¤§å­¦çš„å…³æ³¨è€…"/></a>
+<h4>å…³æ³¨è€…</h4>
+<a href="/fanslist?pid=600993176" rel="nofollow">(16102)</a>
+</div>
+<div class="mod-body">
+<ul class="people-list">
+<li>
+<span class="headpichold">
+<a class="name" href="http://www.renren.com/profile.do?id=964780162&ref=page" rel="nofollow"><img src="http://hdn.xnimg.cn/photos/hdn121/20180419/1310/h_tiny_g2rU_0c1b0000268b195a.jpg" /></a>
+</span>
+<span class="name clearfix">
+<a class="name" href="http://www.renren.com/profile.do?id=964780162&ref=page" rel="nofollow">é‡ç‹¼ç‹</a>
+</span>
+</li>
+<li>
+<span class="headpichold">
+<a class="name" href="http://www.renren.com/profile.do?id=964709374&ref=page" rel="nofollow"><img src="http://hdn.xnimg.cn/photos/hdn121/20180316/0755/tiny_as2Y_4da600009615195a.jpg" /></a>
+</span>
+<span class="name clearfix">
+<a class="name" href="http://www.renren.com/profile.do?id=964709374&ref=page" rel="nofollow">æ¬§é˜³é€µ</a>
+</span>
+</li>
+<li>
+<span class="headpichold">
+<a class="name" href="http://www.renren.com/profile.do?id=291319880&ref=page" rel="nofollow"><img src="http://hdn.xnimg.cn/photos/hdn321/20130419/1950/h_tiny_qi2e_0e0e00000830113e.jpg" /></a>
+</span>
+<span class="name clearfix">
+<a class="name" href="http://www.renren.com/profile.do?id=291319880&ref=page" rel="nofollow">åˆ˜ä»å®½</a>
+</span>
+</li>
+<li>
+<span class="headpichold">
+<a class="name" href="http://www.renren.com/profile.do?id=857853854&ref=page" rel="nofollow"><img src="http://hdn.xnimg.cn/photos/hdn421/20141122/1550/h_tiny_UzCR_e1530004be72195a.jpg" /></a>
+</span>
+<span class="name clearfix">
+<a class="name" href="http://www.renren.com/profile.do?id=857853854&ref=page" rel="nofollow">???</a>
+</span>
+</li>
+<li>
+<span class="headpichold">
+<a class="name" href="http://www.renren.com/profile.do?id=408374039&ref=page" rel="nofollow"><img src="http://hdn.xnimg.cn/photos/hdn521/20180202/1730/tiny_qEFh_ae5f0000abab1986.jpg" /></a>
+</span>
+<span class="name clearfix">
+<a class="name" href="http://www.renren.com/profile.do?id=408374039&ref=page" rel="nofollow">Michael</a>
+</span>
+</li>
+<li>
+<span class="headpichold">
+<a class="name" href="http://www.renren.com/profile.do?id=324101125&ref=page" rel="nofollow"><img src="http://hdn.xnimg.cn/photos/hdn221/20161010/1610/h_tiny_BeAU_52e60000d1291986.jpg" /></a>
+</span>
+<span class="name clearfix">
+<a class="name" href="http://www.renren.com/profile.do?id=324101125&ref=page" rel="nofollow">è–›æ¬£æ¬£</a>
+</span>
+</li>
+<li>
+<span class="headpichold">
+<a class="name" href="http://www.renren.com/profile.do?id=962795700&ref=page" rel="nofollow"><img src="http://hdn.xnimg.cn/photos/hdn221/20180102/0525/h_tiny_VJp3_00c60007b6381986.jpg" /></a>
+</span>
+<span class="name clearfix">
+<a class="name" href="http://www.renren.com/profile.do?id=962795700&ref=page" rel="nofollow">ç»µæ¨±</a>
+</span>
+</li>
+<li>
+<span class="headpichold">
+<a class="name" href="http://www.renren.com/profile.do?id=539291806&ref=page" rel="nofollow"><img src="http://hdn.xnimg.cn/photos/hdn321/20131022/1650/h_tiny_Nu1e_f28c000001ad111a.jpg" /></a>
+</span>
+<span class="name clearfix">
+<a class="name" href="http://www.renren.com/profile.do?id=539291806&ref=page" rel="nofollow">èµµè¶Š</a>
+</span>
+</li>
+<li>
+<span class="headpichold">
+<a class="name" href="http://www.renren.com/profile.do?id=960302713&ref=page" rel="nofollow"><img src="http://hdn.xnimg.cn/photos/hdn521/20171019/2220/h_tiny_pXrn_60c30006d8c6195a.jpg" /></a>
+</span>
+<span class="name clearfix">
+<a class="name" href="http://www.renren.com/profile.do?id=960302713&ref=page" rel="nofollow">Q</a>
+</span>
+</li>
+<li>
+<span class="headpichold">
+<a class="name" href="http://www.renren.com/profile.do?id=957953783&ref=page" rel="nofollow"><img src="http://hdn.xnimg.cn/photos/hdn321/20170907/0940/h_tiny_Vgx0_a67b000620a8195a.jpg" /></a>
+</span>
+<span class="name clearfix">
+<a class="name" href="http://www.renren.com/profile.do?id=957953783&ref=page" rel="nofollow">å¬åˆ°æ°”å‘³çš„å£°éŸ³</a>
+</span>
+</li>
+<li>
+<span class="headpichold">
+<a class="name" href="http://www.renren.com/profile.do?id=509864452&ref=page" rel="nofollow"><img src="http://hdn.xnimg.cn/photos/hdn121/20170205/1640/tiny_PXEf_ae70000077531986.jpg" /></a>
+</span>
+<span class="name clearfix">
+<a class="name" href="http://www.renren.com/profile.do?id=509864452&ref=page" rel="nofollow">æ½˜ä¿Šæ…§</a>
+</span>
+</li>
+<li>
+<span class="headpichold">
+<a class="name" href="http://www.renren.com/profile.do?id=950512290&ref=page" rel="nofollow"><img src="http://hdn.xnimg.cn/photos/hdn221/20170801/1700/h_tiny_xHHc_5390000595581986.jpg" /></a>
+</span>
+<span class="name clearfix">
+<a class="name" href="http://www.renren.com/profile.do?id=950512290&ref=page" rel="nofollow">snowå°ç’‡ğŸŒ»</a>
+</span>
+</li>
+<li>
+<span class="headpichold">
+<a class="name" href="http://www.renren.com/profile.do?id=586997463&ref=page" rel="nofollow"><img src="http://hdn.xnimg.cn/photos/hdn121/20140315/1735/h_tiny_leqw_442d00001b65111a.jpg" /></a>
+</span>
+<span class="name clearfix">
+<a class="name" href="http://www.renren.com/profile.do?id=586997463&ref=page" rel="nofollow">é™†æ±æº</a>
+</span>
+</li>
+<li>
+<span class="headpichold">
+<a class="name" href="http://www.renren.com/profile.do?id=948871995&ref=page" rel="nofollow"><img src="http://hdn.xnimg.cn/photos/hdn121/20170724/1600/h_tiny_S1PN_60c300057051195a.jpg" /></a>
+</span>
+<span class="name clearfix">
+<a class="name" href="http://www.renren.com/profile.do?id=948871995&ref=page" rel="nofollow">å–œæ¬¢&#39;ä¸€ä¸ªäºº</a>
+</span>
+</li>
+<li>
+<span class="headpichold">
+<a class="name" href="http://www.renren.com/profile.do?id=945866902&ref=page" rel="nofollow"><img src="http://hdn.xnimg.cn/photos/hdn221/20170711/0045/h_tiny_sySM_13bc000a605a1986.jpg" /></a>
+</span>
+<span class="name clearfix">
+<a class="name" href="http://www.renren.com/profile.do?id=945866902&ref=page" rel="nofollow">Agnes</a>
+</span>
+</li></ul>
+</div>
+</div>
+<script type="text/javascript">
+jQuery(function(){
+//å¼€å¯ç©ºé—´ 
+jQuery('#reopenBtn').bind('click',function(){
+XN.DO.confirm({
+title: 'å¼€å¯æƒ…ä¾£ç©ºé—´',
+modal: true,
+message: '<div class="dialogtips">éœ€è¦å¾è¯¢å¯¹æ–¹çš„åŒæ„æ‰èƒ½å¼€é€šæƒ…ä¾£ç©ºé—´ï¼</div><div style="padding: 20px 0 0"><p><textarea id="reopenMessage" style="border: 1px solid rgb(184, 212, 232); width: 350px; height: 50px; color: gray;" title="é™„åŠ ä¿¡æ¯(é€‰å¡«ï¼Œ45å­—å†…)" onfocus="if(this.value==this.title) this.value=\'\';" onblur="if(this.value==\'\')this.value=this.title;">é™„åŠ ä¿¡æ¯(é€‰å¡«ï¼Œ45å­—å†…)</textarea></p></div>',
+callback: function(r){
+if(r){
+var node = $('reopenMessage');
+if(node.value == node.title){
+node.value = '';
+}
+$('closeForm').lament.value = (node.value == node.title) ? '' : node.value;
+new XN.net.xmlhttp({
+url:'http://page.'+XN.env.domain+'/settings/setClosed',
+data:XN.FORM.serialize('closeForm'),
+method:'post',
+onSuccess:function(r){
+var ret = XN.JSON.parse(r.responseText);
+XN.DO.showMsg(ret.msg||'æ“ä½œæˆåŠŸ','æ¸©é¦¨æç¤º');
+setTimeout(function (){
+window.location.reload();
+},500);
+},
+onError : function(){
+}
+});
+}
+}
+});
+return false;
+});
+});	
+</script>	
+<div class="mod page-publisher">
+<div class="status-post">
+<h3>
+<span class="numb-count">
+<span id="messageLength">0/240</span>
+</span>ç»™ä¸Šæµ·äº¤é€šå¤§å­¦ç•™è¨€				
+</h3>						
+<form name="messageForm" method="get" action="#">
+<div class="status-text">
+<input type="text" name="gid" value="0" style="display:none;" />
+<input type="text" name="cid" value="0" style="display:none;" />
+<input type="submit" value="ç•™è¨€" class="post-btn"/>
+<textarea name="message" autoComplete="off" id="t1"></textarea>
+</div>
+</form></div>
+</div>
+
+<div class="mod others">
+<div class="mod-header">
+<a class="more" href="/assemble/portal/1" title="æŸ¥çœ‹å…¨éƒ¨äººäººç½‘å…¬å…±ä¸»é¡µ">æŸ¥çœ‹å…¨éƒ¨<img src="http://a.xnimg.cn/imgpro/bg/page-more.png" alt="äººäººç½‘å…¬å…±ä¸»é¡µ" title="äººäººç½‘å…¬å…±ä¸»é¡µ"/></a>
+<h4>äººäººçš„ç”¨æˆ·è¿˜å…³æ³¨</h4>
+</div>
+<div class="mod-body">
+<ul class="people-list">
+<li>
+<span class="headpichold">
+<a href="/600002603?ref=promotelink">
+<img class="avatar" src="http://hdn.xnimg.cn/photos/hdn421/20151109/1910/h_tiny_v95i_ef1000021ce4195a.jpg" title="åŒé±¼åº§çš„å…¬å…±ä¸»é¡µ" alt="åŒé±¼åº§çš„å…¬å…±ä¸»é¡µ" />
+</a>
+</span>
+<span class="name clearfix">
+<a class="name" href="/600002603?ref=promote">åŒé±¼åº§</a>
+</span>
+</li>
+<li>
+<span class="headpichold">
+<a href="/600002626?ref=promotelink">
+<img class="avatar" src="http://hdn.xnimg.cn/photos/hdn421/20140807/1125/h_tiny_EnuR_e10b0001b61a195a.jpg" title="æ¢¦æƒ³è£…ä¿®çš„å…¬å…±ä¸»é¡µ" alt="æ¢¦æƒ³è£…ä¿®çš„å…¬å…±ä¸»é¡µ" />
+</a>
+</span>
+<span class="name clearfix">
+<a class="name" href="/600002626?ref=promote">æ¢¦æƒ³è£…ä¿®</a>
+</span>
+</li>
+<li>
+<span class="headpichold">
+<a href="/601295627?ref=promotelink">
+<img class="avatar" src="http://hdn.xnimg.cn/photos/hdn121/20140625/1710/h_tiny_VrOC_a06e000036201986.jpg" title="åŠ¨æ¼«æ–°èµ„è®¯çš„å…¬å…±ä¸»é¡µ" alt="åŠ¨æ¼«æ–°èµ„è®¯çš„å…¬å…±ä¸»é¡µ" />
+</a>
+</span>
+<span class="name clearfix">
+<a class="name" href="/601295627?ref=promote">åŠ¨æ¼«æ–°èµ„è®¯</a>
+</span>
+</li>
+<li>
+<span class="headpichold">
+<a href="/601844759?ref=promotelink">
+<img class="avatar" src="http://hdn.xnimg.cn/photos/hdn121/20141209/1635/h_tiny_32Hy_3d560000e3481986.jpg" title="DreamBigCareerçš„å…¬å…±ä¸»é¡µ" alt="DreamBigCareerçš„å…¬å…±ä¸»é¡µ" />
+</a>
+</span>
+<span class="name clearfix">
+<a class="name" href="/601844759?ref=promote">DreamBigCareer</a>
+</span>
+</li>
+<li>
+<span class="headpichold">
+<a href="/601199226?ref=promotelink">
+<img class="avatar" src="http://hdn.xnimg.cn/photos/hdn521/20120125/1735/h_tiny_ygGl_7a8b000438982f75.jpg" title="è¡Œæµ‹æ¯æ—¥ä¸€ç»ƒçš„å…¬å…±ä¸»é¡µ" alt="è¡Œæµ‹æ¯æ—¥ä¸€ç»ƒçš„å…¬å…±ä¸»é¡µ" />
+</a>
+</span>
+<span class="name clearfix">
+<a class="name" href="/601199226?ref=promote">è¡Œæµ‹æ¯æ—¥ä¸€ç»ƒ</a>
+</span>
+</li></ul>
+</div>
+</div>
+<div class="mod recent">
+<div class="mod-header">
+<h4>æˆ‘æœ€è¿‘æµè§ˆçš„å…¬å…±ä¸»é¡µ</h4>
+</div>
+<div class="mod-body">
+<ul class="people-list">
+<li>
+<span class="headpichold">
+<a href="/600993176?ref=history">
+<img src="http://hdn.xnimg.cn/photos/hdn421/20111028/1445/h_tiny_koq9_5f970001bd3d2f76.jpg" title="&#19978;&#28023;&#20132;&#36890;&#22823;&#23398;çš„å…¬å…±ä¸»é¡µ"  alt="&#19978;&#28023;&#20132;&#36890;&#22823;&#23398;çš„å…¬å…±ä¸»é¡µ" />
+</a>
+</span>
+<span class="name clearfix">
+<a href="/600993176?ref=history">&#19978;&#28023;&#20132;&#36890;&#22823;&#23398;</a>
+</span>
+</li></ul>
+</div>
+</div> </div></div>
+</div>
+<!--
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F7b9755874d74f74c2968559e9422e9d3' type='text/javascript'%3E%3C/script%3E"));
+</script>
+-->
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?46c4c9a199480813b7aa894c40e6df70";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<!-- ç™¾åº¦è‡ªåŠ¨æ¨é€ -->
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+</div>
+</div>
+</div><div class="ft-wrapper clearfix">
+<p>
+<strong>ç©è½¬äººäºº</strong>
+<a href="http://page.renren.com/register/regGuide/" target="_blank">å…¬å…±ä¸»é¡µ</a>
+<a href="http://public.renren.com/" target="_blank">å…¬ä¼—å¹³å°</a>
+<a href="http://support.renren.com/helpcenter" target="_blank">å®¢æœå¸®åŠ©</a>
+<a href="http://www.renren.com/siteinfo/privacy" target="_blank">éšç§</a>
+</p>
+<p>
+<strong>å•†åŠ¡åˆä½œ</strong>
+<a href="http://page.renren.com/marketing/index" target="_blank">å“ç‰Œè¥é”€</a>
+<a href="http://bolt.jebe.renren.com/introduce.htm" class="l-2" target="_blank">ä¸­å°ä¼ä¸š<br />è‡ªåŠ©å¹¿å‘Š</a>
+<a href="http://dev.renren.com/" target="_blank">å¼€æ”¾å¹³å°</a>
+</p>
+<p>
+<strong>å…¬å¸ä¿¡æ¯</strong>
+<a href="http://www.renren-inc.com/zh/product/renren.html" target="_blank">å…³äºæˆ‘ä»¬</a>
+<a href="http://page.renren.com/gongyi" target="_blank">äººäººå…¬ç›Š</a>
+<a href="http://www.renren-inc.com/zh/hr/" target="_blank">æ‹›è˜</a>
+</p>
+<p>
+<strong>å‹æƒ…é“¾æ¥</strong>
+<a href="http://www.jingwei.com/" target="_blank">ç»çº¬ç½‘</a>
+<a href="http://wan.renren.com/" target="_blank">äººäººæ¸¸æˆ</a>
+<a href="http://fenqi.renren.com/" target="_blank">äººäººåˆ†æœŸ</a>
+</p>
+<p>
+<strong>äººäººç§»åŠ¨å®¢æˆ·ç«¯ä¸‹è½½</strong>
+<a href="http://mobile.renren.com/showClient?v=platform_rr&psf=42064" target="_blank">iPhone/Android</a>
+<a href="http://mobile.renren.com/showClient?v=platform_hd&psf=42067" target="_blank">iPadå®¢æˆ·ç«¯</a>
+<a href="http://mobile.renren.com" target="_blank">å…¶ä»–äººäººäº§å“</a>
+</p>
+<!--<p class="copyright-info">-->
+<!-- ä¸´æ—¶æ·»åŠ å…¬å¸ä¿¡æ¯ç”¨ -->
+<p class="copyright-info" style="margi-left: -20px">
+<span>å…¬å¸å…¨ç§°ï¼šåŒ—äº¬åƒæ©¡ç½‘æ™¯ç§‘æŠ€å‘å±•æœ‰é™å…¬å¸</span>
+<span>å…¬å¸ç”µè¯ï¼š010-84481818</span>
+<span>å…¬å¸åœ°å€ï¼šåŒ—äº¬å¸‚æœé˜³åŒºé…’ä»™æ¡¥ä¸­è·¯18å·<br>å›½æŠ•åˆ›æ„ä¿¡æ¯äº§ä¸šå›­åŒ—æ¥¼1å±‚</span>
+<span><img id="wenhuajingying_icon" style="height: 28px;float: left; margin-left: 60px;" src="http://s.xnimg.cn/imgpro/civilization/wenhuajingying.png"/><a href="http://sq.ccm.gov.cn/ccnt/sczr/service/business/emark/toDetail/DFB957BAEB8B417882539C9B9F9547E6" target="_blank">äº¬ç½‘æ–‡[2013]0136-030å·</a></span>
+<span><a href="http://www.miibeian.gov.cn/" target="_blank">äº¬ICPè¯090254å·</a></span>
+<span>äººäººç½‘&copy;2015</span>
+<span><a href="#nogo" id="lawInfo">æ³•å¾‹å£°æ˜</a></span>
+</p>
+
+<!-- djåŸ‹ç  -->
+<script type="text/javascript">
+function sendStats(url){var n="log_"+(new Date).getTime();var c=window[n]=new Image;c.onload=c.onerror=function(){window[n]=null};c.src=url;c=null}
+function goPAGE() {
+    var currentUrl = window.location.href.split('#')[0];
+if ((navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i))) {
+    return "wap";
+}
+else {
+     return "pc";
+ }
+}
+var judge = goPAGE();
+    (function(){
+        sendStats('http://dj.renren.com/seostat?j={"from":"'+window.location.hostname+'","dev":"'+judge+'","page":"'+encodeURIComponent(window.location.href)+'"}');
+        console.log('dj!!');
+    })();
+</script>
+
+
+</div>	
+</div>			</div>
+</div>	
+</div>
+</body>
+</html>

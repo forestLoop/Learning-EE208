@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>系统发生错误</title>
+    <meta name="robots" content="noindex,nofollow" />
+    <style>
+        /* Base */
+        body {
+            color: #333;
+            font: 16px Verdana, "Helvetica Neue", helvetica, Arial, 'Microsoft YaHei', sans-serif;
+            margin: 0;
+            padding: 0 20px 20px;
+        }
+        h1{
+            margin: 10px 0 0;
+            font-size: 28px;
+            font-weight: 500;
+            line-height: 32px;
+        }
+        h2{
+            color: #4288ce;
+            font-weight: 400;
+            padding: 6px 0;
+            margin: 6px 0 0;
+            font-size: 18px;
+            border-bottom: 1px solid #eee;
+        }
+        h3{
+            margin: 12px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        abbr{
+            cursor: help;
+            text-decoration: underline;
+            text-decoration-style: dotted;
+        }
+        a{
+            color: #868686;
+            cursor: pointer;
+        }
+        a:hover{
+            text-decoration: underline;
+        }
+        .line-error{
+            background: #f8cbcb;
+        }
+
+        .echo table {
+            width: 100%;
+        }
+
+        .echo pre {
+            padding: 16px;
+            overflow: auto;
+            font-size: 85%;
+            line-height: 1.45;
+            background-color: #f7f7f7;
+            border: 0;
+            border-radius: 3px;
+            font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        }
+
+        .echo pre > pre {
+            padding: 0;
+            margin: 0;
+        }
+    
+        /* Exception Info */
+        .exception {
+            margin-top: 20px;
+        }
+        .exception .message{
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-bottom: 0 none;
+            line-height: 18px;
+            font-size:16px;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+            font-family: Consolas,"Liberation Mono",Courier,Verdana,"微软雅黑";
+        }
+
+        .exception .code{
+            float: left;
+            text-align: center;
+            color: #fff;
+            margin-right: 12px;
+            padding: 16px;
+            border-radius: 4px;
+            background: #999;
+        }
+        .exception .source-code{
+            padding: 6px;
+            border: 1px solid #ddd;
+
+            background: #f9f9f9;
+            overflow-x: auto;
+
+        }
+        .exception .source-code pre{
+            margin: 0;
+        }
+        .exception .source-code pre ol{
+            margin: 0;
+            color: #4288ce;
+            display: inline-block;
+            min-width: 100%;
+            box-sizing: border-box;
+        font-size:14px;
+            font-family: "Century Gothic",Consolas,"Liberation Mono",Courier,Verdana;
+            padding-left: 48px;
+        }
+        .exception .source-code pre li{
+            border-left: 1px solid #ddd;
+            height: 18px;
+            line-height: 18px;
+        }
+        .exception .source-code pre code{
+            color: #333;
+            height: 100%;
+            display: inline-block;
+            border-left: 1px solid #fff;
+        font-size:14px;
+            font-family: Consolas,"Liberation Mono",Courier,Verdana,"微软雅黑";
+        }
+        .exception .trace{
+            padding: 6px;
+            border: 1px solid #ddd;
+            border-top: 0 none;
+            line-height: 16px;
+        font-size:14px;
+            font-family: Consolas,"Liberation Mono",Courier,Verdana,"微软雅黑";
+        }
+        .exception .trace ol{
+            margin: 12px;
+        }
+        .exception .trace ol li{
+            padding: 2px 4px;
+        }
+        .exception div:last-child{
+            border-bottom-left-radius: 4px;
+            border-bottom-right-radius: 4px;
+        }
+
+        /* Exception Variables */
+        .exception-var table{
+            width: 100%;
+            margin: 12px 0;
+            box-sizing: border-box;
+            table-layout:fixed;
+            word-wrap:break-word;            
+        }
+        .exception-var table caption{
+            text-align: left;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 6px 0;
+        }
+        .exception-var table caption small{
+            font-weight: 300;
+            display: inline-block;
+            margin-left: 10px;
+            color: #ccc;
+        }
+        .exception-var table tbody{
+            font-size: 13px;
+            font-family: Consolas,"Liberation Mono",Courier,"微软雅黑";
+        }
+        .exception-var table td{
+            padding: 0 6px;
+            vertical-align: top;
+            word-break: break-all;
+        }
+        .exception-var table td:first-child{
+            width: 28%;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+        .exception-var table td pre{
+            margin: 0;
+        }
+
+        /* Copyright Info */
+        .copyright{
+            margin-top: 24px;
+            padding: 12px 0;
+            border-top: 1px solid #eee;
+        }
+
+        /* SPAN elements with the classes below are added by prettyprint. */
+        pre.prettyprint .pln { color: #000 }  /* plain text */
+        pre.prettyprint .str { color: #080 }  /* string content */
+        pre.prettyprint .kwd { color: #008 }  /* a keyword */
+        pre.prettyprint .com { color: #800 }  /* a comment */
+        pre.prettyprint .typ { color: #606 }  /* a type name */
+        pre.prettyprint .lit { color: #066 }  /* a literal value */
+        /* punctuation, lisp open bracket, lisp close bracket */
+        pre.prettyprint .pun, pre.prettyprint .opn, pre.prettyprint .clo { color: #660 }
+        pre.prettyprint .tag { color: #008 }  /* a markup tag name */
+        pre.prettyprint .atn { color: #606 }  /* a markup attribute name */
+        pre.prettyprint .atv { color: #080 }  /* a markup attribute value */
+        pre.prettyprint .dec, pre.prettyprint .var { color: #606 }  /* a declaration; a variable name */
+        pre.prettyprint .fun { color: red }  /* a function name */
+    </style>
+</head>
+<body>
+    <div class="echo">
+            </div>
+        <div class="exception">
+    <div class="message">
+        
+            <div class="info">
+                <div>
+                    <h2>[8] <abbr title="think\exception\ErrorException">ErrorException</abbr> in <a class="toggle" title="E:\wwwroot\wm20081487\www\root\application\common\library\Mini.php line 62">Mini.php line 62</a></h2>
+                </div>
+                <div><h1>未定义数组索引: mobile</h1></div>
+            </div>
+        
+    </div>
+	        <div class="source-code">
+            <pre class="prettyprint lang-php"><ol start="53"><li class="line-53"><code>        $mobile = array();
+</code></li><li class="line-54"><code>        static $mobilebrowser_list ='Mobile|iPhone|Android|WAP|NetFront|JAVA|OperasMini|UCWEB|WindowssCE|Symbian|Series|webOS|SonyEricsson|Sony|BlackBerry|Cellphone|dopod|Nokia|samsung|PalmSource|Xphone|Xda|Smartphone|PIEPlus|MEIZU|MIDP|CLDC';
+</code></li><li class="line-55"><code>        //note 获取手机浏览器
+</code></li><li class="line-56"><code>        if(preg_match(&quot;/$mobilebrowser_list/i&quot;, $_SERVER['HTTP_USER_AGENT'], $mobile)) {
+</code></li><li class="line-57"><code>            return true;
+</code></li><li class="line-58"><code>        }else{
+</code></li><li class="line-59"><code>            if(preg_match('/(mozilla|chrome|safari|opera|m3gate|winwap|openwave)/i', $_SERVER['HTTP_USER_AGENT'])) {
+</code></li><li class="line-60"><code>                return false;
+</code></li><li class="line-61"><code>            }else{
+</code></li><li class="line-62"><code>                if($_GET['mobile'] === 'yes') {
+</code></li><li class="line-63"><code>                    return true;
+</code></li><li class="line-64"><code>                }else{
+</code></li><li class="line-65"><code>                    return false;
+</code></li><li class="line-66"><code>                }
+</code></li><li class="line-67"><code>            }
+</code></li><li class="line-68"><code>        }
+</code></li><li class="line-69"><code>    }
+</code></li><li class="line-70"><code>
+</code></li><li class="line-71"><code>    /**
+</code></li></ol></pre>
+        </div>
+	        <div class="trace">
+            <h2>Call Stack</h2>
+            <ol>
+                <li>in <a class="toggle" title="E:\wwwroot\wm20081487\www\root\application\common\library\Mini.php line 62">Mini.php line 62</a></li>
+                                <li>
+                at <abbr title="think\Error">Error</abbr>::appError(8, '<a class="toggle" title="Undefined index: mobile">Undefined index: mob...</a>', '<a class="toggle" title="E:\wwwroot\wm20081487\www\root\application\common\library\Mini.php">E:\wwwroot\wm2008148...</a>', 62, ['mobile' => [], 'mobilebrowser_list' => '<a class="toggle" title="Mobile|iPhone|Android|WAP|NetFront|JAVA|OperasMini|UCWEB|WindowssCE|Symbian|Series|webOS|SonyEricsson|Sony|BlackBerry|Cellphone|dopod|Nokia|samsung|PalmSource|Xphone|Xda|Smartphone|PIEPlus|MEIZU|MIDP|CLDC">Mobile|iPhone|Androi...</a>']) in <a class="toggle" title="E:\wwwroot\wm20081487\www\root\application\common\library\Mini.php line 62">Mini.php line 62</a>                </li>
+                                <li>
+                at <abbr title="common\library\Mini">Mini</abbr>->isMobile() in <a class="toggle" title="E:\wwwroot\wm20081487\www\root\application\common\library\Mini.php line 29">Mini.php line 29</a>                </li>
+                                <li>
+                at <abbr title="common\library\Mini">Mini</abbr>->themeFetch('index') in <a class="toggle" title="E:\wwwroot\wm20081487\www\root\application\index\controller\Index.php line 51">Index.php line 51</a>                </li>
+                                <li>
+                at <abbr title="app\index\controller\Index">Index</abbr>->index()                </li>
+                                <li>
+                at <abbr title="ReflectionMethod">ReflectionMethod</abbr>->invokeArgs(<em>object</em>(<abbr title="app\index\controller\Index">Index</abbr>), []) in <a class="toggle" title="E:\wwwroot\wm20081487\www\root\core\library\think\App.php line 226">App.php line 226</a>                </li>
+                                <li>
+                at <abbr title="think\App">App</abbr>::invokeMethod([<em>object</em>(<abbr title="app\index\controller\Index">Index</abbr>), 'index']) in <a class="toggle" title="E:\wwwroot\wm20081487\www\root\core\library\think\App.php line 359">App.php line 359</a>                </li>
+                                <li>
+                at <abbr title="think\App">App</abbr>::module(['', <em>null</em>, <em>null</em>], ['app_namespace' => 'app', 'app_debug' => <em>true</em>, 'app_trace' => <em>false</em>, ...], <em>null</em>) in <a class="toggle" title="E:\wwwroot\wm20081487\www\root\core\library\think\App.php line 134">App.php line 134</a>                </li>
+                                <li>
+                at <abbr title="think\App">App</abbr>::run() in <a class="toggle" title="E:\wwwroot\wm20081487\www\root\core\start.php line 18">start.php line 18</a>                </li>
+                                <li>
+                at require('<a class="toggle" title="E:\wwwroot\wm20081487\www\root\core\start.php">E:\wwwroot\wm2008148...</a>') in <a class="toggle" title="E:\wwwroot\wm20081487\www\root\index.php line 17">index.php line 17</a>                </li>
+                            </ol>
+        </div>
+    </div>
+        
+        <div class="exception-var">
+        <h2>Exception Datas</h2>
+                <table>
+                        <caption>Error Context</caption>
+            <tbody>
+                                <tr>
+                    <td>mobile</td>
+                    <td>
+                        []                    </td>
+                </tr>
+                                <tr>
+                    <td>mobilebrowser_list</td>
+                    <td>
+                        Mobile|iPhone|Android|WAP|NetFront|JAVA|OperasMini|UCWEB|WindowssCE|Symbian|Series|webOS|SonyEricsson|Sony|BlackBerry|Cellphone|dopod|Nokia|samsung|PalmSource|Xphone|Xda|Smartphone|PIEPlus|MEIZU|MIDP|CLDC                    </td>
+                </tr>
+                            </tbody>
+                    </table>
+            </div>
+    
+        <div class="exception-var">
+        <h2>Environment Variables</h2>
+                <table>
+                        <caption>GET Data<small>empty</small></caption>
+                    </table>
+                <table>
+                        <caption>POST Data<small>empty</small></caption>
+                    </table>
+                <table>
+                        <caption>Files<small>empty</small></caption>
+                    </table>
+                <table>
+                        <caption>Cookies<small>empty</small></caption>
+                    </table>
+                <table>
+                        <caption>Session<small>empty</small></caption>
+                    </table>
+                <table>
+                        <caption>Server/Request Data</caption>
+            <tbody>
+                                <tr>
+                    <td>_FCGI_X_PIPE_</td>
+                    <td>
+                        \\.\pipe\IISFCGI-e7604b30-1c1e-41ae-abef-849598052ffa                    </td>
+                </tr>
+                                <tr>
+                    <td>ALLUSERSPROFILE</td>
+                    <td>
+                        C:\ProgramData                    </td>
+                </tr>
+                                <tr>
+                    <td>APPDATA</td>
+                    <td>
+                        C:\Windows\system32\config\systemprofile\AppData\Roaming                    </td>
+                </tr>
+                                <tr>
+                    <td>APP_POOL_CONFIG</td>
+                    <td>
+                        C:\inetpub\temp\apppools\wm\wm.config                    </td>
+                </tr>
+                                <tr>
+                    <td>APP_POOL_ID</td>
+                    <td>
+                        wm                    </td>
+                </tr>
+                                <tr>
+                    <td>CommonProgramFiles</td>
+                    <td>
+                        C:\Program Files (x86)\Common Files                    </td>
+                </tr>
+                                <tr>
+                    <td>CommonProgramFiles(x86)</td>
+                    <td>
+                        C:\Program Files (x86)\Common Files                    </td>
+                </tr>
+                                <tr>
+                    <td>CommonProgramW6432</td>
+                    <td>
+                        C:\Program Files\Common Files                    </td>
+                </tr>
+                                <tr>
+                    <td>COMPUTERNAME</td>
+                    <td>
+                        VHOST63167                    </td>
+                </tr>
+                                <tr>
+                    <td>ComSpec</td>
+                    <td>
+                        C:\Windows\system32\cmd.exe                    </td>
+                </tr>
+                                <tr>
+                    <td>FP_NO_HOST_CHECK</td>
+                    <td>
+                        NO                    </td>
+                </tr>
+                                <tr>
+                    <td>JAVA_HOME</td>
+                    <td>
+                        E:\java                    </td>
+                </tr>
+                                <tr>
+                    <td>LOCALAPPDATA</td>
+                    <td>
+                        C:\Windows\system32\config\systemprofile\AppData\Local                    </td>
+                </tr>
+                                <tr>
+                    <td>NUMBER_OF_PROCESSORS</td>
+                    <td>
+                        8                    </td>
+                </tr>
+                                <tr>
+                    <td>OS</td>
+                    <td>
+                        Windows_NT                    </td>
+                </tr>
+                                <tr>
+                    <td>Path</td>
+                    <td>
+                        C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;                    </td>
+                </tr>
+                                <tr>
+                    <td>PATHEXT</td>
+                    <td>
+                        .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC                    </td>
+                </tr>
+                                <tr>
+                    <td>PROCESSOR_ARCHITECTURE</td>
+                    <td>
+                        x86                    </td>
+                </tr>
+                                <tr>
+                    <td>PROCESSOR_ARCHITEW6432</td>
+                    <td>
+                        AMD64                    </td>
+                </tr>
+                                <tr>
+                    <td>PROCESSOR_IDENTIFIER</td>
+                    <td>
+                        Intel64 Family 6 Model 26 Stepping 5, GenuineIntel                    </td>
+                </tr>
+                                <tr>
+                    <td>PROCESSOR_LEVEL</td>
+                    <td>
+                        6                    </td>
+                </tr>
+                                <tr>
+                    <td>PROCESSOR_REVISION</td>
+                    <td>
+                        1a05                    </td>
+                </tr>
+                                <tr>
+                    <td>ProgramData</td>
+                    <td>
+                        C:\ProgramData                    </td>
+                </tr>
+                                <tr>
+                    <td>ProgramFiles</td>
+                    <td>
+                        C:\Program Files (x86)                    </td>
+                </tr>
+                                <tr>
+                    <td>ProgramFiles(x86)</td>
+                    <td>
+                        C:\Program Files (x86)                    </td>
+                </tr>
+                                <tr>
+                    <td>ProgramW6432</td>
+                    <td>
+                        C:\Program Files                    </td>
+                </tr>
+                                <tr>
+                    <td>PSModulePath</td>
+                    <td>
+                        C:\Windows\system32\WindowsPowerShell\v1.0\Modules\                    </td>
+                </tr>
+                                <tr>
+                    <td>PUBLIC</td>
+                    <td>
+                        C:\Users\Public                    </td>
+                </tr>
+                                <tr>
+                    <td>SystemDrive</td>
+                    <td>
+                        C:                    </td>
+                </tr>
+                                <tr>
+                    <td>SystemRoot</td>
+                    <td>
+                        C:\Windows                    </td>
+                </tr>
+                                <tr>
+                    <td>TEMP</td>
+                    <td>
+                        C:\Windows\TEMP                    </td>
+                </tr>
+                                <tr>
+                    <td>TMP</td>
+                    <td>
+                        C:\Windows\TEMP                    </td>
+                </tr>
+                                <tr>
+                    <td>USERDOMAIN</td>
+                    <td>
+                        WORKGROUP                    </td>
+                </tr>
+                                <tr>
+                    <td>USERNAME</td>
+                    <td>
+                        VHOST63167$                    </td>
+                </tr>
+                                <tr>
+                    <td>USERPROFILE</td>
+                    <td>
+                        C:\Windows\system32\config\systemprofile                    </td>
+                </tr>
+                                <tr>
+                    <td>windir</td>
+                    <td>
+                        C:\Windows                    </td>
+                </tr>
+                                <tr>
+                    <td>windows_tracing_flags</td>
+                    <td>
+                        3                    </td>
+                </tr>
+                                <tr>
+                    <td>windows_tracing_logfile</td>
+                    <td>
+                        C:\BVTBin\Tests\installpackage\csilogfile.log                    </td>
+                </tr>
+                                <tr>
+                    <td>ORIG_PATH_INFO</td>
+                    <td>
+                        /index.php                    </td>
+                </tr>
+                                <tr>
+                    <td>URL</td>
+                    <td>
+                        /index.php                    </td>
+                </tr>
+                                <tr>
+                    <td>SERVER_SOFTWARE</td>
+                    <td>
+                        Microsoft-IIS/7.5                    </td>
+                </tr>
+                                <tr>
+                    <td>SERVER_PROTOCOL</td>
+                    <td>
+                        HTTP/1.1                    </td>
+                </tr>
+                                <tr>
+                    <td>SERVER_PORT_SECURE</td>
+                    <td>
+                        0                    </td>
+                </tr>
+                                <tr>
+                    <td>SERVER_PORT</td>
+                    <td>
+                        8017                    </td>
+                </tr>
+                                <tr>
+                    <td>SERVER_NAME</td>
+                    <td>
+                        wm.sjtu.edu.cn                    </td>
+                </tr>
+                                <tr>
+                    <td>SCRIPT_NAME</td>
+                    <td>
+                        /index.php                    </td>
+                </tr>
+                                <tr>
+                    <td>SCRIPT_FILENAME</td>
+                    <td>
+                        e:\wwwroot\wm20081487\www\root\index.php                    </td>
+                </tr>
+                                <tr>
+                    <td>REQUEST_URI</td>
+                    <td>
+                        /                    </td>
+                </tr>
+                                <tr>
+                    <td>REQUEST_METHOD</td>
+                    <td>
+                        GET                    </td>
+                </tr>
+                                <tr>
+                    <td>REMOTE_USER</td>
+                    <td>
+                                            </td>
+                </tr>
+                                <tr>
+                    <td>REMOTE_PORT</td>
+                    <td>
+                        52852                    </td>
+                </tr>
+                                <tr>
+                    <td>REMOTE_HOST</td>
+                    <td>
+                        202.120.63.151                    </td>
+                </tr>
+                                <tr>
+                    <td>REMOTE_ADDR</td>
+                    <td>
+                        202.120.63.151                    </td>
+                </tr>
+                                <tr>
+                    <td>QUERY_STRING</td>
+                    <td>
+                                            </td>
+                </tr>
+                                <tr>
+                    <td>PATH_TRANSLATED</td>
+                    <td>
+                        e:\wwwroot\wm20081487\www\root\index.php                    </td>
+                </tr>
+                                <tr>
+                    <td>LOGON_USER</td>
+                    <td>
+                                            </td>
+                </tr>
+                                <tr>
+                    <td>LOCAL_ADDR</td>
+                    <td>
+                        202.120.63.167                    </td>
+                </tr>
+                                <tr>
+                    <td>INSTANCE_META_PATH</td>
+                    <td>
+                        /LM/W3SVC/20081487                    </td>
+                </tr>
+                                <tr>
+                    <td>INSTANCE_NAME</td>
+                    <td>
+                        WM.SJTU.EDU.CN                    </td>
+                </tr>
+                                <tr>
+                    <td>INSTANCE_ID</td>
+                    <td>
+                        20081487                    </td>
+                </tr>
+                                <tr>
+                    <td>HTTPS_SERVER_SUBJECT</td>
+                    <td>
+                                            </td>
+                </tr>
+                                <tr>
+                    <td>HTTPS_SERVER_ISSUER</td>
+                    <td>
+                                            </td>
+                </tr>
+                                <tr>
+                    <td>HTTPS_SECRETKEYSIZE</td>
+                    <td>
+                                            </td>
+                </tr>
+                                <tr>
+                    <td>HTTPS_KEYSIZE</td>
+                    <td>
+                                            </td>
+                </tr>
+                                <tr>
+                    <td>HTTPS</td>
+                    <td>
+                        off                    </td>
+                </tr>
+                                <tr>
+                    <td>GATEWAY_INTERFACE</td>
+                    <td>
+                        CGI/1.1                    </td>
+                </tr>
+                                <tr>
+                    <td>DOCUMENT_ROOT</td>
+                    <td>
+                        e:\wwwroot\wm20081487\www\root                    </td>
+                </tr>
+                                <tr>
+                    <td>CONTENT_TYPE</td>
+                    <td>
+                                            </td>
+                </tr>
+                                <tr>
+                    <td>CONTENT_LENGTH</td>
+                    <td>
+                        0                    </td>
+                </tr>
+                                <tr>
+                    <td>CERT_SUBJECT</td>
+                    <td>
+                                            </td>
+                </tr>
+                                <tr>
+                    <td>CERT_SERIALNUMBER</td>
+                    <td>
+                                            </td>
+                </tr>
+                                <tr>
+                    <td>CERT_ISSUER</td>
+                    <td>
+                                            </td>
+                </tr>
+                                <tr>
+                    <td>CERT_FLAGS</td>
+                    <td>
+                                            </td>
+                </tr>
+                                <tr>
+                    <td>CERT_COOKIE</td>
+                    <td>
+                                            </td>
+                </tr>
+                                <tr>
+                    <td>AUTH_USER</td>
+                    <td>
+                                            </td>
+                </tr>
+                                <tr>
+                    <td>AUTH_PASSWORD</td>
+                    <td>
+                                            </td>
+                </tr>
+                                <tr>
+                    <td>AUTH_TYPE</td>
+                    <td>
+                                            </td>
+                </tr>
+                                <tr>
+                    <td>APPL_PHYSICAL_PATH</td>
+                    <td>
+                        e:\wwwroot\wm20081487\www\root\                    </td>
+                </tr>
+                                <tr>
+                    <td>APPL_MD_PATH</td>
+                    <td>
+                        /LM/W3SVC/20081487/ROOT                    </td>
+                </tr>
+                                <tr>
+                    <td>IIS_UrlRewriteModule</td>
+                    <td>
+                        7.1.0761.0                    </td>
+                </tr>
+                                <tr>
+                    <td>HTTP_X_FORWARDED_PROTO</td>
+                    <td>
+                        http                    </td>
+                </tr>
+                                <tr>
+                    <td>HTTP_X_FORWARDED_FOR</td>
+                    <td>
+                        59.78.18.182                    </td>
+                </tr>
+                                <tr>
+                    <td>HTTP_X_REAL_IP</td>
+                    <td>
+                        59.78.18.182                    </td>
+                </tr>
+                                <tr>
+                    <td>HTTP_USER_AGENT</td>
+                    <td>
+                        python-requests/2.19.1                    </td>
+                </tr>
+                                <tr>
+                    <td>HTTP_HOST</td>
+                    <td>
+                        wm.sjtu.edu.cn                    </td>
+                </tr>
+                                <tr>
+                    <td>HTTP_ACCEPT_ENCODING</td>
+                    <td>
+                        gzip, deflate                    </td>
+                </tr>
+                                <tr>
+                    <td>HTTP_ACCEPT</td>
+                    <td>
+                        */*                    </td>
+                </tr>
+                                <tr>
+                    <td>HTTP_CONTENT_LENGTH</td>
+                    <td>
+                        0                    </td>
+                </tr>
+                                <tr>
+                    <td>FCGI_ROLE</td>
+                    <td>
+                        RESPONDER                    </td>
+                </tr>
+                                <tr>
+                    <td>PHP_SELF</td>
+                    <td>
+                        /index.php                    </td>
+                </tr>
+                                <tr>
+                    <td>REQUEST_TIME_FLOAT</td>
+                    <td>
+                        1537848651.1494                    </td>
+                </tr>
+                                <tr>
+                    <td>REQUEST_TIME</td>
+                    <td>
+                        1537848651                    </td>
+                </tr>
+                                <tr>
+                    <td>PATH_INFO</td>
+                    <td>
+                        false                    </td>
+                </tr>
+                            </tbody>
+                    </table>
+                <table>
+                        <caption>Environment Variables<small>empty</small></caption>
+                    </table>
+                <table>
+                        <caption>ThinkPHP Constants</caption>
+            <tbody>
+                                <tr>
+                    <td>APP_DEBUG</td>
+                    <td>
+                        true                    </td>
+                </tr>
+                                <tr>
+                    <td>APP_PATH</td>
+                    <td>
+                        E:\wwwroot\wm20081487\www\root/application/                    </td>
+                </tr>
+                                <tr>
+                    <td>_PHP_FILE_</td>
+                    <td>
+                        /index.php                    </td>
+                </tr>
+                                <tr>
+                    <td>__ROOT__</td>
+                    <td>
+                                            </td>
+                </tr>
+                                <tr>
+                    <td>THINK_VERSION</td>
+                    <td>
+                        5.0.0                    </td>
+                </tr>
+                                <tr>
+                    <td>THINK_START_TIME</td>
+                    <td>
+                        1537848651.1494                    </td>
+                </tr>
+                                <tr>
+                    <td>THINK_START_MEM</td>
+                    <td>
+                        152152                    </td>
+                </tr>
+                                <tr>
+                    <td>EXT</td>
+                    <td>
+                        .php                    </td>
+                </tr>
+                                <tr>
+                    <td>DS</td>
+                    <td>
+                        \                    </td>
+                </tr>
+                                <tr>
+                    <td>THINK_PATH</td>
+                    <td>
+                        E:\wwwroot\wm20081487\www\root\core\                    </td>
+                </tr>
+                                <tr>
+                    <td>LIB_PATH</td>
+                    <td>
+                        E:\wwwroot\wm20081487\www\root\core\library\                    </td>
+                </tr>
+                                <tr>
+                    <td>CORE_PATH</td>
+                    <td>
+                        E:\wwwroot\wm20081487\www\root\core\library\think\                    </td>
+                </tr>
+                                <tr>
+                    <td>TRAIT_PATH</td>
+                    <td>
+                        E:\wwwroot\wm20081487\www\root\core\library\traits\                    </td>
+                </tr>
+                                <tr>
+                    <td>ROOT_PATH</td>
+                    <td>
+                        E:\wwwroot\wm20081487\www\root\                    </td>
+                </tr>
+                                <tr>
+                    <td>EXTEND_PATH</td>
+                    <td>
+                        E:\wwwroot\wm20081487\www\root\extend\                    </td>
+                </tr>
+                                <tr>
+                    <td>VENDOR_PATH</td>
+                    <td>
+                        E:\wwwroot\wm20081487\www\root\vendor\                    </td>
+                </tr>
+                                <tr>
+                    <td>RUNTIME_PATH</td>
+                    <td>
+                        E:\wwwroot\wm20081487\www\root\runtime\                    </td>
+                </tr>
+                                <tr>
+                    <td>LOG_PATH</td>
+                    <td>
+                        E:\wwwroot\wm20081487\www\root\runtime\log\                    </td>
+                </tr>
+                                <tr>
+                    <td>CACHE_PATH</td>
+                    <td>
+                        E:\wwwroot\wm20081487\www\root\runtime\cache\                    </td>
+                </tr>
+                                <tr>
+                    <td>TEMP_PATH</td>
+                    <td>
+                        E:\wwwroot\wm20081487\www\root\runtime\temp\                    </td>
+                </tr>
+                                <tr>
+                    <td>CONF_PATH</td>
+                    <td>
+                        E:\wwwroot\wm20081487\www\root/application/                    </td>
+                </tr>
+                                <tr>
+                    <td>CONF_EXT</td>
+                    <td>
+                        .php                    </td>
+                </tr>
+                                <tr>
+                    <td>ENV_PREFIX</td>
+                    <td>
+                        PHP_                    </td>
+                </tr>
+                                <tr>
+                    <td>IS_CLI</td>
+                    <td>
+                        false                    </td>
+                </tr>
+                                <tr>
+                    <td>IS_WIN</td>
+                    <td>
+                        true                    </td>
+                </tr>
+                                <tr>
+                    <td>MINISHOP_VERSION</td>
+                    <td>
+                        V1.0.1                    </td>
+                </tr>
+                            </tbody>
+                    </table>
+            </div>
+    
+    <div class="copyright">
+        <a title="官方网站" href="http://www.thinkphp.cn">ThinkPHP</a> 
+        <span>V5.0.0</span> 
+        <span>{ 十年磨一剑-为API开发设计的高性能框架 }</span>
+    </div>
+        <script>
+        var LINE = 62;
+
+        function $(selector, node){
+            var elements;
+
+            node = node || document;
+            if(document.querySelectorAll){
+                elements = node.querySelectorAll(selector);
+            } else {
+                switch(selector.substr(0, 1)){
+                    case '#':
+                        elements = [node.getElementById(selector.substr(1))];
+                        break;
+                    case '.':
+                        if(document.getElementsByClassName){
+                            elements = node.getElementsByClassName(selector.substr(1));
+                        } else {
+                            elements = get_elements_by_class(selector.substr(1), node);
+                        }
+                        break;
+                    default:
+                        elements = node.getElementsByTagName();
+                }
+            }
+            return elements;
+
+            function get_elements_by_class(search_class, node, tag) {
+                var elements = [], eles, 
+                    pattern  = new RegExp('(^|\\s)' + search_class + '(\\s|$)');
+
+                node = node || document;
+                tag  = tag  || '*';
+
+                eles = node.getElementsByTagName(tag);
+                for(var i = 0; i < eles.length; i++) {
+                    if(pattern.test(eles[i].className)) {
+                        elements.push(eles[i])
+                    }
+                }
+
+                return elements;
+            }
+        }
+
+        $.getScript = function(src, func){
+            var script = document.createElement('script');
+            
+            script.async  = 'async';
+            script.src    = src;
+            script.onload = func || function(){};
+            
+            $('head')[0].appendChild(script);
+        }
+
+        ;(function(){
+            var files = $('.toggle');
+            var ol    = $('ol', $('.prettyprint')[0]);
+            var li    = $('li', ol[0]);   
+
+            // 短路径和长路径变换
+            for(var i = 0; i < files.length; i++){
+                files[i].ondblclick = function(){
+                    var title = this.title;
+
+                    this.title = this.innerHTML;
+                    this.innerHTML = title;
+                }
+            }
+
+            // 设置出错行
+            var err_line = $('.line-' + LINE, ol[0])[0];
+            err_line.className = err_line.className + ' line-error';
+
+            $.getScript('//cdn.bootcss.com/prettify/r298/prettify.min.js', function(){
+                prettyPrint();
+
+                // 解决Firefox浏览器一个很诡异的问题
+                // 当代码高亮后，ol的行号莫名其妙的错位
+                // 但是只要刷新li里面的html重新渲染就没有问题了
+                if(window.navigator.userAgent.indexOf('Firefox') >= 0){
+                    ol[0].innerHTML = ol[0].innerHTML;
+                }
+            });
+
+        })();
+    </script>
+    </body>
+</html>

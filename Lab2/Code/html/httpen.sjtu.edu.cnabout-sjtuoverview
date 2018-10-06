@@ -1,0 +1,623 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+  <title>Jiao Tong University - Overview</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="text" />
+<meta name="Publisher" content="Jiao Tong University" />
+<meta name="Author" content="Jiao Tong University" />
+<link rel="shortcut icon" href="/assets/banners/icons/favicon.ico" />
+<link type="text/css" rel="stylesheet" href="/css/main" />
+<link type="text/css" rel="stylesheet" href="/css/content_modules" />
+<link type="text/css" rel="stylesheet" href="/css/theme" />
+<link type="text/css" rel="stylesheet" href="/css/event_calendar" />
+<link type="text/css" rel="stylesheet" href="/css/jquery.ad-gallery" />
+<link type="text/css" rel="stylesheet" href="/css/imagepreview" />
+<link type="text/css" rel="stylesheet" href="/css/rotatelist" />
+<link type="text/css" rel="stylesheet" href="/css/gateways" />
+<link type="text/css" rel="stylesheet" href="/css/highlights" />
+<link type="text/css" rel="stylesheet" href="/css/faculty" />
+<script type="text/javascript" src="/javascripts/jquery-1.4.4.min.js" ></script>
+<script type="text/javascript" src="/javascripts/jquery_cycle.js" ></script>
+<script type="text/javascript" src="/javascripts/jquery.ad-gallery.js"></script>
+<script type="text/javascript" src="/javascripts/grayscale.js" ></script>
+<script type="text/javascript" src="/javascripts/dropdowntabs.js" ></script>
+<script type="text/javascript" src="/js/main" ></script>
+<script type="text/javascript" src="/js/pic_s4" ></script>
+<script type="text/javascript" src="/js/view_menus" ></script>
+<script type="text/javascript" src="/js/left_sidebar" ></script>
+<script type="text/javascript" src="/js/let" ></script>
+<script type="text/javascript" src="/js/show_hide" ></script>
+<script type="text/javascript" src="/js/spotlight"></script>
+<script type="text/javascript" src="/js/gallery_slideshow"></script>
+<script type="text/javascript" src="/js/imagepreview"></script>
+<script type="text/javascript" src="/js/rotatelist"></script>
+<script type="text/javascript" src="/js/highlights"></script>
+<script type="text/javascript" src="/js/showpartial"></script>
+<!--<script type="text/javascript" src="/js/grayscale"></script>-->
+
+<!--[if IE]>
+<link type="text/css" rel="stylesheet" href="/css/ad-gallery-ie" />
+<![endif]-->
+<!--[if lt IE 7]>
+<script type="text/javascript" src="/js/iepngfix_tilebg" ></script>
+<link type="text/css" rel="stylesheet" href="/css/ie6" />
+<![endif]-->
+
+</head>
+<body>
+<div class="skip"><a href="#content_center" accesskey="9">Skip to Content</a></div>
+<div id="container">
+  <div id="header">
+    <div id="logo"><a href="/" accesskey="0"><img src="/assets/512/logo.jpg" alt="jd_logo" /></a><h1>Jiao Tong University</h1>
+</div>
+<div id="container_header_middle">
+  <div id="items_header" >
+    <ul>
+      <!--li class="header_items"><a href="/academics/academic-calendar">Academic Calendar</a></li-->
+      <li class="header_items"><a href="/about-sjtu/life-sjtu/campus-maps/">Campus Maps</a></li>      
+      <li class="header_items"><a href="http://webmail.sjtu.edu.cn">Campus Email</a></li>
+      <li class="header_items"><a href="http://my.sjtu.edu.cn/Profile/Me">jAccount</a></li>
+      <li id="header_quicklink_item">
+        <div id="quicklink"><img class="menu_class" alt="quicklink" src="/images/quicklink.jpg" />
+          <ul class="the_menu">
+            <li><a href="/academics/faculty">Faculty</a></li>
+            <li><a href="/academics/academic-calendar">Academic Calendar</a></li>
+            <li><a href="http://www.lib.sjtu.edu.cn/list.do?articleType_id=145">Library</a></li>
+            <li><a href="/about-sjtu/life-sjtu/campus-bus-schedule">Campus Bus Schedules</a></li>
+            <li><a href="/about-sjtu/life-sjtu/campus-maps/">Campus Maps</a></li>
+            <li><a href="/about-sjtu/life-sjtu/directions">Directions</a></li>
+
+            <li><a href="http://foundation.sjtu.edu.cn/">Giving</a></li>
+            <li><a href="/about-sjtu/museums">Museums</a></li>
+            <li><a href="/research/journals">Journals</a></li>
+            <li><a href="/admission/scholarships">Scholarships</a></li>
+            <li><a href="/about-sjtu/life-sjtu/sports-facilities/">Sports Facility</a></li>
+            <li><a href="/about-sjtu/life-sjtu/international-student-council/">International Student Council</a></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="search">
+    <form action="/search" method="get" id="searchformhome">
+      <div class="searchbox">
+        <input type="hidden" name="exclude_pages" value=""/>
+        <input id="search_text" type="text" name="q"  size="15" alt="search" accesskey="s"/>
+        <input class="search_button" value="" type="submit"/>
+      </div>
+      <div id="search_filters">      
+        <label id="web_label" for="web">Site Search</label>
+      </div>
+    </form>
+  </div>
+
+  <div id="nav">
+    <div id="colortab" class="ddcolortabs">
+      <ul>
+        
+          <li>
+            
+            <a href="/"><span id="nav_home">Home</span></a>
+          </li>
+        
+        
+          <li>
+            <a rel="dropmenu1_a" class="hit_now"><span id="About_SJTU">About SJTU</span></a>
+            
+          </li>
+        
+        
+          <li>
+            
+            <a rel="dropmenu2_a"><span  id="Admission">Admission</span></a>
+          </li>
+        
+        
+          <li>
+            
+            <a rel="dropmenu3_a"><span  id="Academics">Academics</span></a>
+
+
+          </li>
+        
+        
+          <li>
+            
+            <a rel="dropmenu4_a"><span id="Research">Research</span></a>
+
+          </li>
+        
+        
+          <li>
+            
+            <a rel="dropmenu5_a"><span id="Jobs">Join Us</span></a>
+          </li>
+        
+      </ul>
+    </div>
+
+    <div id="dropmenu1_a" class="dropmenudiv_a">
+          <a href="/about-sjtu/overview" accesskey="1">Overview</a>
+          <a href="/about-sjtu/presidents-welcome">President's Welcome</a> 
+          <a href="/about-sjtu/sjtu-today">SJTU Today</a> 
+          <a href="/about-sjtu/facts-figures">Facts &amp; Figures</a> 
+          <a href="/about-sjtu/international-student-services/">International Student Services</a> 
+          <a href="/about-sjtu/life-sjtu/accommodation">Life@SJTU</a> 
+          <a href="/about-sjtu/administration">Administration </a> 
+          <a href="/about-sjtu/administrative-departments">Administrative Departments </a>      
+          <a href="/about-sjtu/library">Library </a> 
+          <a href="/about-sjtu/museums">Museums </a> 
+          <a href="/about-sjtu/contact-us">Contact Us</a> 
+    </div>
+
+    <!--2nd drop down menu -->
+    <div id="dropmenu2_a" class="dropmenudiv_a" >
+          <a href="/admission/why-sjtu" accesskey="2">Why SJTU</a> 
+<a href="/admission/how-to-apply">How to Apply</a> 
+          <a href="/admission/non-degree-program">Non-degree Program</a> 
+          <a href="/admission/scholarships">Scholarships</a> 
+          <a href="/admission/tuition-payment/">Tuition Payment</a>
+    </div>
+
+    <!--3nd drop down menu -->
+    <div id="dropmenu3_a" class="dropmenudiv_a" > 
+          <a href="/academics/schools" accesskey="3">Schools</a> 
+          <a href="/academics/undergraduate-programs">Undergraduate Programs</a>
+          <a href="/academics/non-degree-program/">Non-Degree Program</a>
+<a href="/academics/master">Master Program</a>
+        <a href="/academics/phd">PhD Program</a>
+          <a href="/academics/faqs-in-chinese-language-study/">FAQs In Chinese Language Study</a>
+          <a href="/academics/faculty/academicians">Faculty</a>
+
+          <!--a href="/academics/academic-calendar">Academic Calendar</a--> 
+    </div>
+      <!--4nd drop down menu -->
+      <div id="dropmenu4_a" class="dropmenudiv_a">
+
+          <a href="/research/overview" accesskey="4">Overview</a> 
+          <a href="/research/initiative">Initiative</a> 
+          <a href="/research/achievements">Achievements</a> 
+          <a href="/research/cooperation/international">Cooperation</a> 
+          <a href="/research/centers-labs">Centers &amp; Labs</a> 
+          <a href="/research/cross-disciplinary">Cross Disciplinary</a> 
+          <a href="/research/technology-transfer/achievement-exhibition-center">Technology Transfer</a> 
+          <a href="/research/journals">Journals</a> 
+          <a href="/research/international-cooperation-office">International Cooperation Office</a> 
+      </div>
+
+      <!--5nd drop down menu -->
+      <div id="dropmenu5_a" class="dropmenudiv_a"> 
+          <!--a  href="/join-us/administrative-position/" accesskey="5">Administrative Position</a-->
+          <!--a  href="/join-us/faculty-positions/chair-professors-and-accredited-professors">Faculty Positions</a-->
+          <a  href="/join-us/post-doctoral-positions">Post-Doctoral Positions</a>
+          <a  href="/join-us/global-young-talents">Global young talents</a>          
+          <!--a  href="/join-us/staff-positions">Staff Positions</a-->
+
+      </div>
+
+    <script type="text/javascript">
+          //SYNTAX: tabdropdown.init("menu_id", [integer OR "auto"])
+        tabdropdown.init("colortab", 6)
+    </script>
+
+  </div>
+
+</div>
+
+<div id="container_header_right">
+  <ul>
+    <li><a href="/about-sjtu/contact-us" accesskey="u">Contact Us</a></li>
+    <li><a href="/site-map" accesskey="m">Site Map</a></li>
+    <li><a href="http://www.sjtu.edu.cn">Chinese Version</a></li>
+              
+    <li>&nbsp;</li>     
+  </ul>
+</div>
+
+  </div>
+  <div id="content_main">
+    <div id="banner">
+      <img src="/images/banner_about_SJTU.jpg"/>
+    </div>
+    <div id="title_bar">
+      
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      <h1>About SJTU</h1>
+      <div id="current_position">
+          <a href="/">Home</a> 
+          >
+          
+              
+                  
+                      <a href="/about-sjtu/overview/">About SJTU</a>
+                  
+              
+              
+
+              
+                  
+              
+                  
+              
+                  
+              
+                  
+              
+                  
+              
+                  
+              
+                  
+              
+                  
+              
+                  
+                      >
+                      
+
+                      <span>Overview</span>
+                  
+              
+                  
+              
+                  
+              
+          
+
+          
+      </div>
+    
+  
+
+    </div>
+    <div class="clear"></div>
+    <div id="content_center">
+      <div id="leftsidebar">
+        
+<ul class="menu">
+      
+            
+                  
+                        
+                              <li>
+                                
+                                  <a href="/about-sjtu/overview/" class="current_point">Overview</a>
+                                
+                                
+                              </li>
+                        
+
+                        
+                  
+            
+      
+            
+                  
+                        
+                              <li>
+                                
+                                
+                                  <a href="/about-sjtu/presidents-welcome/">President's Welcome</a>
+                                
+                              </li>
+                        
+
+                        
+                  
+            
+      
+            
+                  
+                        
+                              <li>
+                                
+                                
+                                  <a href="/about-sjtu/sjtu-today/">SJTU Today</a>
+                                
+                              </li>
+                        
+
+                        
+                  
+            
+      
+            
+                  
+                        
+                              <li>
+                                
+                                
+                                  <a href="/about-sjtu/facts-figures/">Facts & Figures</a>
+                                
+                              </li>
+                        
+
+                        
+                  
+            
+      
+            
+                  
+                        
+                              <li>
+                                
+                                
+                                  <a href="/about-sjtu/international-student-services/">International Student Services</a>
+                                
+                              </li>
+                        
+
+                        
+                  
+            
+      
+            
+                  
+                        
+
+                                  
+                            
+                                
+                                    <li><span><a href="/about-sjtu/life-sjtu/accommodation/">Life@SJTU</a></span></li>
+                                
+                                
+                            
+                            
+                        
+                  
+            
+      
+            
+                  
+                        
+
+                                  
+                            
+                                
+                                
+                                    <li><span><a href="/about-sjtu/administration/">Administration</a></span></li>
+                                
+                            
+                            
+                        
+                  
+            
+      
+            
+                  
+                        
+                              <li>
+                                
+                                
+                                  <a href="/about-sjtu/administrative-departments/">Administrative Departments</a>
+                                
+                              </li>
+                        
+
+                        
+                  
+            
+      
+            
+                  
+                        
+                              <li>
+                                
+                                
+                                  <a href="/about-sjtu/library/">Library</a>
+                                
+                              </li>
+                        
+
+                        
+                  
+            
+      
+            
+                  
+                        
+                              <li>
+                                
+                                
+                                  <a href="/about-sjtu/museums/">Museums</a>
+                                
+                              </li>
+                        
+
+                        
+                  
+            
+      
+            
+                  
+                        
+
+                                  
+                            
+                                
+                                
+                                    <li><span><a href="/about-sjtu/contact-us/">Contact Us</a></span></li>
+                                
+                            
+                            
+                        
+                  
+            
+      
+</ul>
+<div class="clear"></div>
+
+      </div>
+      <div id="right_content">
+        <div class="content_title">Overview</div>
+        <div class="content_text">
+          <div class="layout_2">
+            <p><img style="float:left; margin-right:5px;" src="/assets/176/zhongyuan1_normal.png" alt="" width="250" height="178" /></p>
+<p><span>Shanghai Jiao Tong University (SJTU), as one of the higher education institutions which enjoy a long history and a world-renowned reputation in China, is a key university directly under the administration of the Ministry of Education (MOE) of the People's Republic of China and co-constructed by MOE and Shanghai Municipal Government. Through 121 years' unremitting efforts, SJTU has become a comprehensive, research-oriented, and internationalized top university in China.&nbsp;</span></p>
+<p class="MsoNormal"><span lang="EN-US">By December 2016, SJTU has had 28 schools/departments, 21 research institutions, 13 affiliated hospitals, 2 affiliated medical research institute, 12 directly affiliated units and 6 directly affiliated enterprises, with 16,195 undergraduates and 30,270 postgraduates (14,374 master degree candidates and 6,719 doctorate degree candidates)</span><span>，</span><span lang="EN-US">2,401 overseas students. The university faculty includes 2,835 full-time teachers (among which 891 are professors), 22 members of Chinese Academy of Sciences, 24 members of Chinese Academy of Engineering, 1 selected in "Thousand Talents Top Program" of the Organization Department of CPC Central Committee, 105 selected in "Thousand Talents Program" of the Organization Department of CPC Central Committee,143 chosen in "Young Talents Program", 140 Distinguished Professors and Chair Professors of "Cheung Kong Scholar Program", 8 Cheung Kong Youth Scholar, 123 winners of China National Funds for Distinguished Young Scientists, 35 Chief Scientists of the Major State Basic Research Development Program of China (973 Program), 14 Chief Scientists of the State Key Scientific Research Program, 14 Innovation Research Groups, National Natural Science Foundation of China and 20 Innovation Teams, MOE.</span></p>
+<p><span lang="EN-US">Today SJTU has 64 undergraduate programs covering 9 major disciplines: economics, law, literature, science, engineering, agriculture, medicine, management and arts. Since 2000, there are 47 national higher education teaching achievement prizes </span><span>（</span><span lang="EN-US">31 completed independently</span><span>）</span><span lang="EN-US">. With 6 National Experimental Teaching Demonstration Centers, 3 national demonstration centers of virtual simulation experiment teaching and 10 Shanghai Municipal Experiment Teaching Demonstration Centers, SJTU has 8 national-level teaching groups, 15 Shanghai Municipal teaching groups, 8 nationally renowned teachers and 36 Shanghai locally renowned teachers and owns 46 national-level quality courses, 13 national-level video-recorded open courses, 23 national-level quality resource-sharing courses, 162 Shanghai Municipal quality courses, 7 bilingual-teaching demonstration courses and14 Shanghai higher education all-English demonstration courses. SJTU won the 1<sup>st</sup> national &ldquo;double demonstration base&rdquo; and established student innovative center.</span></p>
+<p class="MsoNormal"><span lang="EN-US">Up to now SJTU has 38 first-level disciplines authorized to offer doctorate degree covering 8 fields: economics, law, literature, science, engineering, agriculture, medicine and management; 56 first-level disciplines authorized to offer master degree covering all the 12 discipline fields; 3 disciplines authorized to offer professional doctorate degree; 23 disciplines authorized to offer professional master degree; 35 postdoctoral research station, 1 national laboratory (preparing), 1 national key technology infrastructure, 8 national key laboratories, 1 national scientific research institutes, 5 national engineering research centers, 2 national engineering laboratories, 1 national research and development centers, 1 national defense key discipline laboratory, 3 collaborative innovation centers, 1 international united laboratory</span><span>；</span><span lang="EN-US">15 key laboratories of MOE, 5 key laboratories of National Health and Family Planning Commission, 1 key laboratory of Ministry of Agriculture, 31 key laboratories of Shanghai Municipal Government, 5 engineering research centers of MOE, 5 engineering technology research centers of Shanghai, 4 Shanghai Municipal functional platforms of</span><span>，</span><span lang="EN-US">1 National Social Science Fund consultation spot</span><span>，</span><span lang="EN-US"> 5 innovative research bases of philosophy and Social Sciences of Shanghai Municipal</span><span>，</span><span lang="EN-US">3 Shanghai Municipal think tank</span><span>，</span><span lang="EN-US">4 decision-making advisory research bases of Shanghai Municipal Government (expert studio</span><span>），</span><span lang="EN-US">2 Shanghai Municipal soft science bases</span><span>，</span><span lang="EN-US">1 MOE colleges and universities research base of soft science, 3 WHO collaborating centers, 1 National Technology Transfer Center, and 1 National University Science Park.</span><span lang="EN-US"> </span><span> </span><span> </span></p>
+<p class="MsoNormal"><span lang="EN-US">SJTU enjoys an increasingly high scientific research level and technology innovation level. Up to 2016, SJTU led the country for the 7th consecutive year in terms of both the project number and the amount of money issued by National Natural Science Foundation of China. The number of SCI included papers in terms of the</span><span lang="EN-US"> Article, and Review hit a historical high with the total number of 6,027. Among them, international outstanding paper reaches 2,497. </span><span lang="EN-US">The total number of domestic SCI-cited papers reaches </span><span lang="EN-US">26,749</span><span lang="EN-US">, ranking the first in China. 2,414 papers were regarded as "doing-a-good-job" papers, ranking the third in China. In 10 years, SCI-cited papers have reached </span><span lang="EN-US">39,913 and 366,612 times, continue to maintain the second in China. 705 International Conference Papers, ranking second in China. 1 was elected as &ldquo;2015 Chinese most influential 100 international academic papers&rdquo;. </span></p>
+<p class="MsoNormal"><span lang="EN-US">With profound cultural background, an age-old tradition on education, strenuous development history, and great achievements made since the reform and opening up, SJTU has attracted wide attention both inside and outside China. Carrying the mission of preserving cultural heritage, and seeking for the truth, bearing the responsibility of invigorating the Chinese nation and developing for the benefits of mankind, today this centennial university is sailing for the aim of becoming a comprehensive, research-oriented and internationalized world-class university.</span></p>
+          </div>
+        </div>
+      </div>
+      <div id="rightsidebar">
+        <h3>See Also                  <br />
+<hr /></h3>
+<ul class="blue_arrow">
+<li><a href="/academics/schools/">Schools</a></li>
+<li><a href="/research/achievements/">Achievements</a></li>
+<li><a href="/academics/faculty/academicians/">Faculty</a></li>
+<li><a href="/research/cooperation/international/">Cooperation</a></li>
+<li><a title="SJTU Virtual Tour" href="http://3dcampus.sjtu.edu.cn/">Campus Virtual Tour</a></li>
+</ul>
+<p>&nbsp;</p>
+<h3><span class="caps">SJTU</span> Ranking                  <br />
+<hr /></h3>
+<p><a href="http://www.shanghairanking.com/"><img class="arwu" src="/images/s4_pic1.jpg" alt="s4_pic1" /></a></p>
+<div class="gaving"><a href="http://foundation.sjtu.edu.cn/Index_e/Index.php">Giving</a></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="clear">&nbsp;</div>
+<div id="footer">
+  <div class="footbanner"></div>
+  <div class="contact"><span>Address: </span>800 Dongchuan RD. Minhang District, Shanghai, China <span>Telephone: </span>+86 21 54740000</div>
+  <div class="copyright">Copyright &copy; 2010 Shanghai Jiao Tong University<br/>       <a href="http://cert.sjtu.edu.cn/beian_user/show.asp?number=1082">沪交ICP备20101082</a></div>
+
+</div>
+
+<div id="footer_nav">
+  <div id="footer_nav_list">
+    <table cellpadding="0" cellspacing="0">
+  <tr>
+    <td valign="top" class="h2_bg"><h2>About SJTU</h2>
+      <ul>
+        <li><a href="/about-sjtu/overview">Overview</a></li>
+        <li><a href="/about-sjtu/presidents-welcome">President's Welcome</a></li>
+        <li><a href="/about-sjtu/sjtu-today">SJTU Today</a></li>
+        <li><a href="/about-sjtu/facts-figures">Facts &amp; Figures</a></li>
+        <li><a href="/about-sjtu/international-student-services/">International Student Services</a></li>
+        <li><a href="/about-sjtu/life-sjtu/accommodation">Life@SJTU</a></li>
+        <li><a href="/about-sjtu/administration">Administration </a></li>
+        <li><a href="/about-sjtu/administrative-departments">Administrative Departments</a></li>
+        <li><a href="/about-sjtu/faqs">FAQs </a></li>
+        <li><a href="/about-sjtu/library">Library </a></li>
+        <li><a href="/about-sjtu/museums">Museums </a></li>
+        <li><a href="/about-sjtu/contact-us">Contact Us</a></li>
+      </ul></td>
+    <td valign="top" class="h2_bg"><h2>Admission</h2>
+      <ul>
+        <li><a href="/admission/why-sjtu">Why SJTU</a></li>
+<li><a href="/admission/how-to-apply">How to Apply</a></li>
+
+        <li><a href="/admission/non-degree-program">Non-degree Program</a></li>
+        <li><a href="/admission/scholarships">Scholarships</a></li>
+        <li><a href="/admission/tuition-payment/">Tuition Payment</a></li>
+      </ul></td>
+    <td valign="top" class="h2_bg"><h2>Academics</h2>
+      <ul>
+        <li><a href="/academics/schools">Schools</a></li>
+<li><a href="/academics/undergraduate-programs">Undergraduate Programs</a></li>
+        <li><a href="/academics/non-degree-program/">Non-Degree Program</a><li>
+<li><a href="/academics/master">Master Program</a></li>
+        <li><a href="/academics/phd">PhD Program</a></li>
+        <li><a href="/academics/faqs-in-chinese-language-study/">FAQs In Chinese Language Study</a></li>
+        <li><a href="/academics/faculty/academicians">Faculty</a></li>
+              </ul></td>
+    <td valign="top" class="h2_bg"><h2>Research</h2>
+      <ul>
+         <li><a href="/research/overview">Overview</a></li>
+        <li><a href="/research/initiative">Initiative</a></li>
+        <li><a href="/research/achievements">Achievements</a></li>
+        <li><a href="/research/cooperation/domestic">Cooperation</a></li>
+        <li><a href="/research/centers-labs">Centers &amp; Labs</a></li>
+        <li><a href="/research/cross-disciplinary">Cross Disciplinary</a></li>
+        <li><a href="/research/technology-transfer/achievement-exhibition-center">Technology Transfer</a></li>
+        <li><a href="/research/journals">Journals</a></li>
+        <li><a href="/research/international-cooperation-office">International Cooperation Office</a></li>
+      </ul></td>
+    <td valign="top" class="h2_bg"><h2>Join Us</h2>
+      <ul>
+        <li><a href="/jobs/faculty-positions/chair-professors-and-accredited-professors">Faculty Positions</a></li>
+        <li><a href="/jobs/post-doctoral-positions">Post-Doctoral Positions</a></li>
+        <li><a href="/jobs/staff-positions">Staff Positions</a></li>
+      </ul></td>
+  </tr>
+</table>
+
+  </div>
+</div>
+
+<script type="text/javascript">
+
+var _gaq = _gaq || [];
+ _gaq.push(['_setAccount', 'UA-20278832-1']);
+ _gaq.push(['_trackPageview']);
+
+(function() {
+   var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+   ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+ })();
+
+</script>
+</body>
+</html>

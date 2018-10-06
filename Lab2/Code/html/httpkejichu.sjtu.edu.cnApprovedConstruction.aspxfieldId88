@@ -1,0 +1,359 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1"><title>
+	政府批建_科学技术发展研究院_上海交通大学
+</title>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <link href="css/site.css" rel="stylesheet" type="text/css" /><link href="css/sublist.css" rel="stylesheet" type="text/css" />
+    <!--[if lte IE 6]>
+    <script src="js/iepng.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        EvPNG.fix('div,img,input,a,p,li');
+    </script>
+    <![endif]-->
+    <script src="js/menu.js" type="text/javascript"></script>
+    <script src="js/sublist.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function () {
+            $(".govbox").children(":first").children(":first").children(":last").addClass("accordion-collapse").removeClass("accordion-expand");
+            $(".govbox").children(":first").children(":last").show();
+            $(".accordion_arrows").click(function () {
+                var cls = $(this).attr("class");
+                if (cls.indexOf("accordion-collapse") >= 0)//说明是展开的 需要收起来
+                {
+                    $(this).parent('.govbox_title').siblings('.govbox_list').slideUp("slow");
+                    $(this).addClass("accordion-expand").removeClass("accordion-collapse");
+
+
+
+                } else {
+                    //说明是收缩的 需要展开
+                    $(this).parent('.govbox_title').siblings('.govbox_list').slideDown("slow");
+                    $(this).addClass("accordion-collapse").removeClass("accordion-expand");
+                }
+            })
+        })
+    </script>
+</head>
+<body>
+    <form method="post" action="./ApprovedConstruction.aspx?fieldId=88" id="form1">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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" />
+
+<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="7B007BC9" />
+<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="rYLB6HutElUhmR4r8BfAd/Vltr3GuTcR2gbsJkN4BgZEV5sQ2M4J3SEDdRVmQRlmFHuoDQiKNKmSw5aBYomsg7tOl9KoM/FJ8mMDk3keVxZaihskUGSAIMeXBMpTKYM0izy+OrQh/5dqiEWb" />
+    <div class="wrap">
+        <!--头部-Start-->
+        
+<!--二维码-Start-->
+<div class="weixinbox"></div>
+<div class="ewmbg">
+<div class="ewmbgbox">
+ <div class="ewmbox"><div class="ewm"></div></div>
+ </div>
+</div>
+<!--二维码-End-->
+<div class="header">
+            <div class="headerbox">
+                <div class="header_top">
+                    <div class="header_top_left">
+                        <div class="logobox">
+                        <a href="index.aspx" style=" width:100%; height:100%; display:inline-block;" ></a>
+                        </div>
+                        <div class="logo_slip">
+                        </div>
+                        <div class="logo_kyy">
+                        <a href="index.aspx" style=" width:100%; height:100%; display:inline-block;" ></a>
+                        </div>
+                        <div class="clear">
+                        </div>
+                    </div>
+                    <div class="header_top_right">
+                        
+                        <div class="menuright_box_new" style=" position:relative;">
+                            
+                                
+                                <ul><li class="zlxz"><a href="ArticleSpList.aspx?fieldId=426">下载中心</a></li><li class="zcfg"><a href="ArticleSpList.aspx?fieldId=435">政策法规</a></li><li class="bszn"><a href="ArticleSpList.aspx?fieldId=440">业务指南</a></li><li class="bsdt"><a href="WorkServices.aspx?fieldId=9&sort=0">办事大厅</a></li></ul>
+                            <a id="english" style=" height:30px; line-height:35px; font-size:14px; color:#fff;  display:inline-block; position:absolute; top:0px; right:-70px; cursor:pointer;">English</a>
+                            <div class="clear">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clear">
+                    </div>
+                </div>
+                <div class="header_bottom">
+                    <div class="menuleft">
+                        <ul>
+                        <li><a href="/index.aspx">首页</a> </li>
+                        <li ind="2"  mid="m_2"><a href="ArticleDetail.aspx?articleId=1">关于我们</a><div class="submenu m_2"> <div class="subslip"> </div> <div class="subsanjiao"> </div> </div></li><li ind="3"  mid="m_3"><a href="NoticeList.aspx?fieldId=3">通知公告</a></li><li ind="4"  mid="m_4"><a href="ArticleList.aspx?fieldId=85">新闻动态</a><div class="submenu m_4"> <div class="subslip"> </div> <div class="subsanjiao"> </div> </div></li><li ind="5"  mid="m_5"><a href="ApprovedConstruction.aspx?fieldId=88">平台基地</a><div class="submenu m_5"> <div class="subslip"> </div> <div class="subsanjiao"> </div> </div></li><li ind="6"  mid="m_6"><a href="ArticleList.aspx?fieldId=97">人才团队</a><div class="submenu m_6"> <div class="subslip"> </div> <div class="subsanjiao"> </div> </div></li><li ind="7"  mid="m_7"><a href="ArticleList.aspx?fieldId=99">合作交流</a><div class="submenu m_7"> <div class="subslip"> </div> <div class="subsanjiao"> </div> </div></li><li ind="8"  mid="m_8"><a href="ArticleList.aspx?fieldId=101">科研成果</a><div class="submenu m_8"> <div class="subslip"> </div> <div class="subsanjiao"> </div> </div></li><li ind="9"  mid="m_443"><a href="ArticleList.aspx?fieldId=450">科技协会</a><div class="submenu m_443"> <div class="subslip"> </div> <div class="subsanjiao"> </div> </div></li><li ind="10"  mid="m_444"><a href="ArticleList.aspx?fieldId=446">党务专栏</a><div class="submenu m_444"> <div class="subslip"> </div> <div class="subsanjiao"> </div> </div></li>
+                            
+                        </ul>
+                    </div>
+                    <div class="seachbox">
+                    <input type="text" onkeydown="return SubmitKeyClick(event)" name="key" id="key" placeholder="站内搜索"/>
+                    <a id="searchbtn" onclick="searchBykey()"></a>
+                    <input type="submit" name="JDHR_HeaderUserControl$Button1" value="Button" id="JDHR_HeaderUserControl_Button1" disabled="disabled" class="aspNetDisabled" style=" display:none" />  
+                    </div>
+                    <div class="clear"></div>
+                    <div class="subbox">
+                    <div id="m_2" class="sublist box-shadow m_2"><ul><li><a href="ArticleDetail.aspx?articleId=1">科研院简介 </a></li><li><a href="http://kejichu.sjtu.edu.cn/Organization.aspx?fieldId=12">组织结构图 </a></li><li><a href="javascript:void(0)">工作通讯录 </a></li><li><a href="ArticleList.aspx?fieldId=442">服务流程图 </a></li></ul><div class="clear"></div></div><div id="m_4" class="sublist box-shadow m_4"><ul><li><a href="http://www.gov.cn/zhengce/index.htm">政策动态 </a></li><li><a href="ArticleList.aspx?fieldId=86">成果信息 </a></li><li><a href="ArticleList.aspx?fieldId=87">学术活动 </a></li></ul><div class="clear"></div></div><div id="m_5" class="sublist box-shadow m_5"><ul><li><a href="http://kejichu.sjtu.edu.cn/ApprovedConstruction.aspx?fieldId=88">政府批建 </a></li><li><a href="http://kejichu.sjtu.edu.cn/ApprovedConstruction.aspx?fieldId=88">自主设立 </a></li><li><a href="http://kejichu.sjtu.edu.cn/ApprovedConstruction.aspx?fieldId=88">联合共建 </a></li></ul><div class="clear"></div></div><div id="m_6" class="sublist box-shadow m_6"><ul><li><a href="http://www.sjtu.edu.cn/xbdh/yjdh/sz/lyys.htm">科技人才 </a></li><li><a href="ArticleList.aspx?fieldId=98">创新团队 </a></li></ul><div class="clear"></div></div><div id="m_7" class="sublist box-shadow m_7"><ul><li><a href="http://hxky.sjtu.edu.cn/jdky/indexcontrol/index">国内产学研合作 </a></li><li><a href="http://www.cistc.gov.cn/">国际科研合作 </a></li></ul><div class="clear"></div></div><div id="m_8" class="sublist box-shadow m_8"><ul><li><a href="ArticleList.aspx?fieldId=101">科技奖励 </a></li><li><a href="http://202.121.178.203/">知识产权 </a></li><li><a href="ArticleList.aspx?fieldId=103">论文著作 </a></li><li><a href="http://www.sjtuj.com/jsjtuj/CN/0000-1111/home.shtml">学术期刊 </a></li></ul><div class="clear"></div></div><div id="m_443" class="sublist box-shadow m_443"><ul><li><a href="ArticleList.aspx?fieldId=450">学会协会 </a></li><li><a href="http://www.sjtuj.com/jsjtuj/CN/0000-1111/home.shtml">学术期刊 </a></li><li><a href="ArticleList.aspx?fieldId=452">科学普及 </a></li><li><a href="ArticleList.aspx?fieldId=455">战略研究 </a></li><li><a href="http://www.moe.gov.cn/publicfiles/business/htmlfiles/moe/s6276/list.html">学风诚信 </a></li><li><a href="http://www.cast.org.cn/">中国科协 </a></li><li><a href="http://www.sast.gov.cn/">上海市科协 </a></li></ul><div class="clear"></div></div><div id="m_444" class="sublist box-shadow m_444"><ul><li><a href="ArticleList.aspx?fieldId=446">重要讲话 </a></li><li><a href="ArticleList.aspx?fieldId=447">文件学习 </a></li><li><a href="ArticleList.aspx?fieldId=448">支部活动 </a></li><li><a href="ArticleList.aspx?fieldId=449">工会活动 </a></li></ul><div class="clear"></div></div>
+                     
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+<script type="text/javascript">
+    function SubmitKeyClick(evt) {
+        evt = (evt) ? evt : ((window.event) ? window.event : "");
+        keyCode = evt.keyCode ? evt.keyCode : (evt.which ? evt.which : evt.charCode);
+        if (keyCode == 13) {
+            searchBykey();
+        }
+    }
+    function searchBykey() {
+        var key = $("#key").val();
+        if (key != null && key != "" && key != undefined) {
+            window.location.href = "Search.aspx?key=" + encodeURI(key) + "";
+            window.event.returnValue = false;
+            if (window.event.preventDefault) 
+                window.event.preventDefault();
+        }
+        else alert("请输入查询条件");
+    }
+</script>
+        <!--头部-End-->
+        <!--内容-Start-->
+        <div class="container">
+            <!--列表-Start-->
+            <div class="module">
+                <!--左子菜单-Start-->
+                
+<div class="submenubox">
+    <div class="submenulist pie_box_shadow">
+        <div class="subtitle">
+            <p style=" width:240px;">政府批建</p></div>
+            <ul><li class="no selected"><div class="submbox"><p><a href="ApprovedConstruction.aspx?fieldId=91" class="slidemenu down">国家级</a></p></li><li class="no"><div class="submbox"><p><a href="ApprovedConstruction.aspx?fieldId=92" class="slidemenu down">省部级</a></p></li></ul>
+        
+    </div>
+</div>
+
+                <!--左子菜单-End-->
+                <!--右内容-Start-->
+                <div class="container_right">
+                    
+
+<div class="breadcrumbs"><span>当前位置：</span><a href="index.aspx">首页</a>  > <a href="javascript:void(0)">平台基地</a> > <a href="http://kejichu.sjtu.edu.cn/ApprovedConstruction.aspx?fieldId=88">政府批建</a> > <a href="ApprovedConstruction.aspx?fieldId=91">国家级</a></div>
+                    <div class="container_box pie_box_shadow">
+                        <!--列表-Start-->
+                        <div class="listbox">
+                            <div class="govbox">
+                                
+                                        <div class="govbox_m">
+                                            <div class="govbox_title">
+                                                <span>
+                                                    国家重点实验室</span><div class="accordion_arrows accordion-expand">
+                                                    </div>
+                                            </div>
+                                            <div class="govbox_list">
+                                                <ul>
+                                                    
+                                                            <li><a title="海洋工程国家重点实验室" target="_blank" href="http://oe.sjtu.edu.cn/" >
+                                                                海洋工程国家重点实验室</a> </li>
+                                                        
+                                                            <li><a title="癌基因及相关基因国家重点实验室" target="_blank" href="http://www.sjtu.edu.cn/info/1175/1219.htm" >
+                                                                癌基因及相关基因国家重点实验室</a> </li>
+                                                        
+                                                            <li><a title="机械系统与振动国家重点实验室" target="_blank" href="http://msv.sjtu.edu.cn/" >
+                                                                机械系统与振动国家重点实验室</a> </li>
+                                                        
+                                                            <li><a title="金属基复合材料国家重点实验室" target="_blank" href="http://sklcm.sjtu.edu.cn/index.asp" >
+                                                                金属基复合材料国家重点实验室</a> </li>
+                                                        
+                                                            <li><a title="区域光纤通信网与新型光通信系统国家重点实验室" target="_blank" href="http://ofcl.pku.edu.cn/" >
+                                                                区域光纤通信网与新型光通信系统国家重点实验室</a> </li>
+                                                        
+                                                            <li><a title="医学基因组学国家重点实验室" target="_blank" href="http://kjc.shsmu.edu.cn/show.aspx?info_id=456&info_lb=770&flag=612" >
+                                                                医学基因组学国家重点实验室</a> </li>
+                                                        
+                                                            <li><a title="微生物代谢国家重点实验室" target="_blank" href="http://skmml.sjtu.edu.cn/" >
+                                                                微生物代谢国家重点实验室</a> </li>
+                                                        
+                                                            <li><a title="微米/纳米加工技术国家级重点实验室" target="_blank" href="http://www.sjtu.edu.cn/info/1175/20613.htm" >
+                                                                微米/纳米加工技术国家级重点实验室</a> </li>
+                                                        
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="govbox_m">
+                                            <div class="govbox_title">
+                                                <span>
+                                                    国家工程实验室 </span><div class="accordion_arrows accordion-expand">
+                                                    </div>
+                                            </div>
+                                            <div class="govbox_list">
+                                                <ul>
+                                                    
+                                                            <li><a title="汽车电子控制技术国家工程实验室" target="_blank" href="http://meceng-sjtu.kdis.edu.cn/descriptions/auto-Lab/" >
+                                                                汽车电子控制技术国家工程实验室</a> </li>
+                                                        
+                                                            <li><a title="信息内容分析技术国家工程实验室" target="_blank" href="http://nelcat.sjtu.edu.cn/" >
+                                                                信息内容分析技术国家工程实验室</a> </li>
+                                                        
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="govbox_m">
+                                            <div class="govbox_title">
+                                                <span>
+                                                    国家重大科技基础设施</span><div class="accordion_arrows accordion-expand">
+                                                    </div>
+                                            </div>
+                                            <div class="govbox_list">
+                                                <ul>
+                                                    
+                                                            <li><a title="转化医学国家重大科技基础设施（上海）" target="_blank" href="http://transmed.sjtu.edu.cn/zhyx/zhbnews.do?method=getNewsContent&id=173" >
+                                                                转化医学国家重大科技基础设施（上海）</a> </li>
+                                                        
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="govbox_m">
+                                            <div class="govbox_title">
+                                                <span>
+                                                    国家工程研究中心</span><div class="accordion_arrows accordion-expand">
+                                                    </div>
+                                            </div>
+                                            <div class="govbox_list">
+                                                <ul>
+                                                    
+                                                            <li><a title="模具CAD国家工程研究中心" target="_blank" href="http://www.shenmogroup.com/" >
+                                                                模具CAD国家工程研究中心</a> </li>
+                                                        
+                                                            <li><a title="轻合金精密成型国家工程研究中心" target="_blank" href="http://laf.sjtu.edu.cn/" >
+                                                                轻合金精密成型国家工程研究中心</a> </li>
+                                                        
+                                                            <li><a title="纳米技术及应用国家工程研究中心" target="_blank" href="http://www.nercn.com.cn/" >
+                                                                纳米技术及应用国家工程研究中心</a> </li>
+                                                        
+                                                            <li><a title="组织工程国家工程研究中心" target="_blank" href="http://www.ntec.org.cn/Cn/index.asp" >
+                                                                组织工程国家工程研究中心</a> </li>
+                                                        
+                                                            <li><a title="数字电视国家工程研究中心" target="_blank" href="http://www.nercdtv.org/Home.aspx" >
+                                                                数字电视国家工程研究中心</a> </li>
+                                                        
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="govbox_m">
+                                            <div class="govbox_title">
+                                                <span>
+                                                    国家级研发（实验）中心</span><div class="accordion_arrows accordion-expand">
+                                                    </div>
+                                            </div>
+                                            <div class="govbox_list">
+                                                <ul>
+                                                    
+                                                            <li><a title="国家能源智能电网(上海)研发中心" target="_blank" href="http://www.ssgc.sjtu.edu.cn/" >
+                                                                国家能源智能电网(上海)研发中心</a> </li>
+                                                        
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    
+                                
+                            </div>
+                        </div>
+                        <!--列表-End-->
+                    </div>
+                </div>
+                <!--右内容-End-->
+                <div class="clear">
+                </div>
+            </div>
+            <!--列表-End-->
+            <!--第三模块-Start-->
+            <div class="module margin_top20">
+                <!--友情链接-Start-->
+                
+<div class="friendlinkbox">
+    <div class="friendlinktitle">
+    </div>
+    <div class="friendlinklist">
+        <ul style=" padding:30px 0px;">
+        
+                            <li><a target="_blank" title="国家自然科学基金委员会" href="http://www.nsfc.gov.cn/">
+                                <img src="/KYYAdmin/ckfinder/userfiles/images/day_160114/201601140111344580.gif" /></a></li>
+                        
+                            <li><a target="_blank" title="全军武器装备采购信息网" href="http://weain.com.cn/">
+                                <img src="/KYYAdmin/ckfinder/userfiles/images/day_160114/2016011401094612.gif" /></a></li>
+                        
+                            <li><a target="_blank" title="中华人民共和国科学技术部" href="http://www.most.gov.cn/">
+                                <img src="/KYYAdmin/ckfinder/userfiles/images/day_160114/201601140108169563.gif" /></a></li>
+                        
+                            <li><a target="_blank" title="中华人民共和国国防部" href="http://www.mod.gov.cn/">
+                                <img src="/KYYAdmin/ckfinder/userfiles/images/day_160114/201601140106159987.gif" /></a></li>
+                        
+                            <li><a target="_blank" title="上海科技门户网站" href="http://www.stcsm.gov.cn/">
+                                <img src="/KYYAdmin/ckfinder/userfiles/images/day_160114/201601140104578965.gif" /></a></li>
+                        
+            
+        </ul>
+    </div>
+</div>
+
+<div class="friendlinkbox" style=" margin-top:20px;">
+    <div class="friendlinktitle" style=" background:url(../images/brothers.jpg) no-repeat center center;">
+    </div>
+    <div class="friendlinklist">
+        <ul>
+        
+              
+                            <li style=" margin-right:10px;"><a target="_blank" title="天津大学科学技术发展研究院" href="http://kj.tju.edu.cn:8088/techweb/webIndexAction.do?method=loadIndex">
+                                <img src="/KYYAdmin/ckfinder/userfiles/images/day_160318/201603181114101598.jpg" /></a></li>
+                        
+                            <li style=" margin-right:10px;"><a target="_blank" title="华中科技大学科学技术发展院" href="http://kfy.hust.edu.cn/">
+                                <img src="/KYYAdmin/ckfinder/userfiles/images/day_160318/201603181113153616.jpg" /></a></li>
+                        
+                            <li style=" margin-right:10px;"><a target="_blank" title="西安交通大学科技在线" href="http://std.xjtu.edu.cn/">
+                                <img src="/KYYAdmin/ckfinder/userfiles/images/day_160318/201603181111529223.png" /></a></li>
+                        
+                            <li style=" margin-right:10px;"><a target="_blank" title="清华科研院" href="http://www.rd.tsinghua.edu.cn/">
+                                <img src="/KYYAdmin/ckfinder/userfiles/images/day_160318/201603181110335527.png" /></a></li>
+                        
+                            <li style=" margin-right:10px;"><a target="_blank" title="浙江大学科学技术研究院" href="http://rd.zju.edu.cn/">
+                                <img src="/KYYAdmin/ckfinder/userfiles/images/day_160318/201603181108289596.png" /></a></li>
+                        
+        </ul>
+    </div>
+</div>
+
+                <!--友情链接-End-->
+            </div>
+            <!--第三模块-End-->
+            <!--第四模块-Start-->
+            
+<div class="module margin_top20">
+    <!--底部-Start-->
+    <div class="footerbox">
+        <p>
+            <span>沪ICP备05052060 版权所有&copy;上海交通大学</span> <span>通讯地址：上海市东川路800号</span> <span>邮编：200240</span>
+            <span>查号台：86-21-54740000</span></p>
+        <p>
+            <a href="http://www.hawknet.com.cn/" target="_blank">技术支持：上海交大浩然科技股份有限公司</a></p>
+    </div>
+    <!--底部-End-->
+</div>
+
+            <!--第四模块-End-->
+        </div>
+        <!--内容-End-->
+    </div>
+    </form>
+</body>
+</html>

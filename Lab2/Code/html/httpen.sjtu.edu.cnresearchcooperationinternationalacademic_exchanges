@@ -1,0 +1,663 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+  <title>Jiao Tong University - International</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="text" />
+<meta name="Publisher" content="Jiao Tong University" />
+<meta name="Author" content="Jiao Tong University" />
+<link rel="shortcut icon" href="/assets/banners/icons/favicon.ico" />
+<link type="text/css" rel="stylesheet" href="/css/main" />
+<link type="text/css" rel="stylesheet" href="/css/content_modules" />
+<link type="text/css" rel="stylesheet" href="/css/theme" />
+<link type="text/css" rel="stylesheet" href="/css/event_calendar" />
+<link type="text/css" rel="stylesheet" href="/css/jquery.ad-gallery" />
+<link type="text/css" rel="stylesheet" href="/css/imagepreview" />
+<link type="text/css" rel="stylesheet" href="/css/rotatelist" />
+<link type="text/css" rel="stylesheet" href="/css/gateways" />
+<link type="text/css" rel="stylesheet" href="/css/highlights" />
+<link type="text/css" rel="stylesheet" href="/css/faculty" />
+<script type="text/javascript" src="/javascripts/jquery-1.4.4.min.js" ></script>
+<script type="text/javascript" src="/javascripts/jquery_cycle.js" ></script>
+<script type="text/javascript" src="/javascripts/jquery.ad-gallery.js"></script>
+<script type="text/javascript" src="/javascripts/grayscale.js" ></script>
+<script type="text/javascript" src="/javascripts/dropdowntabs.js" ></script>
+<script type="text/javascript" src="/js/main" ></script>
+<script type="text/javascript" src="/js/pic_s4" ></script>
+<script type="text/javascript" src="/js/view_menus" ></script>
+<script type="text/javascript" src="/js/left_sidebar" ></script>
+<script type="text/javascript" src="/js/let" ></script>
+<script type="text/javascript" src="/js/show_hide" ></script>
+<script type="text/javascript" src="/js/spotlight"></script>
+<script type="text/javascript" src="/js/gallery_slideshow"></script>
+<script type="text/javascript" src="/js/imagepreview"></script>
+<script type="text/javascript" src="/js/rotatelist"></script>
+<script type="text/javascript" src="/js/highlights"></script>
+<script type="text/javascript" src="/js/showpartial"></script>
+<!--<script type="text/javascript" src="/js/grayscale"></script>-->
+
+<!--[if IE]>
+<link type="text/css" rel="stylesheet" href="/css/ad-gallery-ie" />
+<![endif]-->
+<!--[if lt IE 7]>
+<script type="text/javascript" src="/js/iepngfix_tilebg" ></script>
+<link type="text/css" rel="stylesheet" href="/css/ie6" />
+<![endif]-->
+
+</head>
+<body>
+<div class="skip"><a href="#content_center" accesskey="9">Skip to Content</a></div>
+<div id="container">
+  <div id="header">
+    <div id="logo"><a href="/" accesskey="0"><img src="/assets/512/logo.jpg" alt="jd_logo" /></a><h1>Jiao Tong University</h1>
+</div>
+<div id="container_header_middle">
+  <div id="items_header" >
+    <ul>
+      <!--li class="header_items"><a href="/academics/academic-calendar">Academic Calendar</a></li-->
+      <li class="header_items"><a href="/about-sjtu/life-sjtu/campus-maps/">Campus Maps</a></li>      
+      <li class="header_items"><a href="http://webmail.sjtu.edu.cn">Campus Email</a></li>
+      <li class="header_items"><a href="http://my.sjtu.edu.cn/Profile/Me">jAccount</a></li>
+      <li id="header_quicklink_item">
+        <div id="quicklink"><img class="menu_class" alt="quicklink" src="/images/quicklink.jpg" />
+          <ul class="the_menu">
+            <li><a href="/academics/faculty">Faculty</a></li>
+            <li><a href="/academics/academic-calendar">Academic Calendar</a></li>
+            <li><a href="http://www.lib.sjtu.edu.cn/list.do?articleType_id=145">Library</a></li>
+            <li><a href="/about-sjtu/life-sjtu/campus-bus-schedule">Campus Bus Schedules</a></li>
+            <li><a href="/about-sjtu/life-sjtu/campus-maps/">Campus Maps</a></li>
+            <li><a href="/about-sjtu/life-sjtu/directions">Directions</a></li>
+
+            <li><a href="http://foundation.sjtu.edu.cn/">Giving</a></li>
+            <li><a href="/about-sjtu/museums">Museums</a></li>
+            <li><a href="/research/journals">Journals</a></li>
+            <li><a href="/admission/scholarships">Scholarships</a></li>
+            <li><a href="/about-sjtu/life-sjtu/sports-facilities/">Sports Facility</a></li>
+            <li><a href="/about-sjtu/life-sjtu/international-student-council/">International Student Council</a></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="search">
+    <form action="/search" method="get" id="searchformhome">
+      <div class="searchbox">
+        <input type="hidden" name="exclude_pages" value=""/>
+        <input id="search_text" type="text" name="q"  size="15" alt="search" accesskey="s"/>
+        <input class="search_button" value="" type="submit"/>
+      </div>
+      <div id="search_filters">      
+        <label id="web_label" for="web">Site Search</label>
+      </div>
+    </form>
+  </div>
+
+  <div id="nav">
+    <div id="colortab" class="ddcolortabs">
+      <ul>
+        
+          <li>
+            
+            <a href="/"><span id="nav_home">Home</span></a>
+          </li>
+        
+        
+          <li>
+            
+            <a rel="dropmenu1_a"><span id="About_SJTU">About SJTU</span></a>
+          </li>
+        
+        
+          <li>
+            
+            <a rel="dropmenu2_a"><span  id="Admission">Admission</span></a>
+          </li>
+        
+        
+          <li>
+            
+            <a rel="dropmenu3_a"><span  id="Academics">Academics</span></a>
+
+
+          </li>
+        
+        
+          <li>
+            <a rel="dropmenu4_a" class="hit_now"><span id="Research">Research</span></a>
+            
+
+          </li>
+        
+        
+          <li>
+            
+            <a rel="dropmenu5_a"><span id="Jobs">Join Us</span></a>
+          </li>
+        
+      </ul>
+    </div>
+
+    <div id="dropmenu1_a" class="dropmenudiv_a">
+          <a href="/about-sjtu/overview" accesskey="1">Overview</a>
+          <a href="/about-sjtu/presidents-welcome">President's Welcome</a> 
+          <a href="/about-sjtu/sjtu-today">SJTU Today</a> 
+          <a href="/about-sjtu/facts-figures">Facts &amp; Figures</a> 
+          <a href="/about-sjtu/international-student-services/">International Student Services</a> 
+          <a href="/about-sjtu/life-sjtu/accommodation">Life@SJTU</a> 
+          <a href="/about-sjtu/administration">Administration </a> 
+          <a href="/about-sjtu/administrative-departments">Administrative Departments </a>      
+          <a href="/about-sjtu/library">Library </a> 
+          <a href="/about-sjtu/museums">Museums </a> 
+          <a href="/about-sjtu/contact-us">Contact Us</a> 
+    </div>
+
+    <!--2nd drop down menu -->
+    <div id="dropmenu2_a" class="dropmenudiv_a" >
+          <a href="/admission/why-sjtu" accesskey="2">Why SJTU</a> 
+<a href="/admission/how-to-apply">How to Apply</a> 
+          <a href="/admission/non-degree-program">Non-degree Program</a> 
+          <a href="/admission/scholarships">Scholarships</a> 
+          <a href="/admission/tuition-payment/">Tuition Payment</a>
+    </div>
+
+    <!--3nd drop down menu -->
+    <div id="dropmenu3_a" class="dropmenudiv_a" > 
+          <a href="/academics/schools" accesskey="3">Schools</a> 
+          <a href="/academics/undergraduate-programs">Undergraduate Programs</a>
+          <a href="/academics/non-degree-program/">Non-Degree Program</a>
+<a href="/academics/master">Master Program</a>
+        <a href="/academics/phd">PhD Program</a>
+          <a href="/academics/faqs-in-chinese-language-study/">FAQs In Chinese Language Study</a>
+          <a href="/academics/faculty/academicians">Faculty</a>
+
+          <!--a href="/academics/academic-calendar">Academic Calendar</a--> 
+    </div>
+      <!--4nd drop down menu -->
+      <div id="dropmenu4_a" class="dropmenudiv_a">
+
+          <a href="/research/overview" accesskey="4">Overview</a> 
+          <a href="/research/initiative">Initiative</a> 
+          <a href="/research/achievements">Achievements</a> 
+          <a href="/research/cooperation/international">Cooperation</a> 
+          <a href="/research/centers-labs">Centers &amp; Labs</a> 
+          <a href="/research/cross-disciplinary">Cross Disciplinary</a> 
+          <a href="/research/technology-transfer/achievement-exhibition-center">Technology Transfer</a> 
+          <a href="/research/journals">Journals</a> 
+          <a href="/research/international-cooperation-office">International Cooperation Office</a> 
+      </div>
+
+      <!--5nd drop down menu -->
+      <div id="dropmenu5_a" class="dropmenudiv_a"> 
+          <!--a  href="/join-us/administrative-position/" accesskey="5">Administrative Position</a-->
+          <!--a  href="/join-us/faculty-positions/chair-professors-and-accredited-professors">Faculty Positions</a-->
+          <a  href="/join-us/post-doctoral-positions">Post-Doctoral Positions</a>
+          <a  href="/join-us/global-young-talents">Global young talents</a>          
+          <!--a  href="/join-us/staff-positions">Staff Positions</a-->
+
+      </div>
+
+    <script type="text/javascript">
+          //SYNTAX: tabdropdown.init("menu_id", [integer OR "auto"])
+        tabdropdown.init("colortab", 6)
+    </script>
+
+  </div>
+
+</div>
+
+<div id="container_header_right">
+  <ul>
+    <li><a href="/about-sjtu/contact-us" accesskey="u">Contact Us</a></li>
+    <li><a href="/site-map" accesskey="m">Site Map</a></li>
+    <li><a href="http://www.sjtu.edu.cn">Chinese Version</a></li>
+              
+    <li>&nbsp;</li>     
+  </ul>
+</div>
+
+  </div>
+  <div id="content_main">
+    <div id="banner">
+      <img src="/images/banner_research.jpg"/>
+    </div>
+    <div id="title_bar">
+      
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      <h1>Research</h1>
+      <div id="current_position">
+          <a href="/">Home</a> 
+          >
+          
+              
+                  
+                      <a href="/research/overview/">Research</a>
+                  
+              
+              
+
+              
+                  
+              
+                  
+              
+                  
+              
+                  
+              
+                  
+                      >
+                      
+                          
+                              
+                                  <a href="/research/cooperation/international/">Cooperation</a>
+                              
+                          
+                          
+                           
+                          
+                              
+                          
+                              
+                                  >
+                                  <span>International</span>
+                              
+                          
+                      
+
+                      
+                  
+              
+                  
+              
+                  
+              
+                  
+              
+                  
+              
+          
+
+          
+      </div>
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+    </div>
+    <div class="clear"></div>
+    <div id="content_center">
+      <div id="leftsidebar">
+        
+  <ul class="menu">
+      
+            
+                  
+                        
+                              <li>
+                                
+                                
+                                  <a href="/research/overview/">Overview</a>
+                                
+                              </li>
+                        
+
+                        
+                  
+            
+      
+            
+                  
+                        
+                              <li>
+                                
+                                
+                                  <a href="/research/initiative/">Initiative</a>
+                                
+                              </li>
+                        
+
+                        
+                  
+            
+      
+            
+                  
+                        
+                              <li>
+                                
+                                
+                                  <a href="/research/achievements/">Achievements</a>
+                                
+                              </li>
+                        
+
+                        
+                  
+            
+      
+            
+                  
+                        
+
+                                  
+                            
+                            
+                                
+                                
+                                    <li class="expand">
+                                        
+                                            <span>
+                                                
+                                                
+                                                    <a href="/research/cooperation/international/">Cooperation</a>
+                                                
+                                            </span>
+                                        
+                                                                
+                                        <ul class="acitem" style="display:inline-block">
+                                          
+                                            
+                                              <li>
+                                                
+                                                  <a href="/research/cooperation/international/" class="current_point">International</a>
+                                                
+                                                
+                                              </li>
+                                            
+                                          
+                                            
+                                              <li>
+                                                
+                                                
+                                                  <a href="/research/cooperation/domestic/">Domestic</a>
+                                                
+                                              </li>
+                                            
+                                          
+                                        </ul>                        
+                                    </li>
+                                    
+                            
+                        
+                  
+            
+      
+            
+                  
+                        
+
+                                  
+                            
+                                
+                                
+                                    <li><span><a href="/research/centers-labs/">Centers & Labs</a></span></li>
+                                
+                            
+                            
+                        
+                  
+            
+      
+            
+                  
+                        
+                              <li>
+                                
+                                
+                                  <a href="/research/cross-disciplinary/">Cross Disciplinary</a>
+                                
+                              </li>
+                        
+
+                        
+                  
+            
+      
+            
+                  
+                        
+
+                                  
+                            
+                                
+                                    <li><span><a href="/research/technology-transfer/achievement-exhibition-center/">Technology Transfer</a></span></li>
+                                
+                                
+                            
+                            
+                        
+                  
+            
+      
+            
+                  
+                        
+
+                                  
+                            
+                                
+                                
+                                    <li><span><a href="/research/journals/">Journals</a></span></li>
+                                
+                            
+                            
+                        
+                  
+            
+      
+            
+                  
+                        
+                              <li>
+                                
+                                
+                                  <a href="/research/international-cooperation-office/">International Cooperation Office</a>
+                                
+                              </li>
+                        
+
+                        
+                  
+            
+      
+</ul>
+<div class="clear"></div>
+
+      </div>
+      <div id="right_content">
+        <div class="content_title">International</div>
+        <div class="content_text">
+          <div class="layout_2">
+            <div class="border_bottom"><a name="talent_cultivation">
+<h3>International Cooperation in Talent Cultivation</h3>
+</a> 
+<ul class="blue_arrow">
+<li><a href="/news/sjtu-paristech-inked-mou-on-cooperation-in-distinguished-engineer-college"><em>MOU on Cooperation in Building Distinguished Engineer College</em> Signed between SJTU and ParisTech</a></li>
+<li><em>Framework Cooperation Agreement</em> Signed between SJTU and University of Tokyo,  Japan</li>
+<li><em><a href="/news/canadian-epm-delegation-visited-sjtu">Agreement for Joint Training of Postgraduates Signed between SJTU and Montreal Institute of Technology, Canada</a></em></li>
+<li><a href="/news/school-of-international-education-and-university-of-canterbury-sign-moc">Memorandum of Cooperation Signed between SJTU and University of Canterbury, New Zealand</a></li>
+<li>206 of the 276 Graduates from the UM-SJTU Joint Institute in 2011 Received Postgraduate Admission Notice from World's Top Universities</li>
+</ul>
+<br /></div>
+<div class="border_bottom"><a name="scientific_research">
+<h3>International Cooperation in Scientific Research</h3>
+</a> 
+<ul class="blue_arrow">
+<li><a href="/news/sjtu-signed-a-cooperation-agreement-with-mit">Agreement for Cooperation Signed between SJTU and MIT, USA</a></li>
+<li><a href="/news/sjtu-chiba-international-cooperative-research-center-co-built">International Cooperative Research Center C0-establish between SJTU and Chiba University, Japan</a></li>
+<li><a href="/news/sjtu-karolinska-institutet-co-build-international-sci-tech-cooperation-base">International Scientific and Technological Cooperation Base Co-established by SJTU and Karolinska Institute, Sweden</a></li>
+<li>&lt;<a href="/news/sjtu-agilent-joint-innovation-lab-unveiled">SJTU-Agilent Joint Innovation Lab Co-established by SJTU and Agilent Technologies</a></li>
+<li> SJTU and <a name="OLE_LINK14">Covidien</a> Cooperate to Promote the Innovation and Development of Medical Technology</li>
+</ul>
+</div>
+<div class="border_bottom"><a name="academic_exchanges">
+<h3>International Academic Exchanges</h3>
+</a> 
+<ul class="blue_arrow">
+<li><a href="/news/2010-nobel-prize-winner-in-economics-delivered-a-speech-at-sjtu">Nobel Laureate in Economics Christopher Pissarides delivered a speech at SJTU</a></li>
+<li><a href="/news/dr-john-hopcroft-engaged-as-honorary-professor-of-sjtu">Turing Award Winner John Hopcroft was engaged by SJTU</a></li>
+<li><a href="/news/vice-chancellor-of-cambridge-university-was-appointed-sjtu-professor-emeritus">Vice-Chancellor of the University of Cambridge Sir Leszek Borysiewicz was engaged as Honorary Professor by SJTU and delivered a speech</a></li>
+<li><a href="/news/david-j-skorton-president-of-cornell-univ-visited-sjtu">President of Cornell University David Skorton visited SJTU and delivered a speech</a></li>
+<li><a href="/news/nus-board-of-trustees-visited-sjtu">President of the National University of Singapore Tan Chorh Chuan visited SJTU</a></li>
+<li><a href="/news/president-of-tohoku-university-receives-honorary-doctorate-from-sjtu">President of Tohoku University Akihisa Inoue was awarded SJTU Honorary Doctorate and delivered a speech</a></li>
+<li><a href="/news/vice-chancellor-brian-cantor-of-university-of-york-visited-smse">Vice-Chancellor of University of York Brian Cantor visited SJTU</a></li>
+<li><a href="/news/chairperson-ma-dexiu-led-sjtu-delegation-to-visit-france">Chairperson of SJTU Council Ma Dexiu visited Ministry of Labor, Social Relations, Family and Solidarity and Ministry of Higher Education and Research of France</a><a name="OLE_LINK17"></a><a name="OLE_LINK18"></a></li>
+<li><a href="/news/president-zhang-jie-led-an-sjtu-delegation-to-visit-three-american-universities">President of SJTU Zhang Jie visited Stanford University, University of California, Berkeley and Cornell University</a></li>
+</ul>
+</div>
+          </div>
+        </div>
+      </div>
+      <div id="rightsidebar">
+        <h3>See Also</h3>
+<hr />
+<ul class="blue_arrow">
+<li><a href="/academics/schools/">Schools</a></li>
+<li><a href="http://www.lib.sjtu.edu.cn/list.do?articleType_id=145">Library</a></li>
+<li><a href="http://opac.lib.sjtu.edu.cn/F?RN=347533257">Online Catalog</a></li>
+<li><a href="http://kejichu.sjtu.edu.cn/s/3/t/2/main.jspy">Office of Research Management</a></li>
+<li><a href="http://www.nsfc.gov.cn/Portal0/default106.htm">National Natural Science Foundation of China</a></li>
+
+</ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="clear">&nbsp;</div>
+<div id="footer">
+  <div class="footbanner"></div>
+  <div class="contact"><span>Address: </span>800 Dongchuan RD. Minhang District, Shanghai, China <span>Telephone: </span>+86 21 54740000</div>
+  <div class="copyright">Copyright &copy; 2010 Shanghai Jiao Tong University<br/>       <a href="http://cert.sjtu.edu.cn/beian_user/show.asp?number=1082">沪交ICP备20101082</a></div>
+
+</div>
+
+<div id="footer_nav">
+  <div id="footer_nav_list">
+    <table cellpadding="0" cellspacing="0">
+  <tr>
+    <td valign="top" class="h2_bg"><h2>About SJTU</h2>
+      <ul>
+        <li><a href="/about-sjtu/overview">Overview</a></li>
+        <li><a href="/about-sjtu/presidents-welcome">President's Welcome</a></li>
+        <li><a href="/about-sjtu/sjtu-today">SJTU Today</a></li>
+        <li><a href="/about-sjtu/facts-figures">Facts &amp; Figures</a></li>
+        <li><a href="/about-sjtu/international-student-services/">International Student Services</a></li>
+        <li><a href="/about-sjtu/life-sjtu/accommodation">Life@SJTU</a></li>
+        <li><a href="/about-sjtu/administration">Administration </a></li>
+        <li><a href="/about-sjtu/administrative-departments">Administrative Departments</a></li>
+        <li><a href="/about-sjtu/faqs">FAQs </a></li>
+        <li><a href="/about-sjtu/library">Library </a></li>
+        <li><a href="/about-sjtu/museums">Museums </a></li>
+        <li><a href="/about-sjtu/contact-us">Contact Us</a></li>
+      </ul></td>
+    <td valign="top" class="h2_bg"><h2>Admission</h2>
+      <ul>
+        <li><a href="/admission/why-sjtu">Why SJTU</a></li>
+<li><a href="/admission/how-to-apply">How to Apply</a></li>
+
+        <li><a href="/admission/non-degree-program">Non-degree Program</a></li>
+        <li><a href="/admission/scholarships">Scholarships</a></li>
+        <li><a href="/admission/tuition-payment/">Tuition Payment</a></li>
+      </ul></td>
+    <td valign="top" class="h2_bg"><h2>Academics</h2>
+      <ul>
+        <li><a href="/academics/schools">Schools</a></li>
+<li><a href="/academics/undergraduate-programs">Undergraduate Programs</a></li>
+        <li><a href="/academics/non-degree-program/">Non-Degree Program</a><li>
+<li><a href="/academics/master">Master Program</a></li>
+        <li><a href="/academics/phd">PhD Program</a></li>
+        <li><a href="/academics/faqs-in-chinese-language-study/">FAQs In Chinese Language Study</a></li>
+        <li><a href="/academics/faculty/academicians">Faculty</a></li>
+              </ul></td>
+    <td valign="top" class="h2_bg"><h2>Research</h2>
+      <ul>
+         <li><a href="/research/overview">Overview</a></li>
+        <li><a href="/research/initiative">Initiative</a></li>
+        <li><a href="/research/achievements">Achievements</a></li>
+        <li><a href="/research/cooperation/domestic">Cooperation</a></li>
+        <li><a href="/research/centers-labs">Centers &amp; Labs</a></li>
+        <li><a href="/research/cross-disciplinary">Cross Disciplinary</a></li>
+        <li><a href="/research/technology-transfer/achievement-exhibition-center">Technology Transfer</a></li>
+        <li><a href="/research/journals">Journals</a></li>
+        <li><a href="/research/international-cooperation-office">International Cooperation Office</a></li>
+      </ul></td>
+    <td valign="top" class="h2_bg"><h2>Join Us</h2>
+      <ul>
+        <li><a href="/jobs/faculty-positions/chair-professors-and-accredited-professors">Faculty Positions</a></li>
+        <li><a href="/jobs/post-doctoral-positions">Post-Doctoral Positions</a></li>
+        <li><a href="/jobs/staff-positions">Staff Positions</a></li>
+      </ul></td>
+  </tr>
+</table>
+
+  </div>
+</div>
+
+<script type="text/javascript">
+
+var _gaq = _gaq || [];
+ _gaq.push(['_setAccount', 'UA-20278832-1']);
+ _gaq.push(['_trackPageview']);
+
+(function() {
+   var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+   ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+ })();
+
+</script>
+</body>
+</html>
