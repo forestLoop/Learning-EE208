@@ -271,6 +271,31 @@ class BloomFilter(object):
     def parameters(self):
         return self.potential_num, self.bitarray_size, self.hash_num
 \end{minted}
+
+为了对Bloom Filter的准确度进行评估,我编写了\mintinline{python}{test_bloomfilter()}函数,用以测算其False Positive Rate.
+\begin{minted}{python}
+def test_bloomfilter():
+    import random
+    import string
+    n = 10000
+    my_bf = BloomFilter(n)
+    input_strings = ["".join(random.choices(string.ascii_letters, k=32)) for i in range(n)]
+    negative_samples = ["".join(random.choices(string.ascii_letters, k=32 - 1)) for i in range(n)]
+    for s in input_strings:
+        my_bf.add(s)
+    FP = 0   # False Poitive
+    for s in negative_samples:
+        FP += int(my_bf.check(s))
+    print("Bloom Filter(n = {0},m = {1},k= {2})".format(*my_bf.parameters()))
+    print("False Positive:{0}\nTrue Negative:{1}\nFP Rate:{2}".format(FP, n-FP, FP/n))
+\end{minted}
+测试结果如下:
+\begin{minted}{python}
+Bloom Filter(n = 100000,m = 2000000,k= 13)
+False Positive:9
+True Negative:99991
+FP Rate:9e-05
+\end{minted}
         \subsection{Multi-threading}
 在原有的crawler.py程序基础上,为了使其能够以多线程的方式并发爬取,需要修改\mintinline{python}{crawl}函数.
 
