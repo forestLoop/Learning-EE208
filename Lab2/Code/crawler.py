@@ -18,7 +18,10 @@ def valid_filename(s):
 
 def get_page(page):
     content = ''
-    r = requests.get(page)
+    try:
+        r = requests.get(page, timeout=10)
+    except:
+        return None
     content = r.content
     # print(type(content))
     return content
@@ -70,6 +73,9 @@ def crawl(seed, method, max_page):
         if page not in crawled:
             print(page)
             content = get_page(page)
+            if not content:
+                print("Failed to get {0}.".format(page))
+                continue
             add_page_to_folder(page, content)
             outlinks = get_all_links(content, page)
             graph[page] = outlinks
@@ -81,9 +87,9 @@ def crawl(seed, method, max_page):
 
 if __name__ == '__main__':
 
-    # seed = sys.argv[1]
-    # method = sys.argv[2]
-    # max_page = sys.argv[3]
+    seed = sys.argv[1]
+    method = sys.argv[2]
+    max_page = sys.argv[3]
     # seed = "https://www.sjtu.edu.cn"
     # method = "bfs"
     # max_page = 100
