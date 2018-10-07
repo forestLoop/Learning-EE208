@@ -1,6 +1,7 @@
 ## Ignore private files
 _private*
-
+html/
+index.txt
 # Created by https://www.gitignore.io/api/latex,python,windows
 
 ### LaTeX ###
