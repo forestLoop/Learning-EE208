@@ -21,7 +21,3 @@ if __name__ == '__main__':
     }
     my_crawler = MultiThreadingCrawler(thread_num, headers, session_num, index_file, data_folder)
     my_crawler.crawl_from(seed, max_page, thread_num, sleeping)
-
-
-# 尊敬的唐君远教育基金会
-# 3 104
