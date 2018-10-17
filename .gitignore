@@ -1,7 +1,10 @@
 ## Ignore private files
 _private*
+## Ignore data and index file produced by Lucene
 html/
 index.txt
+data*/
+*.index/
 # Created by https://www.gitignore.io/api/latex,python,windows
 
 ### LaTeX ###
