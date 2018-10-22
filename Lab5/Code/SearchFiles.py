@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
-INDEX_DIR = "IndexFiles.index"
+HTML_INDEX_DIR = "IndexFiles.index"
+IMAGE_INDEX_DIR = "IndexImages.index"
 
 import sys
 import os
@@ -42,11 +43,10 @@ def parse_command(command):
     return command_dict
 
 
-def run(searcher, analyzer):
+def search_html(searcher, analyzer):
     while True:
         print("Hit enter with no input to quit.")
         command = input("Query:")
-        import os
         os.system("clear")
         if command == "":
             return
@@ -74,11 +74,36 @@ def run(searcher, analyzer):
                 path=doc.get("path"), name=doc.get("name"), site=doc.get("site")))
 
 
+def search_image(searcher, analyzer):
+    while True:
+        print("Hit enter with no input to quit.")
+        command = input("Query:")
+        os.system("clear")
+        if command == "":
+            return
+        print("Searching for:", command)
+        cutted = [x for x in jieba.cut_for_search(command) if x.strip()]
+        command = " ".join(cutted)
+        query = QueryParser("content", analyzer).parse(command)
+        scoreDocs = searcher.search(query, 10).scoreDocs
+        print("{} total matching documents.".format(len(scoreDocs)))
+        for num, scoreDoc in enumerate(scoreDocs):
+            doc = searcher.doc(scoreDoc.doc)
+            print("\n#{num}:\nURL:{url}\nContent:{content}\n".format(
+                num=num + 1, url=doc.get("url"), content=doc.get("raw_content")))
+
+
 if __name__ == '__main__':
     lucene.initVM(vmargs=['-Djava.awt.headless=true'])
     print('lucene', lucene.VERSION)
     base_dir = os.path.dirname(os.path.abspath(sys.argv[0]))
-    directory = SimpleFSDirectory(Paths.get(os.path.join(base_dir, INDEX_DIR)))
+    if len(sys.argv) >= 2 and sys.argv[1].lower() == "image":
+        index_dir = IMAGE_INDEX_DIR
+        run = search_image
+    else:
+        index_dir = HTML_INDEX_DIR
+        run = search_html
+    directory = SimpleFSDirectory(Paths.get(os.path.join(base_dir, index_dir)))
     searcher = IndexSearcher(DirectoryReader.open(directory))
     analyzer = StandardAnalyzer()
     run(searcher, analyzer)

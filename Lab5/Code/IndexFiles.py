@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
-INDEX_DIR = "IndexFiles.index"
+HTML_INDEX_DIR = "IndexFiles.index"
+IMAGE_INDEX_DIR = "IndexImages.index"
 
 import sys
 import os
@@ -44,9 +45,9 @@ class Ticker(object):
 
 
 class IndexFiles(object):
-    """Usage: python IndexFiles <doc_directory>"""
+    """Usage: python IndexFiles <doc_directory> <doc_type>(html or image)"""
 
-    def __init__(self, root, storeDir, analyzer):
+    def __init__(self, root, storeDir, analyzer, type="html"):
 
         if not os.path.exists(storeDir):
             os.mkdir(storeDir)
@@ -57,7 +58,11 @@ class IndexFiles(object):
         config.setOpenMode(IndexWriterConfig.OpenMode.CREATE)
         writer = IndexWriter(store, config)
         self.load_stop_words(["CNstopwords.txt", "ENstopwords.txt", ])
-        self.indexDocs(root, writer)
+        type_to_index = {
+            "html": self.index_html,
+            "image": self.index_image,
+        }
+        type_to_index[type](root, writer)
         ticker = Ticker()
         print('commit index')
         threading.Thread(target=ticker.run).start()
@@ -66,7 +71,39 @@ class IndexFiles(object):
         ticker.tick = False
         print('done')
 
-    def indexDocs(self, root, writer):
+    def index_image(self, root, writer):
+
+        t1 = FieldType()
+        t1.setStored(True)
+        t1.setTokenized(False)
+        t1.setIndexOptions(IndexOptions.DOCS_AND_FREQS)
+
+        t2 = FieldType()
+        t2.setStored(False)
+        t2.setTokenized(True)
+        t2.setIndexOptions(IndexOptions.DOCS_AND_FREQS_AND_POSITIONS)
+
+        with open(os.path.join(root, "index.txt"), mode="r", encoding="utf8") as index:
+            count = 1
+            for line in index:
+                print("\r", count, end="", sep="")
+                try:
+                    image_url, content = line.strip().split()[:2]
+                except ValueError as e:
+                    print(e)
+                    continue
+                doc = Document()
+                doc.add(Field("raw_content", content, t1))
+                content = " ".join(word for word in jieba.cut_for_search(content)
+                                   if word.strip() and word not in self.stop_words)
+
+                doc.add(Field("url", image_url, t1))
+                doc.add(Field("content", content, t2))
+                writer.addDocument(doc)
+                count += 1
+            print("\n{count} image(s) added.".format(count=count))
+
+    def index_html(self, root, writer):
 
         t1 = FieldType()
         t1.setStored(True)
@@ -127,7 +164,7 @@ class IndexFiles(object):
 
 
 if __name__ == '__main__':
-    if len(sys.argv) < 2:
+    if len(sys.argv) < 3:
         print(IndexFiles.__doc__)
         sys.exit(1)
     lucene.initVM(vmargs=['-Djava.awt.headless=true'])
@@ -135,8 +172,13 @@ if __name__ == '__main__':
     start = datetime.now()
     try:
         base_dir = os.path.dirname(os.path.abspath(sys.argv[0]))
-        IndexFiles(sys.argv[1], os.path.join(base_dir, INDEX_DIR),
-                   StandardAnalyzer())
+        type_to_dir = {
+            "image": IMAGE_INDEX_DIR,
+            "html": HTML_INDEX_DIR
+        }
+        index_type = sys.argv[2].lower()
+        IndexFiles(sys.argv[1], os.path.join(base_dir, type_to_dir[index_type]),
+                   StandardAnalyzer(), index_type)
         end = datetime.now()
         print(end - start)
     except Exception as e:
