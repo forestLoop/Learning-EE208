@@ -8,6 +8,8 @@ import lucene
 import threading
 import time
 import jieba
+from html2text import html2text
+from urllib.parse import urlsplit
 from datetime import datetime
 from bs4 import BeautifulSoup
 
@@ -54,7 +56,7 @@ class IndexFiles(object):
         config = IndexWriterConfig(analyzer)
         config.setOpenMode(IndexWriterConfig.OpenMode.CREATE)
         writer = IndexWriter(store, config)
-
+        self.load_stop_words(["CNstopwords.txt", "ENstopwords.txt", ])
         self.indexDocs(root, writer)
         ticker = Ticker()
         print('commit index')
@@ -76,28 +78,52 @@ class IndexFiles(object):
         t2.setTokenized(True)
         t2.setIndexOptions(IndexOptions.DOCS_AND_FREQS_AND_POSITIONS)
         with open(os.path.join(root, "index.txt"), mode="r", encoding="utf8") as index:
+            count = 0
             for line in index:
                 try:
+                    count += 1
                     url, path = line.strip().split("\t")
-                    path = os.path.join("./", path)
-                    print("Adding {url},{path}".format(url=url, path=path))
+                    # path = os.path.join("./", path)
+                    print("#{count:<4} Adding {url},{path}".format(url=url, path=path, count=count))
                     name = os.path.split(path)[-1]
                     with open(path, mode="r", encoding="utf8") as file:
                         content = file.read()
                     soup = BeautifulSoup(content, "html.parser")
                     # print(soup.title)
                     title = soup.title.text if soup.title else "No Title!"
-                    content = "".join(soup.findAll(text=True))  # all html tags stripped
-                    content = " ".join(jieba.cut(content))
+                    site = urlsplit(url).netloc
+                    content = html2text(content)  # works better than bs4
+                    content = jieba.cut_for_search(content)
+                    content = " ".join(word for word in content
+                                       if word.strip() and word not in self.stop_words)
                     doc = Document()
                     doc.add(Field("url", url, t1))
                     doc.add(Field("path", path, t1))
                     doc.add(Field("name", name, t1))
+                    doc.add(Field("site", site, t1))
                     doc.add(Field("title", title, t1))
                     doc.add(Field("content", content, t2))
                     writer.addDocument(doc)
                 except Exception as e:
                     print("Failed in indexDocs:", e)
+
+    def load_stop_words(self, file_list):
+        self.stop_words = set()
+        for file in file_list:
+            print("Loading stop words from", file)
+            try:
+                count = 0
+                with open(file, mode="r", encoding="utf8") as f:
+                    for line in f:
+                        word = line.strip()
+                        if word not in self.stop_words:
+                            self.stop_words.add(word)
+                            count += 1
+                        print("\r", count, sep="", end="")
+                print("\r{0} word(s) added.".format(count))
+            except Exception as e:
+                print("Error!")
+                print(e)
 
 
 if __name__ == '__main__':
