@@ -68,8 +68,13 @@ class QSBKParser(BaseParser):
                 "content": content,
                 "img_url": img_url,
             }
-        maybe_next_page = soup.find("span", {"class": "next"}).parent["href"]
-        next_page = self.handle_url(maybe_next_page, current_url)
+        try:
+            maybe_next_page = soup.find("span", {"class": "next"}).parent["href"]
+            next_page = self.handle_url(maybe_next_page, current_url)
+        except Exception as e:
+            print("Failed to get the next page.")
+            print(e)
+            next_page = None
         return docs, next_page
 
 

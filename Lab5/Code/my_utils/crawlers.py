@@ -2,6 +2,7 @@ import requests
 import random
 import chardet
 import os
+import hashlib
 from time import sleep
 from queue import Queue
 from threading import Thread, Lock
@@ -29,7 +30,7 @@ class BaseCrawler(object):
 class MultiThreadingCrawler(BaseCrawler):
 
     def __init__(self, thread_num=4, headers=None, session_num=10,
-                 index_file=None, data_folder=None):
+                 index_file=None, data_folder=None, debug=False, verbose=True):
         super(MultiThreadingCrawler, self).__init__(headers)
         self.thread_num = thread_num
         self.index_file = index_file or "index.txt"
@@ -38,6 +39,8 @@ class MultiThreadingCrawler(BaseCrawler):
         self.sessions = list()
         for i in range(session_num):
             self.sessions.append(requests.Session())
+        self.debug = debug
+        self.verbose = verbose
 
     def get_html(self, url, headers=None):
         assert len(self.sessions) != 0, "There's no Session available!"
@@ -52,14 +55,24 @@ class MultiThreadingCrawler(BaseCrawler):
         try:
             return raw_html.decode(encoding_info["encoding"] or "utf8")
         except Exception as e:
-            print("Failed to decode:", e)
-            return raw_html.decode("utf8")
+            if self.debug:
+                print("Failed to decode:\n", e)
+            try:
+                return raw_html.decode("utf8")
+            except Exception as e:
+                if self.debug:
+                    print(e)
+                else:
+                    return raw_html.decode(encoding_info["encoding"] or "utf8",
+                                           errors="ignore")
 
     def __get_links(self, html_content, current_url):
         return self.my_parser.parse_url(html_content, current_url)
 
     def __wirte_data(self, url, content):
-        filename = os.path.join(self.data_folder, self.__valid_filename(url))
+        # filename = os.path.join(self.data_folder, self.__valid_filename(url))
+        # to prevent extremely long filenames, just hash the url
+        filename = os.path.join(self.data_folder, self.__hash_filename(url))
         with open(self.index_file, mode="a", encoding="utf8") as index:
             index.write("{url}\t{filename}\n".format(url=url, filename=filename))
         if not os.path.exists(self.data_folder):
@@ -74,24 +87,35 @@ class MultiThreadingCrawler(BaseCrawler):
         s += ".html"
         return s
 
+    def __hash_filename(self, s):
+        md5 = hashlib.md5()
+        md5.update(s.encode("utf8"))
+        return md5.hexdigest()+".html"
+
     def crawl_from(self, seed, max_page, thread_num=None, sleeping=None):
 
-        def crawl_single_page():
-            print("I'm working!")
+        def crawl_single_page(thread_id=0):
+            print("Thread {0} begins to work.".format(thread_id))
             while count[0] < max_page:
                 url = url_queue.get(timeout=10)
                 if not crawled.check(url):
-                    print("#{0:<4} {1}".format(count[0]+1, url))
+                    if self.verbose:
+                        print("#{0:<4} {1}".format(count[0]+1, url))
+                    else:
+                        print("\rCrawling: {0}/{1}".format(count[0], max_page), end="")
                     try:
                         content = self.get_html(url)
                         outlinks = self.__get_links(content, url)
                         self.__wirte_data(url, content)
                     except Exception as e:
-                        print(e)
+                        if self.debug:
+                            print(e)
+                            print(url)
                         continue
                     with lock:
                         if count[0] >= max_page:
-                            print("Drop!")
+                            if self.verbose:
+                                print("Drop!")
                             break
                         graph[url] = outlinks
                         for l in outlinks:
@@ -100,7 +124,7 @@ class MultiThreadingCrawler(BaseCrawler):
                         count[0] += 1
                     sleep(sleeping)
                 url_queue.task_done()
-            print("Done!")
+            print("Thread {0} has finished.".format(thread_id))
         url_queue = Queue()
         lock = Lock()
         crawled = BloomFilter(max_page)
@@ -109,9 +133,11 @@ class MultiThreadingCrawler(BaseCrawler):
         url_queue.put(seed)
         threads = []
         sleeping = sleeping or 5
-        print("Thread:", thread_num or self.thread_num)
+        print("Thread(s):", thread_num or self.thread_num)
+        print("Max Pages:", max_page)
+        print("Interval:", sleeping)
         for i in range(thread_num or self.thread_num):
-            t = Thread(target=crawl_single_page)
+            t = Thread(target=crawl_single_page, kwargs={"thread_id": i})
             threads.append(t)
             t.setDaemon(True)
             t.start()
