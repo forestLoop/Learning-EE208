@@ -9,7 +9,7 @@ import lucene
 import threading
 import time
 import jieba
-from html2text import html2text
+from html2text import HTML2Text
 from urllib.parse import urlsplit
 from datetime import datetime
 from bs4 import BeautifulSoup
@@ -58,6 +58,9 @@ class IndexFiles(object):
         config.setOpenMode(IndexWriterConfig.OpenMode.CREATE)
         writer = IndexWriter(store, config)
         self.load_stop_words(["CNstopwords.txt", "ENstopwords.txt", ])
+        self.html2text = HTML2Text()
+        self.html2text.ignore_links = True
+        self.html2text.ignore_images = True
         type_to_index = {
             "html": self.index_html,
             "image": self.index_image,
@@ -129,7 +132,7 @@ class IndexFiles(object):
                     # print(soup.title)
                     title = soup.title.text if soup.title else "No Title!"
                     site = urlsplit(url).netloc
-                    content = html2text(content)  # works better than bs4
+                    content = html2text.handle(content)  # works better than bs4
                     content = jieba.cut_for_search(content)
                     content = " ".join(word for word in content
                                        if word.strip() and word not in self.stop_words)
