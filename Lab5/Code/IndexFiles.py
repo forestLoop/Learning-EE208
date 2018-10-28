@@ -132,7 +132,7 @@ class IndexFiles(object):
                     # print(soup.title)
                     title = soup.title.text if soup.title else "No Title!"
                     site = urlsplit(url).netloc
-                    content = html2text.handle(content)  # works better than bs4
+                    content = self.html2text.handle(content)  # works better than bs4
                     content = jieba.cut_for_search(content)
                     content = " ".join(word for word in content
                                        if word.strip() and word not in self.stop_words)
