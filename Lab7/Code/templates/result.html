@@ -1,0 +1,25 @@
+$def with (query_string,search_result)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/css/main.css">
+    <title>$query_string 网页搜索结果</title>
+</head>
+<body>
+    <div class = "floatingBar">
+        <form action="/search/html">
+            <input type="text" name="s" class="floatingInput" value= "$query_string">
+            <input type="submit" class="floatingSubmit" value="搜索">
+        </form>
+    </div>
+    <div class = "resultContainer">
+        $for item in search_result:
+        <div class = "item">
+            <div class = "title"><a href="$item['url']">$item["title"]</a></div>
+            <div class = "content">$:item["content"]</div>
+            <div class = "url"><a href="$item['url']">$item["url"][:80]</a></div>
+        </div>
+    </div>
+</body>
+</html>
