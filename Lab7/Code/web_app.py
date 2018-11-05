@@ -89,7 +89,7 @@ def search_image(query_string, result_num=10):
     cutted = [x for x in jieba.cut_for_search(query_string) if x.strip()]
     command = " ".join(cutted)
     query = QueryParser("content", analyzer).parse(command)
-    scoreDocs = searcher["image"].search(query, 10).scoreDocs
+    scoreDocs = searcher["image"].search(query, result_num).scoreDocs
     result = list()
     for num, scoreDoc in enumerate(scoreDocs):
         doc = searcher["image"].doc(scoreDoc.doc)
@@ -115,10 +115,10 @@ class Search:
     def GET(self, search_type="html"):
         search_data = web.input()
         query_string = search_data.get("s", "")
-        if not query_string:
-            return render.index() if search_type == "html" else render.index_image()
         if search_type not in ("html", "image"):
             search_type = "html"
+        if not query_string:
+            return render.index_image() if search_type == "image" else render.index()
         # globals()["vm_env"].attachCurrentThread()
         search_result = search_function[search_type](query_string)
         return result_template[search_type](query_string, search_result)
