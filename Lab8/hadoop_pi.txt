@@ -1,0 +1,45 @@
+2 10
+Job Finished in 25.077 seconds
+Estimated value of Pi is 3.80000000000000000000
+Job Finished in 17.831 seconds
+Estimated value of Pi is 3.80000000000000000000
+Job Finished in 17.733 seconds
+Estimated value of Pi is 3.80000000000000000000
+
+5 10
+Job Finished in 22.457 seconds
+Estimated value of Pi is 3.28000000000000000000
+Job Finished in 21.886 seconds
+Estimated value of Pi is 3.28000000000000000000
+Job Finished in 22.929 seconds
+Estimated value of Pi is 3.28000000000000000000
+
+10 10
+Job Finished in 25.979 seconds
+Estimated value of Pi is 3.20000000000000000000
+Job Finished in 26.533 seconds
+Estimated value of Pi is 3.20000000000000000000
+Job Finished in 29.665 seconds
+Estimated value of Pi is 3.20000000000000000000
+
+
+2 100
+Job Finished in 16.368 seconds
+Estimated value of Pi is 3.12000000000000000000
+Job Finished in 17.378 seconds
+Estimated value of Pi is 3.12000000000000000000
+Job Finished in 19.043 seconds
+Estimated value of Pi is 3.12000000000000000000
+
+
+10 100
+Job Finished in 26.948 seconds
+Estimated value of Pi is 3.14800000000000000000
+Job Finished in 37.203 seconds
+Estimated value of Pi is 3.14800000000000000000
+Job Finished in 55.971 seconds
+Estimated value of Pi is 3.14800000000000000000
+
+100 1000000
+Job Finished in 310.256 seconds
+Estimated value of Pi is 3.14159256000000000000
