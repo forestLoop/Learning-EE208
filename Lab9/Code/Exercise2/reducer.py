@@ -3,23 +3,18 @@ import sys
 
 current_page = None
 current_prob = None
-link_graph = dict()
-
-result = dict()
+current_links = None
 
 for line in sys.stdin:
     line = line.split()
-    page, prob = int(line[0]), float(line[1])
-    if len(line) >= 3:
-        get_from = int(line[2])
-        link_graph.setdefault(get_from, set()).add(page)
-    if page == current_page:
-        current_prob += prob
-    else:
+    page, operation_type = int(line[0]), line[1]
+    if page != current_page:
         if current_page:
-            result[current_page] = current_prob
-        current_page, current_prob = page, prob
+            print(current_page, current_prob, *current_links)
+        current_page, current_prob, current_links = page, 0, None
+    if operation_type == "links":
+        current_links = line[2:]  # note here we don't convert page_id to int
+    elif operation_type == "plus":
+        current_prob += float(line[2])
 if current_page:
-    result[current_page] = current_prob
-for page, prob in result.items():
-    print(page, prob, *link_graph[page])
+    print(current_page, current_prob, *current_links)
