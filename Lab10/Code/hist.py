@@ -28,10 +28,10 @@ def gradient_hist(image_path):
     Ix = (img[:, 2:] - img[:, :-2])[1:-1, :]
     Iy = (img[2:, :] - img[:-2, :])[:, 1:-1]
     M = np.sqrt(Ix * Ix + Iy * Iy).astype("int32")
-    # hist = np.bincount(M.ravel(), minlength=361)
-    # hist = hist / np.sum(hist)
-    # plt.bar(range(0, 361), hist, width=1.0)
-    plt.hist(M.ravel(), 361, [0, 361])
+    hist = np.bincount(M.ravel(), minlength=361)
+    hist = hist / np.sum(hist)
+    plt.bar(range(0, 361), hist, width=1.0)
+    # plt.hist(M.ravel(), 361, [0, 361])
     plt.title("Gradient Histogram of {}".format(image_path))
     plt.show()
 
