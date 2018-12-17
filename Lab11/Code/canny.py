@@ -15,12 +15,23 @@ def sobel(img):
     result = np.zeros_like(img)
     direction = np.zeros_like(img)
     width, height = img.shape
+    s_y = np.array([
+        [-1, 0, 1],
+        [-2, 0, 2],
+        [-1, 0, 1], ])
+    s_x = np.array([
+        [1, 2, 1],
+        [0, 0, 0],
+        [-1, -2, -1], ])
     for i in range(1, width-1):
         for j in range(1, height-1):
-            s_x = (img[i+1][j-1]+2*img[i+1][j]+img[i+1][j+1]) - (img[i-1][j-1] + 2*img[i-1][j] + img[i-1][j+1])
-            s_y = (img[i-1][j-1]+2*img[i][j-1]+img[i+1][j-1]) - (img[i-1][j+1] + 2*img[i][j+1] + img[i+1][j+1])
-            result[i][j] = np.sqrt(s_x * s_x + s_y * s_y)
-            direction[i][j] = np.arctan(s_y/(s_x+1e-5))
+            x = (img[i+1][j-1]+2*img[i+1][j]+img[i+1][j+1]) - (img[i-1][j-1] + 2*img[i-1][j] + img[i-1][j+1])
+            y = (img[i-1][j-1]+2*img[i][j-1]+img[i+1][j-1]) - (img[i-1][j+1] + 2*img[i][j+1] + img[i+1][j+1])
+            # x = np.sum(img[i-1:i+2, j-1:j+2] * s_x)
+            # y = np.sum(img[i-1:i+2, j-1:j+2] * s_y)
+            # assert np.sum(x_0 - x) <= 1e-3
+            result[i][j] = np.sqrt(x * x + y * y)
+            direction[i][j] = np.arctan(y/(x+1e-5))
     result = result.astype("uint8")
     return result, direction
 
@@ -34,11 +45,12 @@ def cv_sobel(img):
     return dst
 
 
-def get_gaussian_kernel(sigma=1):
-    kernel = np.zeros((3, 3))
-    for x in range(-1, 2):
-        for y in range(-1, 2):
-            kernel[1+x][1+y] = np.exp(-(x*x+y*y)/(2*sigma*sigma)) / (2*np.pi*sigma*sigma)
+def get_gaussian_kernel(size=3, sigma=1):
+    kernel = np.zeros((size, size))
+    k = int((size-1)/2)
+    for x in range(-k, k+1):
+        for y in range(-k, k+1):
+            kernel[k+x][k+y] = np.exp(-(x*x+y*y)/(2*sigma*sigma)) / (2*np.pi*sigma*sigma)
     kernel = kernel / np.sum(kernel)
     return kernel
 
@@ -110,26 +122,26 @@ def track_edge(img):
 def canny(image_path):
     color_img = cv2.imread(image_path, cv2.IMREAD_COLOR)
     img = rgb_to_grayscale(color_img)
-    kernel = get_gaussian_kernel()
+    kernel = get_gaussian_kernel(sigma=1, size=3)
     gaussian_blur_img = cv2.filter2D(img, -1, kernel)
     sobel_img, sobel_direction = sobel(gaussian_blur_img)
     nms_img = non_maximum_suppression(sobel_img, sobel_direction)
-    threshold_img = double_threshold(nms_img, 50, 100)
+    threshold_img = double_threshold(nms_img, 25, 100)
     final_result = track_edge(threshold_img)
-    cv2.imshow("Color Image", color_img)
+    # cv2.imshow("Color Image", color_img)
     # cv2.imshow("Grayscale", img)
     # cv2.imshow("Gaussian Blur", gaussian_blur_img)
     # cv2.imshow("Sobel", sobel_img)
     # cv2.imshow("After non maximum suppression", nms_img)
-    cv2.imshow("After double threshold", threshold_img)
-    cv2.imshow("Final result", final_result)
-    cv2.imshow("OpenCV", cv2.Canny(img, 50, 100))
+    # cv2.imshow("After double threshold", threshold_img)
+    # cv2.imshow("OpenCV", cv2.Canny(img, 50, 150))
     # cv2.imshow("Sobel CV", cv_sobel(gaussian_blur_img))
+    cv2.imshow("Final result", final_result)
     cv2.waitKey(0)
     cv2.destroyAllWindows()
 
 
 if __name__ == '__main__':
-    images_list = ["dataset/3.jpg", ]
+    images_list = ["dataset/1.jpg", "dataset/2.jpg", "dataset/3.jpg"]
     for image in images_list:
         canny(image)
