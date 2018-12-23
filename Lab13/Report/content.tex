@@ -1,0 +1,250 @@
+\documentclass[a4paper]{article}
+    \usepackage[UTF8]{ctex}
+    \usepackage{amsmath,amsthm,amssymb}
+
+    \usepackage{minted}
+    \usepackage{xcolor}
+    \usepackage[colorlinks,linkcolor=red,anchorcolor=blue,citecolor=green]{hyperref}
+    \usepackage[margin=1in]{geometry}
+    \usepackage{caption}
+    \usepackage{graphicx}
+    \usepackage{subfigure}
+    \usepackage{float}
+    \usepackage{fontspec}
+    \usepackage{booktabs}
+    \setmainfont{Times New Roman}
+    \setmonofont{Consolas}
+    \definecolor{bg}{rgb}{0.9,0.9,0.9}
+    \usemintedstyle{manni}
+    \setminted{
+    linenos,
+    autogobble,
+    breaklines,
+    breakautoindent,
+    bgcolor=bg,
+    numberblanklines=false,
+    }
+
+\begin{document}
+    \begingroup
+    \hypersetup{linkcolor=black}
+    \tableofcontents
+    \endgroup
+    \newpage
+    \section{实验介绍}
+        \subsection{实验内容}
+利用LSH算法在图片数据库中搜索与目标图片最相似的图片.
+
+自行设计投影集合,尝试不同投影集合的搜索的效果.对比NN与LSH搜索的执行时间、搜索结果.
+
+        \subsection{实验环境}
+操作系统: Ubuntu 18.04 LTS
+
+Python版本: 3.7
+
+NumPy: 1.14.5
+
+OpenCV-Python: 3.4.3.18
+    \newpage
+    \section{实验过程}
+        \subsection{LSH原理}
+LSH (Locality-sensitive hashing, 局部敏感哈希), 可以有效地对高维数据进行降维处理. 不同于通常的哈希算法,LSH致力将
+相似的高维输入数据映射为相同的低维结果, 而不相似的输入则产生不同的哈希结果.利用此特点,我们可以将其用于图像的检索.其主要步骤为:
+
+1.提取图像的特征向量
+
+2.LSH预处理
+
+3.LSH检索
+        \subsection{图像特征提取}
+在前几次的实验中,我们实现了图像的直方图特征提取、SIFT图像特征提取等,而在本次实验中,我选用了ORB特征.
+
+ORB具有旋转不变性,对噪声不敏感,同时计算速度很快(速度约为SIFT的100倍,SURF的10倍),适合在本次实验中使用.由于本次实验的
+重点不在于此,直接使用OpenCV所提供的API,如下:
+\begin{minted}{python}
+def orb_feature(img_path, max_kp):
+    img = cv2.imread(img_path)
+    detector = cv2.ORB_create(max_kp)  # limit the number of keypoints
+    kp, des = detector.detectAndCompute(img, None)
+    return des
+\end{minted}
+
+        \subsection{LSH预处理}
+在上一步的特征提取后,对于一张图片,我们得到了形状为$(max\_kp,32)$的特征张量,将其展开为$d=max\_kp\times32$维的特征向量,进行
+LSH预处理.
+
+根据LSH的思想,我们将$d$维非负整数向量$\mathbf{p}$映射到$d^{'} = d * C$维的Hamming空间:
+$$v(\mathbf{p}) = \mathbf{Unary}_C(p_1)\dots \mathbf{Unary}_C(p_d)$$
+
+式中,$C$为$p_i$的最大值,$\mathbf{Unary}_C(p_i)$表示一个前$p_i$位为1,其余$C-p_i$位为0的二进制数.
+
+然后,选取合适的投影集合$I = \{i_1,i_2,\dots,i_m \},1\leq i_i < i_2 < \dots < i_m \leq d^{'}$,定义
+$v(\mathbf{p})$在$I$上的投影为:
+$$
+g(\mathbf{p}) = p_1 p_2 \dots p_m
+$$
+
+其中$p_j$为$v(\mathbf{p})$的第$i_j$个元素(取值为0或1).
+
+在具体的程序实现中,其实可以直接根据$\mathbf{p}$计算出$g(\mathbf{p})$,无需将$\mathbf{p}$转换到Hamming空间,做法如下:
+
+\begin{minted}{python}
+def compute_LSH(feature, I):
+    feature = feature.reshape((-1,))
+    d, C = feature.shape[0], 255
+    result = list()
+    for I_i in I:
+        i = int((I_i - 1)//C + 1)  # i = 1,2,...,d
+        x_i = feature[i - 1]
+        if I_i <= x_i + C * (i - 1):
+            result.append(1)
+        else:
+            result.append(0)
+    result = np.array(result)
+    return result
+\end{minted}
+
+经过LSH处理,我们得到了一个相对低维的向量,再进一步,我们二次哈希,将其转换为一个一维整数,加快检索速度:
+\begin{minted}{python}
+def compute_hash(vector, mod):
+    result = 0
+    for i, x in enumerate(vector):
+        result = (result + (i + 1) * x) % mod
+    return result
+\end{minted}
+
+    \subsection{LSH检索}
+对于给定的目标图片,我们计算其ORB特征与哈希结果;对于众多的候选图片,我们同样地计算每一张图片的ORB特征与哈希结果.那么,LSH检索便
+只需比较其哈希结果,若出现相同的哈希结果,则认为这张图片极有可能相似于目标图片:
+\begin{minted}{python}
+def LSH_match(target_img, dataset_folder):
+    # preprocessing...
+    target_hash, target_feature = LSH(target_img)
+    dataset_hash = list()
+    print("The Hash value of the target image:", target_hash)
+    for dir_path, dir_names, file_names in os.walk(dataset_folder):
+        for file_name in file_names:
+            img_path = os.path.join(dir_path, file_name)
+            img_hash, img_feature = LSH(img_path)
+            dataset_hash.append((img_path, img_hash, img_feature))
+    # searching...
+    tick = time.time()
+    possible_result = list()
+    for img_path, img_hash, img_feature in dataset_hash:
+        if(img_hash == target_hash):
+            possible_result.append((img_path, img_hash, img_feature))
+    if not possible_result:
+        print("No image matched!")
+        return
+    # omitted here
+    # ...
+\end{minted}
+
+然而,可能的情况是会出现多张图片具有相同的哈希值.那么,需要进一步的特征比对以确认.考虑到一般情况下,哈希函数分布基本均匀,
+具有相同哈希值的图片数量不会太多,所以在这里,我采用了最朴素的暴力搜索匹配法:
+\begin{minted}{python}
+def LSH_match(target_img, dataset_folder):
+    # ...
+    # omitted here
+    best_match = None
+    for img_path, img_hash, img_feature in possible_result:
+        bf = cv2.BFMatcher(cv2.NORM_HAMMING, crossCheck=True)
+        matches = bf.match(target_feature, img_feature)
+        if not best_match or len(matches) > best_match[1]:
+            best_match = (img_path, len(matches))
+    print("The best match is:", best_match[0])
+\end{minted}
+
+        \subsection{NN检索}
+作为本次实验的对照,我同样实现了简单的NN (Nearest neighbor, 最近邻)检索.同样地,将NN检索分为预处理与检索两部分.
+
+在预处理时,计算目标图片与所有候选图片的ORB特征;而在检索时,则比较目标图像的特征与每一张候选图片特征的相似程度,取
+最高相似度的候选图片作为检索的结果.具体程序实现如下:
+
+\begin{minted}{python}
+def NN_match(target_img, dataset_folder):
+    # preprocessing...
+    target_feature = orb_feature(target_img, 100)
+    dataset_feature = list()
+    for dir_path, dir_names, file_names in os.walk(dataset_folder):
+        for file_name in file_names:
+            img_path = os.path.join(dir_path, file_name)
+            img_feature = orb_feature(img_path, 100)
+            dataset_feature.append((img_path, img_feature))
+    # searching...
+    best_match = None
+    for img_path, img_feature in dataset_feature:
+        bf = cv2.BFMatcher(cv2.NORM_HAMMING, crossCheck=True)
+        matches = bf.match(target_feature, img_feature)
+        if not best_match or len(matches) > best_match[1]:
+            best_match = (img_path, len(matches))
+    print("The best match is:", best_match[0])
+\end{minted}
+\newpage
+\section{实验结果}
+    \subsection{投影集合与搜索结果}
+在LSH算法中,投影集合$I$的选取是一件相对复杂的事情.一个合适的投影集合,应当有合适的元素个数,若元素过少,则无法充分表现图像
+的特征,若元素过多,则LSH预处理的时间复杂度会增加,同时也不一定能更好地表现图像特征;此外,投影集合还需要使得哈希结果有着
+相对均匀的分布,否则会造成算法的退化,无法充分发挥哈希的速度优势.
+
+在实验中,一开始,我设置投影集合内元素为一个等差数列,均分0到$d^{'}$的空间,如下:
+\begin{minted}{python}
+I = np.linspace(0, 100*32*255, 100, dtype="int32")
+\end{minted}
+
+但这样做在运行时会时不时出错,原因便在于ORB特征提取并不一定每次都能提取到max\_kp个特征点.那么,保险起见,我假定只能提取到
+max\_kp一半的特征点,也就是说,投影元素的最大值设置为$50\times32\times255$.这样之后,程序便可顺利运行,不再出错了.
+
+然后再考虑投影集合的元素个数.对于本次实验,由于图片总量并不大,故投影集合无需太大,因此我设置为100.实验验证,这样做的效果
+已经令人满意.
+
+程序运行结果如下:
+\begin{minted}{text}
+The Hash value of the target image: 52
+dataset\13.jpg 46
+dataset\38.jpg 100
+dataset\39.jpg 43
+The best match is: dataset\38.jpg
+\end{minted}
+
+可以看到,与目标图像具有相同哈希值的图像仅有3张,我们只需在其中进行暴力匹配,从而提高了检索的效率.而最后的结果也是完全正确的.
+    \subsection{LSH与NN运行效率比较}
+若计算LSH与NN检索的总用时,即包括预处理与检索两个阶段,使用装饰器实现运行时间计算:
+\begin{minted}{python}
+def timer(func):
+    @functools.wraps(func)
+    def wrapper(*args, **kw):
+        tick = time.time()
+        func(*args, **kw)
+        tock = time.time()
+        print("Time: {:.4f}s".format(tock-tick))
+    return wrapper
+
+@timer
+def LSH_match(target_img, dataset_folder):
+    # omitted
+\end{minted}
+
+运行结果为:
+\begin{minted}{text}
+LSH Time: 0.5326s
+ NN Time: 0.2394s
+\end{minted}
+
+出乎意料地,LSH检索并未显出优势.在仔细确认之后,我认为问题在于LSH在预处理阶段比NN具有更高的时间复杂度,尤其是本次实验中,
+使用Python实现LSH预处理,相对于OpenCV中C++实现的ORB特征提取,运行时占了较多的时间,以至于完全抵消了LSH在检索时的优势.
+
+为了确认上述想法,修改程序,仅统计程序在检索阶段的用时,不考虑预处理用时,则结果如下:
+\begin{minted}{text}
+LSH search: 0.008976s
+NN search: 0.005985s
+\end{minted}
+
+显而易见,本次实验中LSH搜索的主要耗时在于预处理阶段,粗略计算,约占83\%.在去除了预处理用时后,LSH的优势方才显现.
+\newpage
+\section{总结与分析}
+在本次实验中,我实现了基本的LSH检索.对于LSH检索,其优势在于大数据量情境下的快速检索,相较于NN检索,虽然准确度有所下降,
+但效率大幅提升.
+
+虽然本次实验中候选图片集较小,LSH检索与NN检索用时相差无几,但在更大数据量时,LSH显然是更优的选择.
+\end{document}
